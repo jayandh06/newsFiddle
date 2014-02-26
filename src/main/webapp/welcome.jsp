@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Insert title here</title>
+<title>Welcome to News Fiddle</title>
 </head>
 <body>
-
+Woo-Hoo News fiddle is up!
 </body>
 </html>
