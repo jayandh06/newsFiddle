@@ -13,8 +13,8 @@
 	<context:component-scan base-package="com.jay.news.fiddle"></context:component-scan>
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/news"
-		p:username="adminV8PtJs1" p:password="33APmGvjR8BE" p:initialSize="5" p:maxActive="10">
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:${OPENSHIFT_MYSQL_DB_URL}news"
+		p:initialSize="5" p:maxActive="10">
 	</bean>
 
 	<bean
