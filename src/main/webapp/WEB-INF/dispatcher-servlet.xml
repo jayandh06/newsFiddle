@@ -37,7 +37,7 @@
 	</bean>
 -->
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://27.4.57.130:3306/news"
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://127.4.57.130:3306/news"
 		p:username="adminV8PtJs1" p:password="33APmGvjR8BE" p:initialSize="5" p:maxActive="10">
 	</bean>
 
