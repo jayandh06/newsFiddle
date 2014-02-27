@@ -15,6 +15,6 @@ public class CarService {
 	CarDao carDao;
 	
 	public List<Car> getCars(){
-		return carDao.getCars();
+		return carDao.getAll();
 	}
 }
