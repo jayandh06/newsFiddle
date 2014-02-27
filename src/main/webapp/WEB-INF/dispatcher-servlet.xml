@@ -12,34 +12,20 @@
  
 	<context:component-scan base-package="com.jay.news.fiddle"></context:component-scan>
 
-    <!-- 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}"
-		p:username="" p:pa
-		p:initialSize="5" p:maxActive="10">
-	</bean>
 	
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://"+${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}/>
+		<property name="url" value="jdbc:mysql://127.4.57.130:3306/news"/>
 		
-		<property name="username" value="${OPENSHIFT_MYSQL_DB_USERNAME}" />
-		<property name="password" value="${OPENSHIFT_MYSQL_DB_PASSWORD}" />
+		<property name="username" value="adminV8PtJs1" />
+		<property name="password" value="33APmGvjR8BE" />
 	</bean>
- 
- <bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="dbc:mysql://localhost/test" />		
-		<property name="username" value="root" />
-		<property name="password" value="" />
-	</bean>
--->
-<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+
+<!-- bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://127.4.57.130:3306/news"
 		p:username="adminV8PtJs1" p:password="33APmGvjR8BE" p:initialSize="5" p:maxActive="10">
-	</bean>
+	</bean-->
 
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
