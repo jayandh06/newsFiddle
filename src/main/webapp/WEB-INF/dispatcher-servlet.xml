@@ -37,8 +37,8 @@
 	</bean>
 -->
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}"
-		p:username="${env.OPENSHIFT_MYSQL_DB_USERNAME}" p:password="${env.OPENSHIFT_MYSQL_DB_PASSWORD}" p:initialSize="5" p:maxActive="10">
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://${OPENSHIFT_MYSQL_DB_HOST}:${OPENSHIFT_MYSQL_DB_PORT}/${OPENSHIFT_APP_NAME}"
+		p:username="${OPENSHIFT_MYSQL_DB_USERNAME}" p:password="${OPENSHIFT_MYSQL_DB_PASSWORD}" p:initialSize="5" p:maxActive="10">
 	</bean>
 
 	<bean
