@@ -1,5 +1,73 @@
 
-.page-container{
+html { 
+  background: url(../images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+#page-container{
 	width:1024px;
 	height: 768px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:#e5eeff;
+}
+
+#login-container{
+	width:300px;
+	height:160px;
+	margin-left: auto;
+	margin-right: auto;
+	border-style:solid;
+	border-width:1px;
+	border-color: #bbbbbb;
+	opacity:0.8;
+}
+
+#signup-container{
+	width:300px;
+	height:200px;
+	margin-left: auto;
+	margin-right: auto;
+	border-style:solid;
+	border-width:1px;
+	border-color: #bbbbbb;
+	opacity:0.8;
+}
+
+
+.labelText{
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:18;
+}
+
+a.mybtn,a.mybtn:link,a.mybtn:visited,a.showbtn,a.showbtn:link,a.showbtn:visited
+{
+display:inline-block;
+color:#FFFFFF;
+background-color:#8AC007;
+font-family : Arial, Helvetica, sans-serif;
+font-weight:bold;
+font-size:16px;
+text-align:center;
+padding-left:10px;
+padding-right:10px;
+padding-top:3px;
+padding-bottom:4px;
+text-decoration:none;
+margin-left:5px;
+margin-top:0px;
+margin-bottom:5px;
+border:1px solid #aaaaaa;
+border-radius:5px;
+white-space:nowrap;
+}
+
+a.mybtn:hover,a.mybtn:active,a.showbtn:hover,a.showbtn:active
+{
+background-color:#ffffff;color:#8AC007;
 }
