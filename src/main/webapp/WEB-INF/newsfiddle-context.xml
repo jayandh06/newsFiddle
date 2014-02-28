@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
- 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-           
- 
+
+
 	<context:component-scan base-package="com.jay.news.fiddle"></context:component-scan>
- 
+	<context:spring-configured />
+	<context:annotation-config />
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/test"
 		p:username="root" p:password="" p:initialSize="5" p:maxActive="10">
 	</bean>
-<!--	
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.4.57.130:3306/news"/>
-		
-		<property name="username" value="adminV8PtJs1" />
-		<property name="password" value="33APmGvjR8BE" />
-	</bean>
-
-
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://127.4.57.130:3306/news"
-		p:username="adminV8PtJs1" p:password="33APmGvjR8BE" p:initialSize="5" p:maxActive="10">
-	</bean>
-	-->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
+		name="url" value="jdbc:mysql://127.4.57.130:3306/news"/> <property name="username" 
+		value="adminV8PtJs1" /> <property name="password" value="33APmGvjR8BE" /> 
+		</bean> <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://127.4.57.130:3306/news" 
+		p:username="adminV8PtJs1" p:password="33APmGvjR8BE" p:initialSize="5" p:maxActive="10"> 
+		</bean> -->
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 		id="entityManagerFactory">
-		<property name="persistenceXmlLocation" value="classpath*:META-INF/newsfiddle-persistence.xml"/>
+		<property name="persistenceXmlLocation"
+			value="classpath*:META-INF/newsfiddle-persistence.xml" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -48,6 +43,18 @@
 	<tx:annotation-driven mode="aspectj"
 		transaction-manager="transactionManager" />
 
-	<context:spring-configured />
-	<context:annotation-config />
+
+	<bean name="/index.htm" class="com.jay.news.fiddle.controller.IndexController" />
+	
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
 </beans>
