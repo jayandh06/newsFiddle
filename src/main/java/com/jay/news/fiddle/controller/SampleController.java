@@ -1,4 +1,4 @@
-package com.jay.news.fiddle;
+package com.jay.news.fiddle.controller;
 
 import java.util.List;
 
