@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>:: Welcome to News-Fiddle</title>
 <link rel="stylesheet" href="css/main.css" type="text/css">
+<script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script src="js/jquery/jquery-1.11.0.js"></script>
 </head>

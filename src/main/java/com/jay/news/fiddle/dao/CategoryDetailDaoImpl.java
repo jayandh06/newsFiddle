@@ -1,0 +1,19 @@
+package com.jay.news.fiddle.dao;
+
+import java.util.List;
+
+import javax.persistence.Query;
+
+import com.jay.news.fiddle.domain.CategoryDetail;
+
+public class CategoryDetailDaoImpl extends GenericDaoImpl<CategoryDetail> implements CategoryDetailDao{
+
+	@Override
+	public List<CategoryDetail> getCategoryDetailsByCategory(int categoryId) {
+		
+		Query query = em.createQuery("Select cd from CategoryDetail cd where categoryId = ?1");
+		query.setParameter(1, categoryId);
+		return (List<CategoryDetail>) query.getResultList();
+	}
+
+}
