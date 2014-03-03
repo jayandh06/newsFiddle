@@ -4,12 +4,14 @@ package com.jay.news.fiddle.service;
 import java.net.URL;
 import java.util.Iterator;
 
+import org.springframework.stereotype.Service;
+
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
  
-
+@Service
 public class ReaderService {
  
   public static void main(String[] args) throws Exception {
