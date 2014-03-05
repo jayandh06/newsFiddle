@@ -4,10 +4,9 @@ import org.springframework.stereotype.Repository;
 
 import com.jay.news.fiddle.domain.Category;
 
-@Repository
+@Repository("categoryDao")
 public class CategoryDaoImpl extends GenericDaoImpl<Category> implements
 		CategoryDao {
 
 	
-
 }

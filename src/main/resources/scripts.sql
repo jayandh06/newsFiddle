@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `car` (
   `id` int(11) NOT NULL,
-  `company` varchar(45) NOT NULL,
+  `company` varchar(45) NOT NULL,	am
   `model` varchar(45) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   PRIMARY KEY (`id`),

@@ -22,7 +22,7 @@ public class LoginController {
 		return true;
 	}
 	
-	@RequestMapping("/signup.htm")
+	@RequestMapping("/signup")
 	public ModelAndView newUserSignup(){
 		ModelAndView model = new ModelAndView("signup");
 		return model;

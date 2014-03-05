@@ -20,32 +20,28 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
 		type = (Class<T>) ((ParameterizedType) getClass()
 				.getGenericSuperclass()).getActualTypeArguments()[0];
-		;
+
 	}
 
 	public EntityManager getEntityManager() {
 		return em;
 	}
 
-	@Transactional
+	
 	public void save(T t) {
-		getEntityManager().persist(t);
-
+		em.getTransaction().begin();
+		em.persist(t);
+		em.getTransaction().commit();
 	}
 
-	@Transactional
 	public void delete(T t) {
-		getEntityManager().remove(t);
+		em.remove(t);
 	}
 
-	@Transactional
 	public List<T> getAll() {
 		final StringBuffer queryString = new StringBuffer("SELECT o from ");
-
 		queryString.append(type.getSimpleName()).append(" o ");
-
 		final Query query = this.em.createQuery(queryString.toString());
-
 		return query.getResultList();
 	}
 

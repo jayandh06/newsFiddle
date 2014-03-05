@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class CategoryDetail {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int catDetailId;	
 	
 	

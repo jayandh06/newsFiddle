@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jay.news.fiddle.domain.CategoryDetail;
 
+
 @Repository
 public class CategoryDetailDaoImpl extends GenericDaoImpl<CategoryDetail> implements CategoryDetailDao{
 

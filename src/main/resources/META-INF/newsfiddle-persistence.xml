@@ -5,6 +5,8 @@
     version="1.0">
 	<persistence-unit name="newsFiddlePersistance" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>com.jay.news.fiddle.domain.Car</class>		
+		<properties>
+		<property name="hibernate.show_sql" value="true"/>
+		</properties>		
 	</persistence-unit>
 </persistence>
