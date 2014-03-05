@@ -11,7 +11,7 @@
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/main.js"></script>
 <script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/category.js"></script>
+	src="${pageContext.servletContext.contextPath}/resources/js/categoryDetail.js"></script>
 <script
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery/jquery-1.11.0.js"></script>
 
@@ -65,9 +65,9 @@
 						<td><input type="text" name="rssUrl" size="" maxlength="200" /></td>
 					<tr>
 						<td colspan="2" align="center"><a
-							href="javascript:categoryObj.validateCreateCategory('create');"
+							href="javascript:categoryDetailObj.validateCreateCategoryDetail('create');"
 							class="mybtn">Create</a> &nbsp; <a
-							href="javascript:categoryObj.validateModifyCategory('modify');"
+							href="javascript:categoryDetailObj.validateModifyCategoryDetail('modify');"
 							class="mybtn">Modify</a> &nbsp;<a href="" class="mybtn">Delete</a></td>
 					</tr>
 				</table>

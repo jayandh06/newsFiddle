@@ -29,14 +29,16 @@ public class AdminController {
 		return "category";		
 	}
 	
-	@RequestMapping("/categoryDetails")
+	@RequestMapping("/categoryDetail")
 	public ModelAndView showCategoryDetailsPage() {
-		ModelAndView model = new ModelAndView("categoryDetails");
+		
 		List<Category> categories = categoryService.getCategories();
 		Map<String,Integer> categoryMap = new HashMap<String,Integer>();
 		for(Category category : categories){
 			categoryMap.put(category.getCategoryName(),category.getCategoryId());
 		}
+		
+		ModelAndView model = new ModelAndView("categoryDetail");
 		model.addObject("categoryMap",categoryMap);
 		return model;
 	}

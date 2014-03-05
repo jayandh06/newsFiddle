@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/main.css" type="text/css">
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/main.js"></script>
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/login.js"></script>
-<script src="${pageContext.servletContext.contextPath}js/jquery/jquery-1.11.0.js"></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/jquery/jquery-1.11.0.js"></script>
 </head>
 <body>
 	<div id="page-container">

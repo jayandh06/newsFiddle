@@ -9,13 +9,13 @@
 <body>
 	<div id="page-container">Choose Module</div>
 	<div>
-		<a href="./category">Category</a>
+		<a href="${pageContext.servletContext.contextPath}/admin/category">Category</a>
 	</div>
 	<div>
-		<a href="./categoryDetails">Category Details</a>
+		<a href="${pageContext.servletContext.contextPath}/admin/categoryDetail">Category Details</a>
 	</div>
 	<div>
-		<a href="./user">User</a>
+		<a href="${pageContext.servletContext.contextPath}/admin/user">User</a>
 	</div>
 </body>
 </html>

@@ -7,26 +7,28 @@ CREATE TABLE IF NOT EXISTS `car` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-CREATE TABLE IF NOT EXISTS `user` (
-  `userid` int(10) NOT NULL,
+CREATE TABLE `user` (
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `active` tinyint(1) NOT NULL,
-  PRIMARY KEY (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `active` bit(1) NOT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `category` (
-  `categoryId` int(11) NOT NULL,
-  `categoryName` varchar(45) DEFAULT NULL,
+  `categoryId` int(11) NOT NULL AUTO_INCREMENT,
+  `categoryName` varchar(45) NOT NULL,
   PRIMARY KEY (`categoryId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `categorydetail` (
-  `catDetailId` int(11) NOT NULL,
+  `catDetailId` int(11) NOT NULL AUTO_INCREMENT,
+  `rssUrl` varchar(200) NOT NULL,
+  `company` varchar(45) NOT NULL,
+  `companyUrl` varchar(45) DEFAULT NULL,
   `categoryId` int(11) DEFAULT NULL,
-  `rssUrl` varchar(150) DEFAULT NULL,
-  `companyUrl` varchar(150) DEFAULT NULL,
-  `company` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`catDetailId`)
+  PRIMARY KEY (`catDetailId`),
+  KEY `FK_CAT_ID_idx` (`categoryId`),
+  CONSTRAINT `FK_CAT_ID` FOREIGN KEY (`categoryId`) REFERENCES `category` (`categoryId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
