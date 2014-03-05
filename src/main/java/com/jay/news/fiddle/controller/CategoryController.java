@@ -21,11 +21,7 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
 
-	@RequestMapping("/admin")
-	public String showCategoryPage() {
-		return "category";
-	}
-
+	
 	@RequestMapping("/create")
 	public ModelAndView createCategory(@RequestParam String categoryName) {
 		Category cat = new Category();

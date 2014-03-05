@@ -12,8 +12,8 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long userid;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long userId;
 	@Column(name = "username")
 	private String username;
 	@Column(name = "password")
@@ -21,13 +21,7 @@ public class User {
 	@Column(name = "active")
 	private boolean active;
 
-	public long getUserid() {
-		return userid;
-	}
-
-	public void setUserid(long userid) {
-		this.userid = userid;
-	}
+	
 
 	public String getUsername() {
 		return username;
@@ -51,6 +45,14 @@ public class User {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 }

@@ -32,6 +32,56 @@ public class CategoryDetail {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="categoryId",referencedColumnName="categoryId",nullable=false,unique=true)
 	private Category category;
+
+
+	public int getCatDetailId() {
+		return catDetailId;
+	}
+
+
+	public void setCatDetailId(int catDetailId) {
+		this.catDetailId = catDetailId;
+	}
+
+
+	public String getRssUrl() {
+		return rssUrl;
+	}
+
+
+	public void setRssUrl(String rssUrl) {
+		this.rssUrl = rssUrl;
+	}
+
+
+	public String getCompany() {
+		return company;
+	}
+
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+
+	public String getCompanyUrl() {
+		return companyUrl;
+	}
+
+
+	public void setCompanyUrl(String companyUrl) {
+		this.companyUrl = companyUrl;
+	}
+
+
+	public Category getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	
 	
 }

@@ -24,7 +24,6 @@ public class CategoryService {
 	@Autowired
 	private CategoryDetailDao categoryDetailDao;
 
-	@Transactional
 	public void saveCategory(Category cat) {
 		categoryDao.save(cat);
 	}

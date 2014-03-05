@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@page import="javax.servlet.jsp.PageContext"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="page-container">
-		<div style="width: 100%; overflow: hidden;">
+		<div style="width:100%;overflow:hidden;">
 			<div style="width: 900px; float: left;"><img src="${pageContext.servletContext.contextPath}/resources/images/logo-big.png" alt="News-Fiddle"/> </div>
 			<div style="margin-left: 920px;"><a href="login/Logout.htm">Logout</a></div>
 			

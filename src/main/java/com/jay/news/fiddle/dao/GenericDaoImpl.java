@@ -7,11 +7,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
-	@PersistenceContext
+	
 	protected EntityManager em;
 
 	private Class<T> type;
@@ -26,26 +29,31 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	public EntityManager getEntityManager() {
 		return em;
 	}
-
 	
+	@PersistenceContext
+	public void setEntityManager(EntityManager em) {
+		this.em = em;
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void save(T t) {
-		em.getTransaction().begin();
-		em.persist(t);
-		em.getTransaction().commit();
+		
+		getEntityManager().persist(t);
+		
 	}
 
 	public void delete(T t) {
-		em.remove(t);
+		getEntityManager().remove(t);
 	}
 
 	public List<T> getAll() {
 		final StringBuffer queryString = new StringBuffer("SELECT o from ");
 		queryString.append(type.getSimpleName()).append(" o ");
-		final Query query = this.em.createQuery(queryString.toString());
+		final Query query = getEntityManager().createQuery(queryString.toString());
 		return query.getResultList();
 	}
 
-	@Transactional
+
 	public T get(long id) {
 		// TODO Auto-generated method stub
 		return null;
