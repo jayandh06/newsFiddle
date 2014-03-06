@@ -1,0 +1,17 @@
+.newsTitle {
+	font-family: georgia, times new roman, serif;
+	font-size: 30px;
+	font-weight: normal;
+	line-height: 1.1;
+}
+
+.newsDate {
+	color: #999999;
+	font-family: aria, helvetica, sans-serif;
+	font-size: 11px;
+	margin: 0px;
+}
+
+.hrColor {
+	border-color: #bbbbbb;
+}
