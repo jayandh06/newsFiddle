@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jay.news.fiddle.domain.CategoryDetail;
+import com.jay.news.fiddle.service.CategoryDetailService;
 import com.jay.news.fiddle.service.CategoryService;
 import com.jay.news.fiddle.service.ReaderService;
 import com.jay.news.fiddle.util.SyndEntrySerializer;
@@ -29,6 +31,9 @@ public class SyndController {
 
 	@Autowired
 	CategoryService categoryService;
+	
+	@Autowired
+	CategoryDetailService categoryDetailService;
 
 	@RequestMapping("/{categoryId}")
 	public String getSyndByCategory(@PathVariable int categoryId) {
@@ -41,9 +46,12 @@ public class SyndController {
 		return "news";
 	}
 
-	@RequestMapping("/hotNews")
+	@RequestMapping("/hotNews/{categoryId}")
 	@ResponseBody
-	public String getHotNews() {
+	public String getHotNews(@PathVariable String categoryId) {
+		
+		List<CategoryDetail> catDetails = categoryDetailService.getDetailsByCategory(new Integer(categoryId));
+		
 		URL url = null;
 		try {
 			url = new URL("http://feeds.abcnews.com/abcnews/topstories");

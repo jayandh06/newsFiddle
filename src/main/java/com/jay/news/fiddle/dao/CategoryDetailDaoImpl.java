@@ -13,7 +13,7 @@ import com.jay.news.fiddle.domain.CategoryDetail;
 public class CategoryDetailDaoImpl extends GenericDaoImpl<CategoryDetail> implements CategoryDetailDao{
 
 	@Override
-	public List<CategoryDetail> getCategoryDetailsByCategory(int categoryId) {
+	public List<CategoryDetail> getDetailsByCategory(int categoryId) {
 		
 		Query query = em.createQuery("Select cd from CategoryDetail cd where categoryId = ?1");
 		query.setParameter(1, categoryId);
