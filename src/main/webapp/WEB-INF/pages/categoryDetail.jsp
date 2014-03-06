@@ -4,24 +4,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<jsp:include page="scripts.jsp"></jsp:include>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/main.css"
-	type="text/css">
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/main.js"></script>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/categoryDetail.js"></script>
-<script
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery/jquery-1.11.0.js"></script>
-
 <title>Manage Category Detail</title>
 </head>
 <body>
 	<div id="page-container">
+		<jsp:include page="header.jsp"/>
 
-
-		<div id="category-container" class="tableContainerLayout">
+		<div id="categoryDetail-container" class="tableContainerLayout">
 			<div id="messageContainer">
 				<%
 					String message = (String) request.getAttribute("message");
@@ -35,6 +28,13 @@
 			</div>
 			<form name="categoryDetailForm" method="post">
 				<table>
+					<tr>
+						<td>Category Detail Id</td>
+						<td><input type="text" name="catDetailId" size="20"
+							maxlength="45" /> &nbsp;<a
+							href="javascript:categoryDetailObj.retrieveCategoryDetail();"
+							class="mybtn">Retrieve</a></td>
+					</tr>
 					<tr>
 						<td>Company Name</td>
 						<td><input type="text" name="companyName" size="20"
@@ -67,7 +67,7 @@
 						<td colspan="2" align="center"><a
 							href="javascript:categoryDetailObj.validateCreateCategoryDetail('create');"
 							class="mybtn">Create</a> &nbsp; <a
-							href="javascript:categoryDetailObj.validateModifyCategoryDetail('modify');"
+							href="javascript:categoryDetailObj.validateCreateCategoryDetail('modify');"
 							class="mybtn">Modify</a> &nbsp;<a href="" class="mybtn">Delete</a></td>
 					</tr>
 				</table>

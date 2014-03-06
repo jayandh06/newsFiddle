@@ -9,4 +9,5 @@ public class CategoryDaoImpl extends GenericDaoImpl<Category> implements
 		CategoryDao {
 
 	
+	 
 }

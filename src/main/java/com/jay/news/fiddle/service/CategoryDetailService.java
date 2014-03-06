@@ -5,13 +5,11 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.jay.news.fiddle.dao.CategoryDetailDao;
 import com.jay.news.fiddle.domain.CategoryDetail;
 
 @Service
-@Transactional
 public class CategoryDetailService {
 	
 	private static Logger log = Logger.getLogger(CategoryDetailService.class);
@@ -23,7 +21,15 @@ public class CategoryDetailService {
 		categoryDetailDao.save(catDetail);
 	}
 	
+	public void updateCategoryDetail(CategoryDetail catDetail){
+		categoryDetailDao.update(catDetail);
+	}
+	
 	public List<CategoryDetail> getDetailsByCategory(int categoryId){
 		return categoryDetailDao.getDetailsByCategory(categoryId);
+	}
+	
+	public CategoryDetail getDetailById(int id){
+		return categoryDetailDao.get(id);
 	}
 }

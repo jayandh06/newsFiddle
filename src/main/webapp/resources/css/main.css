@@ -20,6 +20,11 @@ html {
 	height: 200px;
 }
 
+#categoryDetail-container {
+	width: 400px;
+	height: 300px;
+}
+
 #signup-container {
 	width: 300px;
 	height: 200px;

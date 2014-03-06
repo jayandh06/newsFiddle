@@ -4,19 +4,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>:: Welcome to News-Fiddle</title>
-<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/main.css" type="text/css">
-<script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/main.js"></script>
+<jsp:include page="scripts.jsp"></jsp:include>	
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/login.js"></script>
-<script src="${pageContext.servletContext.contextPath}/resources/js/jquery/jquery-1.11.0.js"></script>
+
 </head>
 <body>
-	<div id="page-container">
-		<div style="width:100%;overflow:hidden;">
-			<div style="width: 900px; float: left;"><img src="${pageContext.servletContext.contextPath}/resources/images/logo-big.png" alt="News-Fiddle"/> </div>
-			<div style="margin-left: 920px;"><a href="login/Logout.htm">Logout</a></div>
-			
-		</div>
 
+	<div id="page-container">
+		<jsp:include page="header.jsp"></jsp:include>		
 		<div id="login-container" style="tableContainerLayout">
 			<form action="/news/login" onsubmit="validate(this)" method="post">
 				<table>

@@ -1,5 +1,5 @@
-com.jay.newsfiddle.login = {
-	var validateLogin = function(form){
+com.jay.newsfiddle.login ={
+	validateLogin : function(form){
 		
 	}
 };

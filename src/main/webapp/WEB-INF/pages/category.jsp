@@ -4,22 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<link rel="stylesheet"
-	href="${pageContext.servletContext.contextPath}/resources/css/main.css"
-	type="text/css">
-<script type="text/javascript"
-	src="${pageContext.servletContext.contextPath}/resources/js/main.js"></script>
+<jsp:include page="scripts.jsp"></jsp:include>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/category.js"></script>
-<script
-	src="${pageContext.servletContext.contextPath}/resources/js/jquery/jquery-1.11.0.js"></script>
 
 <title>Manage Category</title>
 </head>
 <body>
 	<div id="page-container">
 
-
+		<jsp:include page="header.jsp"></jsp:include>
 		<div id="category-container" class="tableContainerLayout">
 			<div id="messageContainer">
 				<%

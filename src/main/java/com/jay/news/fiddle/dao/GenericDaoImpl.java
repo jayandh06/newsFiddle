@@ -36,12 +36,15 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void save(T t) {
-		
+	public void save(T t) {		
 		getEntityManager().persist(t);
 		
 	}
-
+	
+	public void update(T t){
+		getEntityManager().merge(t);
+	}
+	
 	public void delete(T t) {
 		getEntityManager().remove(t);
 	}
@@ -54,9 +57,9 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	}
 
 
-	public T get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public T get(int id) {
+		return getEntityManager().find(type, id);		
+		
 	}
 
 }
