@@ -12,7 +12,7 @@
 
 	<div id="page-container">
 		<jsp:include page="header.jsp"></jsp:include>		
-		<div id="login-container" style="tableContainerLayout">
+		<div id="login-container" class="tableContainerLayout">
 			<form action="/news/login" onsubmit="validate(this)" method="post">
 				<table>
 					<tr>

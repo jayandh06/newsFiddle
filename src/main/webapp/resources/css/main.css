@@ -10,21 +10,25 @@ html {
 }
 
 #login-container {
+	margin-top:50px;
 	width: 300px;
 	height: 160px;
 }
 
 #category-container {
+	margin-top:50px;
 	width: 300px;
 	height: 200px;
 }
 
 #categoryDetail-container {
+	margin-top:50px;
 	width: 400px;
 	height: 300px;
 }
 
 #signup-container {
+	margin-top:50px;
 	width: 300px;
 	height: 200px;
 }
@@ -44,61 +48,3 @@ html {
 	font-size: 18;
 }
 
-#nav {
-	list-style: none;
-	margin-bottom: 10px; */
-	margin-top: -6px;
-	position: relative;
-	right: 286px;
-	z-index: 9;
-	height: 26px;
-	padding: 4px 4px 4px 4px;
-	font-weight: bold;
-}
-
-#nav li {
-	float: right;
-	margin-right: 10px;
-	border: 1px solid grey;
-}
-
-#nav a {
-	display: block;
-	padding: 5px;
-	color: #444444;
-	background: #ccc;
-	text-decoration: none;
-	margin: 3px;
-}
-
-#nav a:hover {
-	color: #fff;
-	background: #04B431;
-}
-
-a.mybtn,a.mybtn:link,a.mybtn:visited,a.showbtn,a.showbtn:link,a.showbtn:visited
-	{
-	display: inline-block;
-	color: #FFFFFF;
-	background-color: #8AC007;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	font-size: 16px;
-	text-align: center;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 3px;
-	padding-bottom: 4px;
-	text-decoration: none;
-	margin-left: 5px;
-	margin-top: 0px;
-	margin-bottom: 5px;
-	border: 1px solid #aaaaaa;
-	border-radius: 5px;
-	white-space: nowrap;
-}
-
-a.mybtn:hover,a.mybtn:active,a.showbtn:hover,a.showbtn:active {
-	background-color: #ffffff;
-	color: #8AC007;
-}

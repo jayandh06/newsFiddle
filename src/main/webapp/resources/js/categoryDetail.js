@@ -34,4 +34,4 @@ com.jay.newsfiddle.categoryDetail = {
 };
 
 var categoryDetailObj = com.jay.newsfiddle.categoryDetail;
-
+var pageId ="CategoryDetails";

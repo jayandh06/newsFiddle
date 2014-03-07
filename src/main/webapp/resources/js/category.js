@@ -22,3 +22,4 @@ com.jay.newsfiddle.category = {
 };
 
 var categoryObj = com.jay.newsfiddle.category;
+var pageId ="Category";

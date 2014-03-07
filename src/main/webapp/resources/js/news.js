@@ -26,16 +26,16 @@ com.jay.newsfiddle.news = {
 	},
 	loadCategories : function(){
 		$.getJSON(GLOBAL_APP_CONTEXT +"/category/list",function(data) {
-			$("#category-container").append("<table><tr>")
+			
 			$.each(data,function(cnt,item){
-				$("#category-container").append("<td><a href='javascript:news.getHotNews("+item.categoryId+")' class='mybtn'>"+item.categoryName+"</a></td>");
+				$("#category-container").append("<div class='category-element'><a href='javascript:news.getHotNews("+item.categoryId+")' class='mybtn'>"+item.categoryName+"</a></div>");
 			});
-			$("#category-container").append("</tr></table>")
+			
 		});
 	}
 	
 };
 
 var news = com.jay.newsfiddle.news;
-
+var pageId ="News";
 $(document).ready(news.loadCategories());

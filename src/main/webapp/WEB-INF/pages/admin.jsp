@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>News-Fiddle Administration</title>
 <jsp:include page="scripts.jsp"></jsp:include>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/admin.js"></script>
 </head>
 <body>
 	<div id="page-container">
@@ -20,6 +22,7 @@
 		</div>
 		<div>
 			<a href="${pageContext.servletContext.contextPath}/admin/user" class="mybtn">User</a>
-		</div>
+		</div>			
 </body>
+
 </html>
