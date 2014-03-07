@@ -1,10 +1,11 @@
 com.jay.newsfiddle.news = {
-	getHotNews : function() {
+	getHotNews : function(categoryId) {
 		
-		$.getJSON(GLOBAL_APP_CONTEXT + "/synd/hotNews", function(data) {
-			// $("#newsTemplate").tmpl(data).appendTo("#newsContainer",data);
+		$.getJSON(GLOBAL_APP_CONTEXT + "/synd/hotNews/"+categoryId, function(data) {
+			
+			$("#newsContainer").empty();
 			$.each(data, function(cnt, item) {
-
+				
 				$("#newsContainer").append("<div class=''>");
 				$("#newsContainer").append(
 						"<div class='newsTitle'>" + item.title + "</div>");
@@ -21,16 +22,20 @@ com.jay.newsfiddle.news = {
 			});
 		}, "json");
 		
+		
+	},
+	loadCategories : function(){
 		$.getJSON(GLOBAL_APP_CONTEXT +"/category/list",function(data) {
 			$("#category-container").append("<table><tr>")
 			$.each(data,function(cnt,item){
-				$("#category-container").append("<td><a href='"+GLOBAL_APP_CONTEXT+"/synd/hotNews/"+item.categoryId+"'>"+item.categoryName+"</a></td>");
+				$("#category-container").append("<td><a href='javascript:news.getHotNews("+item.categoryId+")' class='mybtn'>"+item.categoryName+"</a></td>");
 			});
 			$("#category-container").append("</tr></table>")
 		});
-	},
+	}
+	
 };
 
 var news = com.jay.newsfiddle.news;
 
-$(document).ready(news.getHotNews());
+$(document).ready(news.loadCategories());

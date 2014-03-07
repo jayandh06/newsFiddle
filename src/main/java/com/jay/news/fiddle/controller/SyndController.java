@@ -72,11 +72,12 @@ public class SyndController {
 
 			try {
 				url = new URL(catDetail.getRssUrl());
+				entries.addAll(readerService.getFeeds(url));
+
 			} catch (MalformedURLException e) {
 				log.error("Invalid URL Exception");
 			}
-			 entries.addAll(readerService.getFeeds(url));
-			
+			 			
 		}
 		final GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(SyndEntryImpl.class,

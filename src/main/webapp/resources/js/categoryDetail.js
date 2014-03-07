@@ -11,7 +11,7 @@ com.jay.newsfiddle.categoryDetail = {
 			categoryForm.submit();
 		}
 		
-		if(action == 'modify') {
+		if(action == 'update') {
 			categoryForm.attr('action', GLOBAL_APP_CONTEXT + '/categoryDetail/update');
 			categoryForm.submit();				
 		}

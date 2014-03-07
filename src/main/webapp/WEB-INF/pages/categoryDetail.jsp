@@ -67,7 +67,7 @@
 						<td colspan="2" align="center"><a
 							href="javascript:categoryDetailObj.validateCreateCategoryDetail('create');"
 							class="mybtn">Create</a> &nbsp; <a
-							href="javascript:categoryDetailObj.validateCreateCategoryDetail('modify');"
+							href="javascript:categoryDetailObj.validateCreateCategoryDetail('update');"
 							class="mybtn">Modify</a> &nbsp;<a href="" class="mybtn">Delete</a></td>
 					</tr>
 				</table>
