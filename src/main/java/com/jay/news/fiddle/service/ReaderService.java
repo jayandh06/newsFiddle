@@ -1,11 +1,7 @@
 package com.jay.news.fiddle.service;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -29,11 +25,12 @@ public class ReaderService {
 		XmlReader reader = null;
 		SyndFeed feed = null;
 		try {
+			/*
 			System.setProperty("http.proxyHost", "proxy-tw.bcbsmn.com");
 			System.setProperty("http.proxyPort", "9119");
 			System.setProperty("http.proxyUser", "a0c5zz");
 			System.setProperty("http.proxyPassword", "test0810");
-			
+			*/
 			reader = new XmlReader(url);
 			
 			feed = new SyndFeedInput().build(reader);

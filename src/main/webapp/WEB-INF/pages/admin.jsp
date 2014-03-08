@@ -12,17 +12,18 @@
 <body>
 	<div id="page-container">
 		<jsp:include page="header.jsp"></jsp:include>
-		<div>
-			<a  href="${pageContext.servletContext.contextPath}/admin/category" class="mybtn">Category</a>
+		<div id="category-menucontainer">
+			<div class="category-element">
+				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/category">Category</a>
+			</div>
+			<div class="category-element">
+				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/categoryDetail">Category Details</a>
+			</div>
+			<div class="category-element">
+				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/user">User</a>
+			</div>
 		</div>
-		<div>
-			<a
-				href="${pageContext.servletContext.contextPath}/admin/categoryDetail" class="mybtn">Category
-				Details</a>
-		</div>
-		<div>
-			<a href="${pageContext.servletContext.contextPath}/admin/user" class="mybtn">User</a>
-		</div>			
+	</div>
 </body>
 
 </html>

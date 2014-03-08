@@ -29,20 +29,21 @@
 			<form name="categoryForm" method="post">
 				<table>
 					<tr>
-						<td>Category Id</td>
+						<td class="labelText" >Category Id</td>
+						
 						<td><input type="text" name="categoryId" size="5"
 							maxlength="5" /></td>
 					<tr>
-						<td>Category Name</td>
+						<td class="labelText">Category Name</td>
 						<td><input type="text" name="categoryName" size="20"
 							maxlength="45" /></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><a
 							href="javascript:categoryObj.validateCreateCategory('create');"
-							class="mybtn">Create</a> &nbsp; <a
+							class="anchorButton">Create</a> &nbsp; <a
 							href="javascript:categoryObj.validateModifyCategory('modify');"
-							class="mybtn">Modify</a> &nbsp;<a href="" class="mybtn">Delete</a></td>
+							class="anchorButton">Modify</a> &nbsp;<a href="" class="anchorButton">Delete</a></td>
 					</tr>
 				</table>
 			</form>

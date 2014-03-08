@@ -24,13 +24,13 @@
 						<td><input type="password" name="password" size="20" /></td>
 					</tr>
 					<tr>
-						<td colspan="2"> <a href="" class="mybtn">Login</a></td>
+						<td colspan="2"> <a href="" class="anchorButton">Login</a></td>
 					</tr>
 					<tr>
 						<td colspan="2">&nbsp;</td>
 					</tr>
 					<tr>
-						<td colspan="2"><font class="labelText">New User? </font> <a href="login/signup.htm" class="mybtn">signup
+						<td colspan="2"><font class="labelText">New User? </font> <a href="login/signup.htm" class="anchorButton">signup
 								here</a></td>
 					</tr>
 				</table>

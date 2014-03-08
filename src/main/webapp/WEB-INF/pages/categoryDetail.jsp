@@ -29,24 +29,24 @@
 			<form name="categoryDetailForm" method="post">
 				<table>
 					<tr>
-						<td>Category Detail Id</td>
+						<td class="labelText">Category Detail Id</td>
 						<td><input type="text" name="catDetailId" size="20"
 							maxlength="45" /> &nbsp;<a
 							href="javascript:categoryDetailObj.retrieveCategoryDetail();"
-							class="mybtn">Retrieve</a></td>
+							class="anchorButton">Retrieve</a></td>
 					</tr>
 					<tr>
-						<td>Company Name</td>
+						<td class="labelText">Company Name</td>
 						<td><input type="text" name="companyName" size="20"
 							maxlength="45" /></td>
 					</tr>
 					<tr>
-						<td>Company Url</td>
+						<td class="labelText">Company Url</td>
 						<td><input type="text" name="companyUrl" size="20"
 							maxlength="45" /></td>
 					</tr>
 					<tr>
-						<td>Category</td>
+						<td class="labelText">Category</td>
 						<td><select name="categoryId">
 								<%
 									Map<String, Integer> categoryMap = (Map<String, Integer>) request
@@ -61,14 +61,14 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>RSS Url</td>
+						<td class="labelText">RSS Url</td>
 						<td><input type="text" name="rssUrl" size="" maxlength="200" /></td>
 					<tr>
 						<td colspan="2" align="center"><a
 							href="javascript:categoryDetailObj.validateCreateCategoryDetail('create');"
-							class="mybtn">Create</a> &nbsp; <a
+							class="anchorButton">Create</a> &nbsp; <a
 							href="javascript:categoryDetailObj.validateCreateCategoryDetail('update');"
-							class="mybtn">Modify</a> &nbsp;<a href="" class="mybtn">Delete</a></td>
+							class="anchorButton">Modify</a> &nbsp;<a href="" class="anchorButton">Delete</a></td>
 					</tr>
 				</table>
 			</form>

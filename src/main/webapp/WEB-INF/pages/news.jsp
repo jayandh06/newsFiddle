@@ -15,7 +15,7 @@
 <body>
 	<div id="page-container">
 		<jsp:include page="header.jsp"></jsp:include>
-		<div id="category-container"></div>
+		<div id="category-menucontainer"></div>
 		<div id="newsContainer"></div>
 	</div>
 </body>

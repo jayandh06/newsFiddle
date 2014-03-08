@@ -15,7 +15,7 @@ com.jay.newsfiddle.news = {
 						"<div class='newsDesc'>" + item.description + "</div>");
 				$("#newsContainer").append(
 						"<div class><a href='" + item.uri
-								+ "'> Link to original page</a></div>");
+								+ "' target='_blank'> Read More ...</a></div>");
 				$("#newsContainer").append("<div><hr class='hrColor'></div>");
 				$("#newsContainer").append("<div>&nbsp;</div>");
 				$("#newsContainer").append("</div>");
@@ -28,7 +28,7 @@ com.jay.newsfiddle.news = {
 		$.getJSON(GLOBAL_APP_CONTEXT +"/category/list",function(data) {
 			
 			$.each(data,function(cnt,item){
-				$("#category-container").append("<div class='category-element'><a href='javascript:news.getHotNews("+item.categoryId+")' class='mybtn'>"+item.categoryName+"</a></div>");
+				$("#category-menucontainer").append("<div class='category-element'><a href='javascript:news.getHotNews("+item.categoryId+")' class='alink'>"+item.categoryName+"</a></div>");
 			});
 			
 		});

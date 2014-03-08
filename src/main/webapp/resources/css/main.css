@@ -2,6 +2,11 @@ html {
 	background-color: #e5eeff;
 }
 
+body {
+	font-family: "Helvetica", "Arial", "FreeSans", "Verdana", "Tahoma",
+		"Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif
+}
+
 #page-container {
 	width: 1024px;
 	height: 768px;
@@ -10,25 +15,37 @@ html {
 }
 
 #login-container {
-	margin-top:50px;
+	margin-top: 50px;
 	width: 300px;
 	height: 160px;
 }
 
-#category-container {
-	margin-top:50px;
-	width: 300px;
-	height: 200px;
+#category-menucontainer {
+	display: inline-block;
+	padding: 10px 0px;
+	width: 100%;
+	background-color: #4679bd;
 }
 
-#categoryDetail-container {
-	margin-top:50px;
+#category-container {
+	margin-top: 50px;
 	width: 400px;
 	height: 300px;
 }
 
+#categoryDetail-container {
+	margin-top: 50px;
+	width: 400px;
+	height: 300px;
+}
+
+.category-element {
+	margin-right: 20px;
+	float: left;
+}
+
 #signup-container {
-	margin-top:50px;
+	margin-top: 50px;
 	width: 300px;
 	height: 200px;
 }
@@ -36,15 +53,43 @@ html {
 .tableContainerLayout {
 	margin-left: auto;
 	margin-right: auto;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #bbbbbb;
 	opacity: 0.8;
 }
 
 .labelText {
-	font-family: Arial, Helvetica, sans-serif;
+	font-color: #4679bd;
 	font-weight: bold;
-	font-size: 18;
+	font-size: 13px;
+	font-weight: bold;
 }
 
+.alink {
+	text-decoration: none;
+	padding: 0 10px;
+	color: #ffffff;
+	font-size: 13px;
+}
+
+a.alink:hover {
+	text-decoration: underline;
+}
+
+.anchorButton {
+	background: #4679bd;
+	font-size: 16px;
+	color: #fff !important;
+	padding: 5px 25px;
+	box-shadow: 0px 1px 1px rgba(000, 000, 000, 0.5), inset 0px 0px 1px
+		rgba(255, 255, 255, 0.5);
+	text-shadow: 0px -1px 0px rgba(000, 000, 000, 0.5), 0px 1px 0px
+		rgba(255, 255, 255, 0.3);
+	border-radius: 6px;
+	border: 1px solid #000;
+	display: inline-block;
+	float: left;
+	font-size: 13px;
+	text-decoration: none;
+	margin: 3px;
+	font-weight: bold;
+	vertical-align: middle;
+}
