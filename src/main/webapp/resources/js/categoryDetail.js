@@ -35,7 +35,7 @@ com.jay.newsfiddle.categoryDetail = {
 	},
 	retrieveCategoryDetail : function(catDetailId){
 		$("#category-list").hide();
-		$("#category-container").show();
+		$("#categoryDetail-container").show();
 		$.getJSON(GLOBAL_APP_CONTEXT + "/categoryDetail/"+catDetailId,function(data){
 			$('[name="categoryDetailId"]').val(data.categoryDetailId);			
 			$('[name="companyName"]').val(data.companyName);			

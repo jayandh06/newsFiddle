@@ -33,8 +33,8 @@
 			<table id="categorydetail-list-table">
 				<tr class='headerRow'>
 					<th class="headerCell">Id</th>
-					<th class="headerCell">Company Name</th>
-					<th class="headerCell">Company URL</th>
+					<th class="headerCell">Provider</th>
+					<th class="headerCell">Provider URL</th>
 					<th class="headerCell">RSS URL</th>
 					<th class="headerCell">Category Name</th>
 				</tr>
