@@ -25,6 +25,9 @@ public class CategoryDetailService {
 		categoryDetailDao.update(catDetail);
 	}
 	
+	public List<CategoryDetail> getAllCategoryDetails(){
+		return categoryDetailDao.getAll();
+	}
 	public List<CategoryDetail> getDetailsByCategory(int categoryId){
 		return categoryDetailDao.getDetailsByCategory(categoryId);
 	}

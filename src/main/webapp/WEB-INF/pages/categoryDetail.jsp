@@ -12,10 +12,36 @@
 </head>
 <body>
 	<div id="page-container">
-		<jsp:include page="header.jsp"/>
-
+		<jsp:include page="header.jsp" />
+		<div id="category-menucontainer">
+			<div class="category-element">
+				<a class="alink"
+					href="${pageContext.servletContext.contextPath}/admin/category">Category</a>
+			</div>
+			<div class="category-element">
+				<a class="alink"
+					href="${pageContext.servletContext.contextPath}/admin/categoryDetail">Category
+					Details</a>
+			</div>
+			<div class="category-element">
+				<a class="alink"
+					href="${pageContext.servletContext.contextPath}/admin/user">User</a>
+			</div>
+		</div>
+		
+		<div id="categorydetail-list" class="listContainerLayout">
+			<table id="categorydetail-list-table">
+				<tr class='headerRow'>
+					<th class="headerCell">Id</th>
+					<th class="headerCell">Company Name</th>
+					<th class="headerCell">Company URL</th>
+					<th class="headerCell">RSS URL</th>
+					<th class="headerCell">Category Name</th>
+				</tr>
+			</table>
+		</div>
 		<div id="categoryDetail-container" class="tableContainerLayout">
-			<div id="messageContainer">
+			<div id="messageContainer" class="messageText">
 				<%
 					String message = (String) request.getAttribute("message");
 					if (message != null) {
@@ -65,10 +91,12 @@
 						<td><input type="text" name="rssUrl" size="" maxlength="200" /></td>
 					<tr>
 						<td colspan="2" align="center"><a
-							href="javascript:categoryDetailObj.validateCreateCategoryDetail('create');"
+							href="javascript:categoryDetailObj.validateCategoryDetail('create');"
 							class="anchorButton">Create</a> &nbsp; <a
-							href="javascript:categoryDetailObj.validateCreateCategoryDetail('update');"
-							class="anchorButton">Modify</a> &nbsp;<a href="" class="anchorButton">Delete</a></td>
+							href="javascript:categoryDetailObj.validateCategoryDetail('update');"
+							class="anchorButton">Modify</a> &nbsp;<a
+							href="javascript:categoryDetailObj.validateCategoryDetail('delete');"
+							class="anchorButton">Delete</a></td>
 					</tr>
 				</table>
 			</form>

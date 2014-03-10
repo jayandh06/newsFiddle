@@ -25,12 +25,15 @@ public class CategoryService {
 		return categoryDao.getAll();
 	}
 	
-	public void modifyCategory(Category category){
+	public void updateCategory(Category category){
 		categoryDao.update(category);
 	}
 	
-	public void deleteCategory(Category category){		
-		categoryDao.delete(category);
+	public void deleteCategory(int catId){		
+		categoryDao.delete(catId);
 	}
 
+	public Category getCategoryById(int id){
+		return categoryDao.get(id);
+	}
 }

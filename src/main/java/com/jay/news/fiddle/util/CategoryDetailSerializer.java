@@ -14,11 +14,12 @@ public class CategoryDetailSerializer implements	JsonSerializer<CategoryDetail>{
 			JsonSerializationContext context) {	
 		
 		final JsonObject jsonObject = new JsonObject();
+		jsonObject.addProperty("categoryDetailId", categoryDetail.getCatDetailId());
 		jsonObject.addProperty("companyUrl", categoryDetail.getCompanyUrl());
 		jsonObject.addProperty("companyName", categoryDetail.getCompany());
 		jsonObject.addProperty("rssUrl", categoryDetail.getRssUrl());
 		jsonObject.addProperty("categoryId", categoryDetail.getCategory().getCategoryId());
-
+		jsonObject.addProperty("categoryName",categoryDetail.getCategory().getCategoryName());
 		return jsonObject;
 	}
 	

@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,6 +50,37 @@ public class CategoryController {
 		return model;
 	}
 	
+	@RequestMapping("/update")
+	public ModelAndView updateCategory(@RequestParam String categoryName) {
+		Category cat = new Category();
+		cat.setCategoryName(categoryName);
+		try {
+			categoryService.updateCategory(cat);
+		} catch (Exception ee) {
+			String message = "exception updating category";
+			log.error(message);
+			
+		}
+		ModelAndView model = new ModelAndView("category");
+		model.addObject("message", "Category updated successfully");
+		return model;
+	}
+	
+	@RequestMapping("/delete")
+	public ModelAndView deleteCategory(@RequestParam String categoryId) {
+		
+		try {
+			categoryService.deleteCategory(new Integer(categoryId));
+		} catch (Exception ee) {
+			String message = "exception deleting category";
+			log.error(message);
+			
+		}
+		ModelAndView model = new ModelAndView("category");
+		model.addObject("message", "Category deleted successfully");
+		return model;
+	}
+	
 	@RequestMapping("/list")
 	@ResponseBody
 	public String getAllCategories(){
@@ -58,5 +90,18 @@ public class CategoryController {
 		gsonBuilder.setPrettyPrinting();
 		final Gson gson = gsonBuilder.create();
 		return gson.toJson(categories);
+	}
+	
+	@RequestMapping("/{id}")
+	@ResponseBody
+	public String getCategoryDetail(@PathVariable String id){
+		Category category = categoryService.getCategoryById(new Integer(id));
+		
+		final GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(Category.class,
+				new CategorySerializer());
+		gsonBuilder.setPrettyPrinting();
+		final Gson gson = gsonBuilder.create();		
+		return gson.toJson(category); 
 	}
 }

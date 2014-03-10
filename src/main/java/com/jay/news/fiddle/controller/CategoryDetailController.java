@@ -20,6 +20,7 @@ import com.jay.news.fiddle.domain.CategoryDetail;
 import com.jay.news.fiddle.service.CategoryDetailService;
 import com.jay.news.fiddle.service.CategoryService;
 import com.jay.news.fiddle.util.CategoryDetailSerializer;
+import com.jay.news.fiddle.util.CategorySerializer;
 
 @Controller
 @RequestMapping("/categoryDetail")
@@ -50,6 +51,17 @@ public class CategoryDetailController {
 		model.addObject("message", "CategoryDetail Created successfully");
 		return model;
 		
+	}
+	
+	@RequestMapping("/list")
+	@ResponseBody
+	public String getAllCategoryDetails(){
+		List<CategoryDetail> categoryDetails = categoryDetailService.getAllCategoryDetails();
+		final GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(CategoryDetail.class, new CategoryDetailSerializer());
+		gsonBuilder.setPrettyPrinting();
+		final Gson gson = gsonBuilder.create();
+		return gson.toJson(categoryDetails);
 	}
 	
 	private void addCategoryListToModel(ModelAndView model){

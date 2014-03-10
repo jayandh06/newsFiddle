@@ -45,7 +45,8 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 		getEntityManager().merge(t);
 	}
 	
-	public void delete(T t) {
+	public void delete(int id) {
+		T t = getEntityManager().find(type,id);
 		getEntityManager().remove(t);
 	}
 
