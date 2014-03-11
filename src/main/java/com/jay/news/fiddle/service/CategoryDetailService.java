@@ -25,6 +25,10 @@ public class CategoryDetailService {
 		categoryDetailDao.update(catDetail);
 	}
 	
+	public void deleteCategoryDetail(int categoryDetailId){
+		categoryDetailDao.delete(categoryDetailId);
+	}
+	
 	public List<CategoryDetail> getAllCategoryDetails(){
 		return categoryDetailDao.getAll();
 	}

@@ -33,8 +33,12 @@ com.jay.newsfiddle.categoryDetail = {
 			
 		});
 	},
+	addCategoryDetail:function(){
+		$("#categoryDetail-list").hide();
+		$("#categoryDetail-container").show();
+	},
 	retrieveCategoryDetail : function(catDetailId){
-		$("#category-list").hide();
+		$("#categoryDetail-list").hide();
 		$("#categoryDetail-container").show();
 		$.getJSON(GLOBAL_APP_CONTEXT + "/categoryDetail/"+catDetailId,function(data){
 			$('[name="categoryDetailId"]').val(data.categoryDetailId);			

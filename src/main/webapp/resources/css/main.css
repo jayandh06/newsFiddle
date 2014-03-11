@@ -28,15 +28,11 @@ body {
 }
 
 #category-list {
-	margin-top: 50px;
-	width: 400px;
-	height: 300px;
+	/*margin-top: 50px;*/	
 }
 
 #categorydetail-list {
-	margin-top: 50px;
-	width: 800px;
-	height: 300px;
+	/*margin-top: 50px;*/	
 }
 
 #category-container {
@@ -112,7 +108,7 @@ a.alink:hover {
 	border-radius: 6px;
 	border: 1px solid #000;
 	display: inline-block;
-	float: right;
+	float: left;
 	font-size: 13px;
 	text-decoration: none;
 	margin: 3px;

@@ -36,6 +36,10 @@ com.jay.newsfiddle.category = {
 			
 		});
 	},
+	addCategory:function(){
+		$("#category-list").hide();
+		$("#category-container").show();
+	},
 	retrieveCategory:function(catId){
 		$("#category-list").hide();
 		$("#category-container").show();
@@ -45,6 +49,8 @@ com.jay.newsfiddle.category = {
 			$('[name="categoryName"]').val(data.categoryName);								
 		});
 	}
+	
+	
 };
 
 var categoryObj = com.jay.newsfiddle.category;

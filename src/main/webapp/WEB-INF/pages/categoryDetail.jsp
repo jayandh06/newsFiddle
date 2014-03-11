@@ -28,8 +28,21 @@
 					href="${pageContext.servletContext.contextPath}/admin/user">User</a>
 			</div>
 		</div>
-		
-		<div id="categorydetail-list" class="listContainerLayout">
+		<div id="messageContainer" class="messageText">
+			<%
+				String message = (String) request.getAttribute("message");
+				if (message != null) {
+			%>
+			<%=message%>
+			<%
+				}
+			%>
+
+		</div>
+		<div id="categoryDetail-list" class="listContainerLayout">
+			<div>
+				<a href="javascript:categoryDetailObj.addCategoryDetail();">Add Category Detail</a>
+			</div>
 			<table id="categorydetail-list-table">
 				<tr class='headerRow'>
 					<th class="headerCell">Id</th>
@@ -41,25 +54,13 @@
 			</table>
 		</div>
 		<div id="categoryDetail-container" class="tableContainerLayout">
-			<div id="messageContainer" class="messageText">
-				<%
-					String message = (String) request.getAttribute("message");
-					if (message != null) {
-				%>
-				<%=message%>
-				<%
-					}
-				%>
 
-			</div>
 			<form name="categoryDetailForm" method="post">
 				<table>
 					<tr>
 						<td class="labelText">Category Detail Id</td>
-						<td><input type="text" name="catDetailId" size="20"
-							maxlength="45" /> &nbsp;<a
-							href="javascript:categoryDetailObj.retrieveCategoryDetail();"
-							class="anchorButton">Retrieve</a></td>
+						<td><input type="text" name="categoryDetailId" size="5"
+							maxlength="45" readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<td class="labelText">Company Name</td>

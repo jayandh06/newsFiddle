@@ -25,12 +25,15 @@ com.jay.newsfiddle.news = {
 		
 	},
 	loadCategories : function(){
-		$.getJSON(GLOBAL_APP_CONTEXT +"/category/list",function(data) {
-			
+		$.getJSON(GLOBAL_APP_CONTEXT +"/category/list",function(data) {			
 			$.each(data,function(cnt,item){
 				$("#category-menucontainer").append("<div class='category-element'><a href='javascript:news.getHotNews("+item.categoryId+")' class='alink'>"+item.categoryName+"</a></div>");
 			});
 			
+		});
+		
+		$.getJSON(GLOBAL_APP_CONTEXT +"/synd/defaultCategory",function(data) {			
+			news.getHotNews(data.categoryId);			
 		});
 	}
 	

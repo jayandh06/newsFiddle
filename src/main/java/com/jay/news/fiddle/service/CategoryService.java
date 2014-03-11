@@ -29,6 +29,9 @@ public class CategoryService {
 		categoryDao.update(category);
 	}
 	
+	public Category getCategoryByName(String categoryName){
+		return categoryDao.getCategoryByName(categoryName);
+	}
 	public void deleteCategory(int catId){		
 		categoryDao.delete(catId);
 	}

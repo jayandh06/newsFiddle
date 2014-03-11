@@ -28,7 +28,20 @@
 					href="${pageContext.servletContext.contextPath}/admin/user">User</a>
 			</div>
 		</div>
+
+		<div id="messageContainer" class="messageText">
+			<%
+				String message = (String) request.getAttribute("message");
+				if (message != null) {
+			%>
+			<%=message%>
+			<%
+				}
+			%>
+
+		</div>
 		<div id="category-list" class="listContainerLayout">
+			<div><a href="javascript:categoryObj.addCategory();">Add Category</a></div>
 			<table id="category-list-table">
 				<tr class='headerRow'>
 					<th class="headerCell">Category Id</th>
@@ -37,17 +50,7 @@
 			</table>
 		</div>
 		<div id="category-container" class="tableContainerLayout">
-			<div id="messageContainer" class="messageText">
-				<%
-					String message = (String) request.getAttribute("message");
-					if (message != null) {
-				%>
-				<%=message%>
-				<%
-					}
-				%>
 
-			</div>
 			<form name="categoryForm" method="post">
 				<table>
 					<tr>

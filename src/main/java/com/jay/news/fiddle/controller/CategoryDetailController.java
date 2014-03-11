@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,13 +21,14 @@ import com.jay.news.fiddle.domain.CategoryDetail;
 import com.jay.news.fiddle.service.CategoryDetailService;
 import com.jay.news.fiddle.service.CategoryService;
 import com.jay.news.fiddle.util.CategoryDetailSerializer;
-import com.jay.news.fiddle.util.CategorySerializer;
 
 @Controller
 @RequestMapping("/categoryDetail")
 @Transactional
 public class CategoryDetailController {
 
+	private static Logger log = Logger.getLogger(CategoryDetailController.class);
+	
 	@Autowired
 	CategoryDetailService categoryDetailService;
 	@Autowired
@@ -74,14 +76,14 @@ public class CategoryDetailController {
 	}
 	
 	@RequestMapping("/update")
-	public ModelAndView modifyCategoryDetail(@RequestParam String companyName, @RequestParam String companyUrl,@RequestParam String catDetailId, @RequestParam String categoryId, @RequestParam String rssUrl) {
+	public ModelAndView modifyCategoryDetail(@RequestParam String companyName, @RequestParam String companyUrl,@RequestParam String categoryDetailId, @RequestParam String categoryId, @RequestParam String rssUrl) {
 		CategoryDetail catDetail = new CategoryDetail();
 		
 		Category category = new Category();
 		category.setCategoryId(new Integer(categoryId));
 		
 		catDetail.setCategory(category);
-		catDetail.setCatDetailId(new Integer(catDetailId));
+		catDetail.setCatDetailId(new Integer(categoryDetailId));
 		catDetail.setCompany(companyName);
 		catDetail.setCompanyUrl(companyUrl);
 		catDetail.setRssUrl(rssUrl);
@@ -93,6 +95,21 @@ public class CategoryDetailController {
 		model.addObject("message", "CategoryDetail updated successfully");
 		return model;
 		
+	}
+	
+	@RequestMapping("/delete")
+	public ModelAndView deleteCategory(@RequestParam String categoryDetailId) {
+		
+		try {
+			categoryDetailService.deleteCategoryDetail(new Integer(categoryDetailId));
+		} catch (Exception ee) {
+			String message = "exception deleting CategoryDetail";
+			log.error(message);
+			
+		}
+		ModelAndView model = new ModelAndView("category");
+		model.addObject("message", "CategoryDetail deleted successfully");
+		return model;
 	}
 	
 	@RequestMapping("/{id}")
