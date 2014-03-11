@@ -1,3 +1,7 @@
+#newsContainer {
+	margin-top: 20px;
+}
+
 .newsTitle {
 	font-family: georgia, times new roman, serif;
 	font-size: 30px;
@@ -15,4 +19,3 @@
 .hrColor {
 	border-color: #bbbbbb;
 }
-

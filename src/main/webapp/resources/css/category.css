@@ -1,0 +1,22 @@
+
+#category-list {
+	margin-top: 20px;
+}
+
+#categoryDetail-list {
+	margin-top: 20px;
+}
+
+#category-container {
+	margin-top: 50px;
+	width: 65%;
+	height: 300px;
+	display: none;
+}
+
+#categoryDetail-container {
+	margin-top: 50px;
+	width: 65%;
+	height: 300px;
+	display: none;
+}

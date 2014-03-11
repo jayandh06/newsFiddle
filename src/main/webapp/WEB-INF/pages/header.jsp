@@ -8,6 +8,7 @@
 
 	<div id='cssmenu'>		
 		<ul>		
+			<li><a href="${pageContext.servletContext.contextPath}/login">Login</a></li>
 			<li><a href="${pageContext.servletContext.contextPath}/admin/category">Admin</a></li>
 			<li><a href="${pageContext.servletContext.contextPath}/profile">Profile</a></li>
 			<li><a href="${pageContext.servletContext.contextPath}/synd/news">News</a></li>

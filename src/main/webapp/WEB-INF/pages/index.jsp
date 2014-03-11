@@ -17,21 +17,15 @@
 				<table>
 					<tr>
 						<td class="labelText">Username</td>
-						<td><input type="text" name="username" size="20" /></td>
+						<td><input type="text" name="username" size="20" max/></td>
 					</tr>
 					<tr>
 						<td class="labelText">Password</td>
 						<td><input type="password" name="password" size="20" /></td>
 					</tr>
 					<tr>
-						<td colspan="2"> <a href="" class="anchorButton">Login</a></td>
-					</tr>
-					<tr>
-						<td colspan="2">&nbsp;</td>
-					</tr>
-					<tr>
-						<td colspan="2"><font class="labelText">New User? </font> <a href="login/signup.htm" class="anchorButton">signup
-								here</a></td>
+						<td colspan="2"> <a href="javascript:loginObj.validateLogin();" class="anchorButton">Login</a> &nbsp;
+						<a href="${pageContext.servletContext.contextPath}/login/showSignup" class="anchorButton">Signup</a></td>
 					</tr>
 				</table>
 			</form>
