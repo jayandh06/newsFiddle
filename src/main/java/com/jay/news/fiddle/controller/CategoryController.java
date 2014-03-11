@@ -26,11 +26,10 @@ import com.jay.news.fiddle.util.CategorySerializer;
 public class CategoryController {
 
 	private static Logger log = Logger.getLogger(CategoryController.class);
-	
+
 	@Autowired
 	CategoryService categoryService;
 
-	
 	@RequestMapping("/create")
 	public ModelAndView createCategory(@RequestParam String categoryName) {
 		Category cat = new Category();
@@ -39,17 +38,17 @@ public class CategoryController {
 			categoryService.saveCategory(cat);
 		} catch (Exception ee) {
 			String message = "exception adding category";
-			if(ee.getClass().equals(EntityExistsException.class)) {
+			if (ee.getClass().equals(EntityExistsException.class)) {
 				message = "Category Already exist";
 			}
 			log.error(message);
-			
+
 		}
 		ModelAndView model = new ModelAndView("category");
 		model.addObject("message", "Category Created successfully");
 		return model;
 	}
-	
+
 	@RequestMapping("/update")
 	public ModelAndView updateCategory(@RequestParam String categoryName) {
 		Category cat = new Category();
@@ -59,49 +58,50 @@ public class CategoryController {
 		} catch (Exception ee) {
 			String message = "exception updating category";
 			log.error(message);
-			
+
 		}
 		ModelAndView model = new ModelAndView("category");
 		model.addObject("message", "Category updated successfully");
 		return model;
 	}
-	
+
 	@RequestMapping("/delete")
 	public ModelAndView deleteCategory(@RequestParam String categoryId) {
-		
+
 		try {
 			categoryService.deleteCategory(new Integer(categoryId));
 		} catch (Exception ee) {
 			String message = "exception deleting category";
 			log.error(message);
-			
+
 		}
 		ModelAndView model = new ModelAndView("category");
 		model.addObject("message", "Category deleted successfully");
 		return model;
 	}
-	
+
 	@RequestMapping("/list")
 	@ResponseBody
-	public String getAllCategories(){
+	public String getAllCategories() {
 		List<Category> categories = categoryService.getCategories();
-		final GsonBuilder gsonBuilder = new GsonBuilder();
-		gsonBuilder.registerTypeAdapter(Category.class, new CategorySerializer());
-		gsonBuilder.setPrettyPrinting();
-		final Gson gson = gsonBuilder.create();
-		return gson.toJson(categories);
-	}
-	
-	@RequestMapping("/{id}")
-	@ResponseBody
-	public String getCategoryDetail(@PathVariable String id){
-		Category category = categoryService.getCategoryById(new Integer(id));
-		
 		final GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(Category.class,
 				new CategorySerializer());
 		gsonBuilder.setPrettyPrinting();
-		final Gson gson = gsonBuilder.create();		
-		return gson.toJson(category); 
+		final Gson gson = gsonBuilder.create();
+		return gson.toJson(categories);
+	}
+
+	@RequestMapping("/{id}")
+	@ResponseBody
+	public String getCategoryDetail(@PathVariable String id) {
+		Category category = categoryService.getCategoryById(new Integer(id));
+
+		final GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(Category.class,
+				new CategorySerializer());
+		gsonBuilder.setPrettyPrinting();
+		final Gson gson = gsonBuilder.create();
+		return gson.toJson(category);
 	}
 }

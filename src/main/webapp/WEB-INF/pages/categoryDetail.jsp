@@ -5,6 +5,9 @@
 <html>
 <head>
 <jsp:include page="scripts.jsp"></jsp:include>
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/category.css"
+	type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/categoryDetail.js"></script>
@@ -28,8 +31,21 @@
 					href="${pageContext.servletContext.contextPath}/admin/user">User</a>
 			</div>
 		</div>
-		
-		<div id="categorydetail-list" class="listContainerLayout">
+		<div id="messageContainer" class="messageText">
+			<%
+				String message = (String) request.getAttribute("message");
+				if (message != null) {
+			%>
+			<%=message%>
+			<%
+				}
+			%>
+
+		</div>
+		<div id="categoryDetail-list" class="listContainerLayout">
+			<div>
+				<a href="javascript:categoryDetailObj.addCategoryDetail();" >Add Category Detail</a>
+			</div>
 			<table id="categorydetail-list-table">
 				<tr class='headerRow'>
 					<th class="headerCell">Id</th>
@@ -41,39 +57,29 @@
 			</table>
 		</div>
 		<div id="categoryDetail-container" class="tableContainerLayout">
-			<div id="messageContainer" class="messageText">
-				<%
-					String message = (String) request.getAttribute("message");
-					if (message != null) {
-				%>
-				<%=message%>
-				<%
-					}
-				%>
-
-			</div>
+			<div id="subtitleText">Category Details Form</div>
 			<form name="categoryDetailForm" method="post">
 				<table>
 					<tr>
 						<td class="labelText">Category Detail Id</td>
-						<td><input type="text" name="catDetailId" size="20"
-							maxlength="45" /> &nbsp;<a
-							href="javascript:categoryDetailObj.retrieveCategoryDetail();"
-							class="anchorButton">Retrieve</a></td>
+						<td><input type="text" name="categoryDetailId" size="5"
+							maxlength="45" readonly="readonly" /></td>
 					</tr>
 					<tr>
-						<td class="labelText">Company Name</td>
-						<td><input type="text" name="companyName" size="20"
-							maxlength="45" /></td>
+						<td class="labelText">Provider Name</td>
+						<td><input type="text" name="providerName" size="20"
+							maxlength="45" /><span id="providerNameInfo">Name
+								of Feed provider?, Atleast 4 chars.</span></td>
 					</tr>
 					<tr>
-						<td class="labelText">Company Url</td>
-						<td><input type="text" name="companyUrl" size="20"
-							maxlength="45" /></td>
+						<td class="labelText">Provider Url</td>
+						<td><input type="text" name="providerUrl" size="20"
+							maxlength="45" /><span id="providerUrlInfo">Feed provider URL?</span></td>
 					</tr>
 					<tr>
 						<td class="labelText">Category</td>
 						<td><select name="categoryId">
+								<option value="">-- Choose Category --</option>
 								<%
 									Map<String, Integer> categoryMap = (Map<String, Integer>) request
 											.getAttribute("categoryMap");
@@ -84,11 +90,11 @@
 								<%
 									}
 								%>
-						</select></td>
+						</select><span id="categoryIdInfo">Choose your Feed Category from list</span></td>
 					</tr>
 					<tr>
 						<td class="labelText">RSS Url</td>
-						<td><input type="text" name="rssUrl" size="" maxlength="200" /></td>
+						<td><input type="text" name="rssUrl" size="" maxlength="200" /><span id="rssUrlInfo">Feed URL?</span></td>
 					<tr>
 						<td colspan="2" align="center"><a
 							href="javascript:categoryDetailObj.validateCategoryDetail('create');"

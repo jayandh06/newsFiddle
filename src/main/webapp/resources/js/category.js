@@ -4,14 +4,33 @@
 
 com.jay.newsfiddle.category = {
 	validateCategory : function(action){
+		var categoryName = $("input[name='categoryName']");
+		var categoryNameInfo =$("input[name='categoryNameInfo']");
+		
 		var categoryForm = $('form[name="categoryForm"]');
-		console.log(categoryForm);
-		if(action == 'create') {
-			categoryForm.attr('action', GLOBAL_APP_CONTEXT + '/category/create');
-			categoryForm.submit();
+		var hasError =false;
+		if(action == 'create') {			
+			if(categoryName.val().length <= 3){
+				categoryNameInfo.addClass('errorText');
+				categoryName.addClass('inputError');
+				hasError = true;
+			}
+			else{
+				categoryNameInfo.removeClass('errorText');
+				categoryName.removeClass('inputError');
+			}
+			if(!hasError) {
+				categoryForm.attr('action', GLOBAL_APP_CONTEXT + '/category/create');
+				categoryForm.submit();
+			}
 		}
 		
 		if(action == 'modify') {
+			if(categoryName.val().length <= 3){
+				categoryNameInfo.toggleClass('errorText');
+				categoryName.toggleClass('inputError');
+				hasError = true;
+			}
 			categoryForm.attr('action', GLOBAL_APP_CONTEXT + '/category/update');
 			categoryForm.submit();
 		}
@@ -21,6 +40,7 @@ com.jay.newsfiddle.category = {
 			categoryForm.submit();
 		}
 	},
+	
 	retrieveCategoryList : function(){
 		$.getJSON(GLOBAL_APP_CONTEXT+'/category/list',function(data){
 			var rowStyle='evenRow';
@@ -36,6 +56,12 @@ com.jay.newsfiddle.category = {
 			
 		});
 	},
+	addCategory:function(){
+		$("#category-list").hide();
+		$("#category-container").show();
+		$("input[name='categoryName']").focus();
+		
+	},
 	retrieveCategory:function(catId){
 		$("#category-list").hide();
 		$("#category-container").show();
@@ -45,6 +71,8 @@ com.jay.newsfiddle.category = {
 			$('[name="categoryName"]').val(data.categoryName);								
 		});
 	}
+	
+	
 };
 
 var categoryObj = com.jay.newsfiddle.category;

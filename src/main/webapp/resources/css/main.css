@@ -1,10 +1,48 @@
-html {
-	background-color: #e5eeff;
+/***** Tag Level *****/
+
+a {
+	text-decoration: none;
+	padding: 0 10px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 body {
 	font-family: "Helvetica", "Arial", "FreeSans", "Verdana", "Tahoma",
 		"Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif
+}
+
+html {
+	background-color: #e5eeff;
+}
+
+
+/***** ID Level *****/
+
+
+#category-menucontainer {
+	display: inline-block;
+	padding: 10px 0px;
+	width: 100%;
+	background-color: #4679bd;
+}
+
+#categoryNameInfo,#containerNameInfo,#providerNameInfo,#providerUrlInfo,#categoryIdInfo,#rssUrlInfo,#usernameInfo,#password1Info,#password2Info	{
+	color: #b1b1b1;
+	font-size: 12px;
+	font-style: italic;
+	margin-left: 10px;
+}
+
+
+#login-container {
+	margin-top: 50px;
+	width: 300px;
+	height: 160px;
 }
 
 #page-container {
@@ -14,90 +52,18 @@ body {
 	margin-right: auto;
 }
 
-#login-container {
-	margin-top: 50px;
-	width: 300px;
-	height: 160px;
-}
-
-#category-menucontainer {
-	display: inline-block;
-	padding: 10px 0px;
-	width: 100%;
-	background-color: #4679bd;
-}
-
-#category-list {
-	margin-top: 50px;
-	width: 400px;
-	height: 300px;
-}
-
-#categorydetail-list {
-	margin-top: 50px;
-	width: 800px;
-	height: 300px;
-}
-
-#category-container {
-	margin-top: 50px;
-	width: 400px;
-	height: 300px;
-	display: none;
-}
-
-#categoryDetail-container {
-	margin-top: 50px;
-	width: 400px;
-	height: 300px;
-	display:none;
-}
-
-.category-element {
-	margin-right: 20px;
-	float: left;
-}
-
 #signup-container {
 	margin-top: 50px;
-	width: 300px;
-	height: 200px;
+	width: 65%;
+	height: 300px;
 }
 
-.listContainerLayout {
-	margin-left: auto;
-	margin-right: auto;
-	opacity: 0.8;
-}
-
-.tableContainerLayout {
-	margin-left: auto;
-	margin-right: auto;
-	opacity: 0.8;
-}
-
-.labelText {
-	color: #4679bd;
-	font-weight: bold;
-	font-size: 13px;
-	font-weight: bold;
-}
-
-.messageText{
-	color: #ff0000;
-	font-size:15px;
-	font-weight:bold;
-}
-
+/***** Class Level *****/
 .alink {
 	text-decoration: none;
 	padding: 0 10px;
 	color: #ffffff;
 	font-size: 13px;
-}
-
-a.alink:hover {
-	text-decoration: underline;
 }
 
 .anchorButton {
@@ -112,7 +78,7 @@ a.alink:hover {
 	border-radius: 6px;
 	border: 1px solid #000;
 	display: inline-block;
-	float: right;
+	float: left;
 	font-size: 13px;
 	text-decoration: none;
 	margin: 3px;
@@ -120,25 +86,78 @@ a.alink:hover {
 	vertical-align: middle;
 }
 
-.headerRow{
-	background-color:#4679bd;
-	color:#ffffff;
+.evenRow {
+	background-color: #ffffff;
+	font-size: 13px;
+}
+
+.errorText {
+	color: red;
+	font-size:12px;
+	font-style:italic;
+	margin-left: 10px;	
+}
+
+.inputError {
+	background: #f8dbdb;
+	border-color: #e77776;
+}
+
+
+.headerCell {
+	padding: 10px 0px;
+}
+
+.headerRow {
+	background-color: #4679bd;
+	color: #ffffff;
 	font-weight: bold;
 	font-size: 15px;
 }
 
-.headerCell{
-	padding:10px 0px;
-}
-.valueCell{
-	padding:5px 0px 0px 10px;
-}
-.evenRow{
-	background-color:#ffffff;
-	font-size:13px;
+.labelText {
+	color: #4679bd;
+	font-weight: bold;
+	font-size: 13px;
+	font-weight: bold;
 }
 
-.oddRow{
-	background-color:#cccccc;
-	font-size:13px;
+.listContainerLayout {
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.8;
 }
+
+.messageText {
+	color: #ff0000;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.oddRow {
+	background-color: #cccccc;
+	font-size: 13px;
+}
+
+.subtitleText{
+	color: #4679bd;
+	font-weight: bold;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.tableContainerLayout {
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.8;
+}
+
+.valueCell {
+	padding: 5px 0px 0px 10px;
+}
+
+.category-element {
+	margin-right: 20px;
+	float: left;
+}
+

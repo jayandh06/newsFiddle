@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <jsp:include page="scripts.jsp"></jsp:include>
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/category.css"
+	type="text/css">
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/category.js"></script>
 
@@ -28,7 +31,20 @@
 					href="${pageContext.servletContext.contextPath}/admin/user">User</a>
 			</div>
 		</div>
+
+		<div id="messageContainer" class="messageText">
+			<%
+				String message = (String) request.getAttribute("message");
+				if (message != null) {
+			%>
+			<%=message%>
+			<%
+				}
+			%>
+
+		</div>
 		<div id="category-list" class="listContainerLayout">
+			<div><a href="javascript:categoryObj.addCategory();">Add Category</a></div>
 			<table id="category-list-table">
 				<tr class='headerRow'>
 					<th class="headerCell">Category Id</th>
@@ -37,17 +53,7 @@
 			</table>
 		</div>
 		<div id="category-container" class="tableContainerLayout">
-			<div id="messageContainer" class="messageText">
-				<%
-					String message = (String) request.getAttribute("message");
-					if (message != null) {
-				%>
-				<%=message%>
-				<%
-					}
-				%>
-
-			</div>
+			<div id="subtitleText">Category Form</div>
 			<form name="categoryForm" method="post">
 				<table>
 					<tr>
@@ -58,7 +64,7 @@
 					<tr>
 						<td class="labelText">Category Name</td>
 						<td><input type="text" name="categoryName" size="20"
-							maxlength="45" /></td>
+							maxlength="45" /><span id="categoryNameInfo">Valid category Name?, Atleast 4 chars.</span></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><a

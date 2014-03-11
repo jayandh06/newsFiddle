@@ -19,6 +19,7 @@ import com.jay.news.fiddle.domain.CategoryDetail;
 import com.jay.news.fiddle.service.CategoryDetailService;
 import com.jay.news.fiddle.service.CategoryService;
 import com.jay.news.fiddle.service.ReaderService;
+import com.jay.news.fiddle.util.CategorySerializer;
 import com.jay.news.fiddle.util.SyndEntrySerializer;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndEntryImpl;
@@ -37,12 +38,26 @@ public class SyndController {
 	@Autowired
 	CategoryDetailService categoryDetailService;
 
+	private static final String BUSINESS = "Business";
 	@RequestMapping("/{categoryId}")
 	public String getSyndByCategory(@PathVariable int categoryId) {
 		categoryDetailService.getDetailsByCategory(categoryId);
 		return "result";
 	}
 
+	
+	@RequestMapping("/defaultCategory")
+	@ResponseBody
+	public String getDefaultCategoryId(){
+		Category category = categoryService.getCategoryByName(BUSINESS);		
+		
+		final GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(Category.class, new CategorySerializer());
+		gsonBuilder.setPrettyPrinting();
+		final Gson gson = gsonBuilder.create();
+		return gson.toJson(category);
+	}
+	
 	@RequestMapping("/news")
 	public String showNews() {
 		return "news";

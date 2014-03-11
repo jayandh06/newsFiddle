@@ -1,19 +1,26 @@
-CREATE TABLE IF NOT EXISTS `car` (
-  `id` int(11) NOT NULL,
-  `company` varchar(45) NOT NULL,	am
-  `model` varchar(45) NOT NULL,
-  `price` decimal(10,0) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `user` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `active` bit(1) NOT NULL,
-  PRIMARY KEY (`userId`)
+  PRIMARY KEY (`userId`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `userprofile` (
+  `userprofileId` int(11) NOT NULL AUTO_INCREMENT,
+  `firstnName` varchar(45) NOT NULL,
+  `lastName` varchar(45) NOT NULL,
+  `middleName` varchar(45) DEFAULT NULL,
+  `emailId` varchar(45) NOT NULL,
+  `zipCode` int(11) DEFAULT NULL,
+  `userId` int(11) NOT NULL,
+  PRIMARY KEY (`userprofileId`),
+  UNIQUE KEY `userId_UNIQUE` (`userId`),
+  CONSTRAINT `FK_USER` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 CREATE TABLE `category` (
   `categoryId` int(11) NOT NULL AUTO_INCREMENT,

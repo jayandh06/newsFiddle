@@ -2,9 +2,11 @@ package com.jay.news.fiddle.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +15,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long userId;
+	private int userId;
 	@Column(name = "username")
 	private String username;
 	@Column(name = "password")
@@ -21,6 +23,8 @@ public class User {
 	@Column(name = "active")
 	private boolean active;
 
+	@OneToOne(fetch=FetchType.LAZY,mappedBy="user")
+	private UserProfile userProfile;
 	
 
 	public String getUsername() {
@@ -47,12 +51,23 @@ public class User {
 		this.active = active;
 	}
 
-	public long getUserId() {
+	
+
+	
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
 	}
 
 }
