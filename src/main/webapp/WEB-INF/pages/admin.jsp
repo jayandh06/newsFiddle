@@ -12,7 +12,7 @@
 <body>
 	<div id="page-container">
 		<jsp:include page="header.jsp"></jsp:include>
-		<div id="category-menucontainer">
+		<div id="menu-container">
 			<div class="category-element">
 				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/category">Category</a>
 			</div>

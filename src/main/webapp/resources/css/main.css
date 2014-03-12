@@ -24,26 +24,25 @@ html {
 /***** ID Level *****/
 
 
-#category-menucontainer {
+#menu-container {
 	display: inline-block;
 	padding: 10px 0px;
 	width: 100%;
 	background-color: #4679bd;
 }
 
-#categoryNameInfo,#containerNameInfo,#providerNameInfo,#providerUrlInfo,#categoryIdInfo,#rssUrlInfo,#usernameInfo,#password1Info,#password2Info	{
+
+#form-container span{
 	color: #b1b1b1;
 	font-size: 12px;
 	font-style: italic;
 	margin-left: 10px;
 }
 
-
-#login-container {
-	margin-top: 50px;
-	width: 300px;
-	height: 160px;
+#form-container span.errorText{
+	color:#ff0000;
 }
+
 
 #page-container {
 	width: 1024px;
@@ -52,10 +51,26 @@ html {
 	margin-right: auto;
 }
 
-#signup-container {
+#form-container {
 	margin-top: 50px;
 	width: 65%;
 	height: 300px;
+}
+
+#form-container form[name='categoryForm'],#form-container form[name='categoryDetailForm']{
+	display: none;
+}
+
+#list-container {
+	margin-top: 20px;
+}
+
+#subtitleText{
+	color: #4679bd;
+	font-weight: bold;
+	font-size: 15px;
+	font-weight: bold;	
+	text-decoration: underline;
 }
 
 /***** Class Level *****/
@@ -91,12 +106,6 @@ html {
 	font-size: 13px;
 }
 
-.errorText {
-	color: red;
-	font-size:12px;
-	font-style:italic;
-	margin-left: 10px;	
-}
 
 .inputError {
 	background: #f8dbdb;
@@ -139,12 +148,6 @@ html {
 	font-size: 13px;
 }
 
-.subtitleText{
-	color: #4679bd;
-	font-weight: bold;
-	font-size: 15px;
-	font-weight: bold;
-}
 
 .tableContainerLayout {
 	margin-left: auto;

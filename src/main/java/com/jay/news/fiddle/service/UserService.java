@@ -26,14 +26,18 @@ public class UserService {
 		userDao.update(user);
 	}
 	
-	public boolean isValidUser(String userid, String password){
+	public User getUser(int userId){
+		return userDao.get(userId);
+	}
+	
+	public User isValidUser(User user){
 		try 
 		{
-			userDao.findByUserIdPassword(userid, password);
-			return true;
+			return userDao.findByUserIdPassword(user.getUsername(), user.getPassword());
+			
 		}
 		catch(NoResultException nre) {
-			return false;
+			return null;
 		}
 		
 	}

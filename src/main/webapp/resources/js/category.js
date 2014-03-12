@@ -42,6 +42,7 @@ com.jay.newsfiddle.category = {
 	},
 	
 	retrieveCategoryList : function(){
+		
 		$.getJSON(GLOBAL_APP_CONTEXT+'/category/list',function(data){
 			var rowStyle='evenRow';
 			$.each(data,function(cnt,item){
@@ -57,14 +58,14 @@ com.jay.newsfiddle.category = {
 		});
 	},
 	addCategory:function(){
-		$("#category-list").hide();
-		$("#category-container").show();
+		$("#list-container").hide();
+		$("form[name='categoryForm']").show();
 		$("input[name='categoryName']").focus();
 		
 	},
 	retrieveCategory:function(catId){
-		$("#category-list").hide();
-		$("#category-container").show();
+		$("#list-container").hide();
+		$("form[name='categoryForm']").show();
 		
 		$.getJSON(GLOBAL_APP_CONTEXT + "/category/"+catId,function(data){
 			$('[name="categoryId"]').val(data.categoryId);
@@ -77,4 +78,3 @@ com.jay.newsfiddle.category = {
 
 var categoryObj = com.jay.newsfiddle.category;
 $(document).ready(categoryObj.retrieveCategoryList());
-var pageId ="Category";

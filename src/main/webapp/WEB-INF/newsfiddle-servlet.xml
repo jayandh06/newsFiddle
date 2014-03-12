@@ -25,7 +25,11 @@
 
 	<!-- This tag registers the DefaultAnnotationHandlerMapping and AnnotationMethodHandlerAdapter 
 		beans that are required for Spring MVC -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean class="com.jay.news.fiddle.resolver.UserProfileResolver" />
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
 
 	<!-- Exception Resolver that resolves exceptions through @ExceptionHandler 
 		methods -->
@@ -33,15 +37,15 @@
 		class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" />
 
 
-	 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/news" 
-		p:username="root" p:password="" p:initialSize="5" p:maxActive="10"> </bean> 
-	
-	<!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://127.4.57.130:3306/news"
-		p:username="adminV8PtJs1" p:password="33APmGvjR8BE" p:initialSize="5"
-		p:maxActive="10">
-	</bean>-->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/news"
+		p:username="root" p:password="" p:initialSize="5" p:maxActive="10">
+	</bean>
+
+	<!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://127.4.57.130:3306/news" 
+		p:username="adminV8PtJs1" p:password="33APmGvjR8BE" p:initialSize="5" p:maxActive="10"> 
+		</bean> -->
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 		id="entityManagerFactory">
@@ -66,7 +70,7 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">

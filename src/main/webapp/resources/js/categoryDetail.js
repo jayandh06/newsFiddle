@@ -92,17 +92,17 @@ com.jay.newsfiddle.categoryDetail = {
 		});
 	},
 	addCategoryDetail:function(){
-		$("#categoryDetail-list").hide();
-		$("#categoryDetail-container").show();
+		$("#list-container").hide();
+		$("form[name='categoryDetailForm']").show();
 		$("input[name='providerName']").focus();
 	},
 	retrieveCategoryDetail : function(catDetailId){
-		$("#categoryDetail-list").hide();
-		$("#categoryDetail-container").show();
+		$("#list-container").hide();
+		$("form[name='categoryDetailForm']").show();
 		$.getJSON(GLOBAL_APP_CONTEXT + "/categoryDetail/"+catDetailId,function(data){
 			$('[name="categoryDetailId"]').val(data.categoryDetailId);			
-			$('[name="companyName"]').val(data.companyName);			
-			$('[name="companyUrl"]').val(data.companyUrl);
+			$('[name="providerName"]').val(data.companyName);			
+			$('[name="providerUrl"]').val(data.companyUrl);
 			$('[name="rssUrl"]').val(data.rssUrl);			
 			$('[name="categoryId"]').val(data.categoryId);
 		});
@@ -111,4 +111,4 @@ com.jay.newsfiddle.categoryDetail = {
 
 var categoryDetailObj = com.jay.newsfiddle.categoryDetail;
 $(document).ready(categoryDetailObj.retrieveCategoryDetailList());
-var pageId ="CategoryDetails";
+

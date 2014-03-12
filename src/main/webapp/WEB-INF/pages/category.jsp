@@ -16,7 +16,7 @@
 <body>
 	<div id="page-container">
 		<jsp:include page="header.jsp"></jsp:include>
-		<div id="category-menucontainer">
+		<div id="menu-container">
 			<div class="category-element">
 				<a class="alink"
 					href="${pageContext.servletContext.contextPath}/admin/category">Category</a>
@@ -32,7 +32,7 @@
 			</div>
 		</div>
 
-		<div id="messageContainer" class="messageText">
+		<div id="message-container" class="messageText">
 			<%
 				String message = (String) request.getAttribute("message");
 				if (message != null) {
@@ -43,7 +43,7 @@
 			%>
 
 		</div>
-		<div id="category-list" class="listContainerLayout">
+		<div id="list-container" class="listContainerLayout">
 			<div><a href="javascript:categoryObj.addCategory();">Add Category</a></div>
 			<table id="category-list-table">
 				<tr class='headerRow'>
@@ -52,9 +52,10 @@
 				</tr>
 			</table>
 		</div>
-		<div id="category-container" class="tableContainerLayout">
-			<div id="subtitleText">Category Form</div>
-			<form name="categoryForm" method="post">
+		<div id="form-container" class="tableContainerLayout">
+			
+			<form  name="categoryForm" method="post">
+				<div id="subtitleText">Category Form</div>
 				<table>
 					<tr>
 						<td class="labelText">Category Id</td>

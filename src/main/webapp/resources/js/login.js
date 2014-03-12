@@ -1,4 +1,49 @@
 com.jay.newsfiddle.login = {
+	clearLogin : function(){
+		var username = $("input[name='username']");
+		var password = $("input[name='password']");
+		
+		username.val("");
+		password.val("");
+		
+	},	
+	validateLogin : function(){
+		var loginForm = $('form[name="loginForm"]');
+
+		var username = $("input[name='username']");
+		var usernameInfo = $("#usernameInfo");
+		
+		
+		var password = $("input[name='password']");
+		var passwordInfo = $("#passwordInfo");
+		
+		var hasError = false;
+		if(username.val().length <= 5){
+			usernameInfo.text("Invalid Username");
+			usernameInfo.addClass("errorText");
+			hasError = true;
+		}
+		else{
+			usernameInfo.text("");
+			usernameInfo.removeClass("errorText");
+		}
+		
+		if(password.val().length <= 7){
+			passwordInfo.text("Invalid Password");
+			passwordInfo.addClass("errorText");
+			hasError = true;
+		}
+		else{
+			passwordInfo.text("");
+			passwordInfo.removeClass("errorText");
+		}
+		
+		if(!hasError){
+			loginForm.attr('action', GLOBAL_APP_CONTEXT + '/login/validate');
+			loginForm.submit();
+		}
+		
+	},
 	validateSignup : function() {
 		var signupForm = $('form[name="signupForm"]');
 
@@ -9,7 +54,7 @@ com.jay.newsfiddle.login = {
 		var password2 = $("input[name='password2']");
 		var password2Info = $("#password2Info");
 
-		var hasError = true;
+		var hasError = false;
 		if (username.val().length <= 3) {
 			usernameInfo.addClass('errorText');
 			username.addClass('inputError');
@@ -40,10 +85,10 @@ com.jay.newsfiddle.login = {
 		
 		if(!hasError){
 			signupForm.attr('action', GLOBAL_APP_CONTEXT + '/login/signup');
-			singupForm.submit();
+			signupForm.submit();
 		}
 
 	}
 };
 
-loginObj = com.jay.newsfiddle.login;
+var loginObj = com.jay.newsfiddle.login;

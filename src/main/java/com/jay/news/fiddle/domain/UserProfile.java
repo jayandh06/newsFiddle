@@ -32,6 +32,9 @@ public class UserProfile {
 	@Column(name="zipCode")
 	private String zipCode;
 	
+	@OneToOne(fetch=FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	Country country;
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@PrimaryKeyJoinColumn

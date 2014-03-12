@@ -11,9 +11,9 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 
 	@Override
 	public User findByUserIdPassword(String userid, String password) {
-			Query q = em.createQuery("select u from User u where u.userid = ?1 and u.password = ?2");
-			q.setParameter(1,userid);
-			q.setParameter(2,password);
+			Query q = em.createQuery("select u from User u where u.username = :username and u.password = :password");
+			q.setParameter("username",userid);
+			q.setParameter("password",password);
 			return (User) q.getSingleResult();
 	}
 }

@@ -13,7 +13,7 @@
 
 
 		<form name="signupForm" method="post">
-		<div id="signup-container">
+		<div id="form-container">
 				<div id="subtitleText">New User Signup</div>
 				<table>
 					<tr>
@@ -26,14 +26,14 @@
 					</tr>
 					<tr>
 						<td class="labelText">Retype Password</td>
-						<td><input type="password" name="password2" size="20" /><span id="password1Info">Re-type password</span></td>
+						<td><input type="password" name="password2" size="20" /><span id="password2Info">Re-type password</span></td>
 					</tr>
 					
 					<tr>
 						<td colspan="2">&nbsp;</td>
 					</tr>
 					<tr>
-						<td colspan="2"><a href="javascript:loginObj.validateSignup();" class="anchorButton">signup here</a></td>
+						<td colspan="2"><a href="javascript:loginObj.validateSignup();" class="anchorButton">Signup here</a></td>
 					</tr>
 				</table>
 			</div>
