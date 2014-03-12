@@ -8,14 +8,14 @@ com.jay.newsfiddle.categoryDetail = {
 		var categoryForm = $('form[name="categoryDetailForm"]');
 		
 		if(action == 'create') {			
-			if(!categoryDetailsObj.validateFields()){
+			if(!categoryDetailObj.validateFields()){
 				categoryForm.attr('action', GLOBAL_APP_CONTEXT + '/categoryDetail/create');
 				categoryForm.submit();
 			}
 		}
 		
 		if(action == 'update') {
-			if(!categoryDetailsObj.validateFields()){
+			if(!categoryDetailObj.validateFields()){
 				categoryForm.attr('action', GLOBAL_APP_CONTEXT + '/categoryDetail/update');
 				categoryForm.submit();				
 			}

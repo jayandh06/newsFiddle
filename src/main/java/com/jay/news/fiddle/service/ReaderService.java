@@ -25,12 +25,12 @@ public class ReaderService {
 		XmlReader reader = null;
 		SyndFeed feed = null;
 		try {
-			
+			/*
 			System.setProperty("http.proxyHost", "proxy-tw.bcbsmn.com");
 			System.setProperty("http.proxyPort", "9119");
 			System.setProperty("http.proxyUser", "a0c5zz");
 			System.setProperty("http.proxyPassword", "test0810");
-			
+			*/
 			reader = new XmlReader(url);
 			
 			feed = new SyndFeedInput().build(reader);

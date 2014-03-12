@@ -5,7 +5,7 @@
 com.jay.newsfiddle.category = {
 	validateCategory : function(action){
 		var categoryName = $("input[name='categoryName']");
-		var categoryNameInfo =$("input[name='categoryNameInfo']");
+		var categoryNameInfo =$("#categoryNameInfo");
 		
 		var categoryForm = $('form[name="categoryForm"]');
 		var hasError =false;

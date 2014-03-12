@@ -1,37 +1,40 @@
 com.jay.newsfiddle.login = {
 	validateSignup : function() {
-		var categoryForm = $('form[name="categoryForm"]');
+		var signupForm = $('form[name="signupForm"]');
 
 		var username = $("input[name='username']");
+		var usernameInfo = $("#usernameInfo");
 		var password1 = $("input[name='password1']");
+		var password1Info = $("#password1Info")
 		var password2 = $("input[name='password2']");
+		var password2Info = $("#password2Info");
 
 		var hasError = true;
 		if (username.val().length <= 3) {
-			username.addClass('errorText');
+			usernameInfo.addClass('errorText');
 			username.addClass('inputError');
 			hasError = true;
 		} else {
-			username.removeClass('errorText');
+			usernameInfo.removeClass('errorText');
 			username.removeClass('inputError');
 		}
 
 		if (password1.val().length <= 7) {
-			password1.addClass('errorText');
+			password1Info.addClass('errorText');
 			password1.addClass('inputError');
 			hasError = true;
 		} else {
-			password1.removeClass('errorText');
+			password1Info.removeClass('errorText');
 			password1.removeClass('inputError');
 		}
 		
-		if(password2.val().length<=7 || password2 !== password1){
-			password2.addClass('errorText');
+		if(password2.val().length<=7 || password2.val() !== password1.val()){
+			password2Info.addClass('errorText');
 			password2.addClass('inputError');
 			hasError = true;
 		}
 		else{
-			password2.removeClass('errorText');
+			password2Info.removeClass('errorText');
 			password2.removeClass('inputError');
 		}
 		

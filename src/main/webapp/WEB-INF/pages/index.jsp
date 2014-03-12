@@ -24,7 +24,7 @@
 						<td><input type="password" name="password" size="20" /></td>
 					</tr>
 					<tr>
-						<td colspan="2"> <a href="javascript:loginObj.validateLogin();" class="anchorButton">Login</a> &nbsp;
+						<td colspan="2"> <a href="javascript:loginObj.validateLogin();" class="anchorButton">Login</a>
 						<a href="${pageContext.servletContext.contextPath}/login/showSignup" class="anchorButton">Signup</a></td>
 					</tr>
 				</table>
