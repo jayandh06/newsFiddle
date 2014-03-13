@@ -20,11 +20,11 @@ public class UserProfileService {
 		userProfileDao.save(userProfile);
 	}
 	
-	public void update(UserProfile userProfile){
+	public void updateProfile(UserProfile userProfile){
 		userProfileDao.update(userProfile);
 	}
 	
-	public void delete(int userProfileId){
+	public void deleteProfile(int userProfileId){
 		userProfileDao.delete(userProfileId);
 	}
 	

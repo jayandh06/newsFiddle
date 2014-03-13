@@ -15,6 +15,7 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "userprofile")
 public class UserProfile {
 
+	
 	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "user"))
 	@Id
 	@GeneratedValue(generator = "generator")
@@ -36,9 +37,8 @@ public class UserProfile {
 	@Column(name = "zipCode")
 	private String zipCode;
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	Country country;
+	@Column
+	private int countryId;
 
 	@OneToOne
 	@PrimaryKeyJoinColumn
@@ -100,4 +100,14 @@ public class UserProfile {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+	
+
+	public int getCountryId() {
+		return countryId;
+	}
+
+	public void setCountryId(int countryId) {
+		this.countryId = countryId;
+	}
+
 }

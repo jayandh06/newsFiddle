@@ -20,6 +20,7 @@ public class UserProfileSerializer implements JsonSerializer<UserProfile> {
 		jsonObject.addProperty("lastName", userprofile.getLastName());
 		jsonObject.addProperty("zipCode", userprofile.getZipCode());
 		jsonObject.addProperty("emailId", userprofile.getEmailId());
+		jsonObject.addProperty("countryId",userprofile.getCountryId());
 		return jsonObject;
 	}
 
