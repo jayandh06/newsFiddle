@@ -1,5 +1,6 @@
 package com.jay.news.fiddle.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,14 +17,17 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
+	
 	@Column(name = "username")
 	private String username;
+	
 	@Column(name = "password")
 	private String password;
+	
 	@Column(name = "active")
 	private boolean active;
 
-	@OneToOne(fetch=FetchType.LAZY,mappedBy="user")
+	@OneToOne(fetch=FetchType.LAZY,mappedBy="user",cascade=CascadeType.ALL)
 	private UserProfile userProfile;
 	
 

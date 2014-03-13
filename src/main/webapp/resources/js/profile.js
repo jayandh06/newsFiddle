@@ -6,10 +6,7 @@ com.jay.newsfiddle.profile = {
 			
 			var firstName = $("input[name='firstName']");
 			var firstNameInfo = $("#firstNameInfo");
-			
-			var middleName = $("input[name='middleName']");
-			var middleNameInfo = $("#middleNameInfo");
-			
+						
 			var lastName = $("input[name='lastName']");
 			var lastNameInfo = $("#lastNameInfo");
 			
@@ -78,7 +75,11 @@ com.jay.newsfiddle.profile = {
 			
 			$.getJSON(GLOBAL_APP_CONTEXT+'/user/retrieveProfile',function(data){
 				if(data !== "") {
-					firstName.val(data.first)
+					firstName.val(data.firstName);
+					middleName.val(data.middleName);
+					lastName.val(data.lastName);
+					primaryEmail.val(data.emailId);
+					zipCode.val(data.zipCode);
 				}
 			});
 		}

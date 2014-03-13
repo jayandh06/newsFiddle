@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.jay.news.fiddle.domain.Category;
 import com.jay.news.fiddle.domain.User;
 import com.jay.news.fiddle.domain.UserProfile;
 import com.jay.news.fiddle.service.UserProfileService;
 import com.jay.news.fiddle.service.UserService;
+import com.jay.news.fiddle.util.CategorySerializer;
 import com.jay.news.fiddle.util.NewsFiddleConstants;
+import com.jay.news.fiddle.util.UserProfileSerializer;
 
 @RequestMapping("/user")
 @Controller
@@ -30,6 +34,7 @@ public class UserController {
 	public ModelAndView createProfile( UserProfile userProfile){
 		userProfileService.createProfile(userProfile);
 		ModelAndView model = new ModelAndView("profile");
+		model.addObject("message","Profile created successfully");
 		return model;
 	}
 	
@@ -52,9 +57,13 @@ public class UserController {
 				//Logged in, but profile not created yet
 				return "";
 			}
-			
-			final Gson gson = new Gson();
+			final GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.registerTypeAdapter(UserProfile.class,
+					new UserProfileSerializer());
+			gsonBuilder.setPrettyPrinting();
+			final Gson gson = gsonBuilder.create();
 			return gson.toJson(profile);
+			
 		}
 		else {
 			return "";

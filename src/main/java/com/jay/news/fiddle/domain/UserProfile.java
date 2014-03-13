@@ -2,54 +2,49 @@ package com.jay.news.fiddle.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 @Entity
 @Table(name = "userprofile")
 public class UserProfile {
+
+	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "user"))
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int userProfileId;
-	
+	@GeneratedValue(generator = "generator")
+	@Column(name = "userId", unique = true, nullable = false)
+	private int userId;
+
 	@Column(name = "firstName")
 	private String firstName;
-	
-	@Column(name="lastName")
+
+	@Column(name = "lastName")
 	private String lastName;
-	
-	@Column(name="middleName")
+
+	@Column(name = "middleName")
 	private String middleName;
 	
-	@Column(name="emailId")
+	@Column(name = "emailId")
 	private String emailId;
-	
-	@Column(name="zipCode")
+
+	@Column(name = "zipCode")
 	private String zipCode;
-	
-	@OneToOne(fetch=FetchType.LAZY)
+
+	@OneToOne
 	@PrimaryKeyJoinColumn
 	Country country;
-	
-	@OneToOne(fetch=FetchType.LAZY)
+
+	@OneToOne
 	@PrimaryKeyJoinColumn
 	private User user;
 
 	
-
-	public int getUserProfileId() {
-		return userProfileId;
-	}
-
-	public void setUserProfileId(int userProfileId) {
-		this.userProfileId = userProfileId;
-	}
-
 	public String getFirstName() {
 		return firstName;
 	}
@@ -97,6 +92,12 @@ public class UserProfile {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-	
 
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 }
