@@ -9,9 +9,6 @@
 	src="${pageContext.servletContext.contextPath}/resources/js/profile.js"></script>
 	 
 <% String username= (String)session.getAttribute(NewsFiddleConstants.SESSION_USER_NAME);%>
-<script type="text/javascript">
-	var userName = <%=username%>;
-</script>	
 <title>::News-Fiddle:: Manage Profile</title>
 </head>
 <body>
@@ -24,8 +21,8 @@
 				<table>
 					<tr>
 						<td class="labelText">Username</td>
-						<td><input type="text" name="username" size="5"
-							maxlength="45" readonly="readonly" /></td>
+						<td><input type="text" name="username" size="20"
+							maxlength="45" readonly="readonly" value="<%=username%>"/></td>
 					</tr>
 					<tr>
 						<td class="labelText">First Name:</td>
