@@ -13,6 +13,7 @@
 
 	<div id="page-container">
 		<jsp:include page="header.jsp"></jsp:include>
+		<div id="fb-root"></div>
 		<div id="form-container" class="tableContainerLayout">
 			<div id="subtitleText">Welcome to News-Fiddle</div>
 			<div id="message-container" class="messageText">
@@ -38,6 +39,11 @@
 						<td colspan="2"><a
 							href="javascript:loginObj.validateLogin();" class="anchorButton">Login</a>
 							<a href="javascript:loginObj.clearLogin();" class="anchorButton">Clear</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><a
+							href="javascript:loginObj.fbLogin();" class="anchorButton">Facebook Login</a>						
 						</td>
 					</tr>
 					<tr>

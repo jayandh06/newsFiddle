@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jay.news.fiddle.domain.User;
@@ -14,7 +13,6 @@ import com.jay.news.fiddle.service.UserService;
 import com.jay.news.fiddle.util.NewsFiddleConstants;
 
 @Controller
-@SessionAttributes("user")
 @RequestMapping("/login")
 public class LoginController {
 
@@ -34,7 +32,7 @@ public class LoginController {
 			session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,
 					user.getUserId());
 			session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,
-					user.getUsername());
+					user.getUsername());			
 			model = new ModelAndView("news");
 			return model;
 		} else {
@@ -44,6 +42,12 @@ public class LoginController {
 		}
 	}
 
+	@RequestMapping("/fblogin")
+	public String fblogin(String data){
+		
+		return "news";
+	}
+	
 	@RequestMapping("/quit")
 	public ModelAndView logout(HttpSession session) {
 		invalidateUserSession(session);

@@ -1,48 +1,45 @@
 com.jay.newsfiddle.login = {
-	clearLogin : function(){
+	clearLogin : function() {
 		var username = $("input[name='username']");
 		var password = $("input[name='password']");
-		
+
 		username.val("");
 		password.val("");
-		
-	},	
-	validateLogin : function(){
+
+	},
+	validateLogin : function() {
 		var loginForm = $('form[name="loginForm"]');
 
 		var username = $("input[name='username']");
 		var usernameInfo = $("#usernameInfo");
-		
-		
+
 		var password = $("input[name='password']");
 		var passwordInfo = $("#passwordInfo");
-		
+
 		var hasError = false;
-		if(username.val().length <= 5){
+		if (username.val().length <= 5) {
 			usernameInfo.text("Invalid Username");
 			usernameInfo.addClass("errorText");
 			hasError = true;
-		}
-		else{
+		} else {
 			usernameInfo.text("");
 			usernameInfo.removeClass("errorText");
 		}
-		
-		if(password.val().length <= 7){
+
+		if (password.val().length <= 7) {
 			passwordInfo.text("Invalid Password");
 			passwordInfo.addClass("errorText");
 			hasError = true;
-		}
-		else{
+		} else {
 			passwordInfo.text("");
 			passwordInfo.removeClass("errorText");
 		}
-		
-		if(!hasError){
+
+		if (!hasError) {
 			loginForm.attr('action', GLOBAL_APP_CONTEXT + '/login/validate');
 			loginForm.submit();
 		}
-		
+
 	},
 	validateSignup : function() {
 		var signupForm = $('form[name="signupForm"]');
@@ -72,23 +69,64 @@ com.jay.newsfiddle.login = {
 			password1Info.removeClass('errorText');
 			password1.removeClass('inputError');
 		}
-		
-		if(password2.val().length<=7 || password2.val() !== password1.val()){
+
+		if (password2.val().length <= 7 || password2.val() !== password1.val()) {
 			password2Info.addClass('errorText');
 			password2.addClass('inputError');
 			hasError = true;
-		}
-		else{
+		} else {
 			password2Info.removeClass('errorText');
 			password2.removeClass('inputError');
 		}
-		
-		if(!hasError){
+
+		if (!hasError) {
 			signupForm.attr('action', GLOBAL_APP_CONTEXT + '/login/signup');
 			signupForm.submit();
 		}
 
+	},
+	fbLogin : function(){
+		 FB.login(function(response) {
+			   if (response.authResponse) {
+			     console.log('Welcome!  Fetching your information.... ');
+			     FB.api('/me', function(response) {
+			       $.ajax({url:GLOBAL_APP_CONTEXT+'/login/fblogin',type:"POST",data:response})
+			       console.log('Good to see you, ' + response.name + '.');
+			     });
+			     
+			   } else {
+			     console.log('User cancelled login or did not fully authorize.');
+			   }
+			 });
+	},
+	fbLoginStatus : function(response) {
+		if (response.status === 'connected') {
+			// the user is logged in and has authenticated your
+			// app, and response.authResponse supplies
+			// the user's ID, a valid access token, a signed
+			// request, and the time the access token
+			// and signed request each expire
+			var uid = response.authResponse.userID;
+			var accessToken = response.authResponse.accessToken;
+		} else if (response.status === 'not_authorized') {
+			// the user is logged in to Facebook,
+			// but has not authenticated your app
+		} else {
+			// the user isn't logged in to Facebook.
+		}
 	}
 };
 
 var loginObj = com.jay.newsfiddle.login;
+$(document).ready(function() {
+	$.ajaxSetup({
+		cache : true
+	});
+	$.getScript('//connect.facebook.net/en_UK/all.js', function() {
+		FB.init({
+			appId : '705901259456455',
+		});
+		$('#loginbutton,#feedbutton').removeAttr('disabled');
+		FB.getLoginStatus(loginObj.fbLoginStatus);
+	});
+});
