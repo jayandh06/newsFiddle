@@ -43,7 +43,7 @@
 					</tr>
 					<tr>
 						<td colspan="2"><a
-							href="javascript:loginObj.fbLoginStatus();" class="anchorButton">Facebook Login</a>						
+							href="javascript:loginObj.fbGetLoginStatus();" class="anchorButton">Facebook Login</a>						
 						</td>
 					</tr>
 					<tr>

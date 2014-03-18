@@ -105,7 +105,7 @@ com.jay.newsfiddle.login = {
               '"lastName":"'+ response.last_name +'",'+
               '"username":"'+ response.username +'",'+
               '"gender":"'+ response.gender +'"'+
-             '"}"'; 
+             '}"'; 
 			
 			$.ajax({
 				url : GLOBAL_APP_CONTEXT + '/login/fblogin',
@@ -117,6 +117,9 @@ com.jay.newsfiddle.login = {
 			console.log('Good to see you, ' + response.name
 					+ '.');
 		});
+	},
+	fbGetLoginStatus : function(){
+		FB.getLoginStatus(loginObj.fbLoginStatus);
 	},
 	fbLoginStatus : function(response) {
 		if (response.status === 'connected') {
@@ -149,6 +152,6 @@ $(document).ready(function() {
 			appId : '705901259456455',
 		});
 		$('#loginbutton,#feedbutton').removeAttr('disabled');
-		FB.getLoginStatus(loginObj.fbLoginStatus);
+		
 	});
 });
