@@ -3,11 +3,15 @@ package com.jay.news.fiddle.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jay.news.fiddle.domain.FBUser;
 import com.jay.news.fiddle.domain.User;
 import com.jay.news.fiddle.service.UserService;
 import com.jay.news.fiddle.util.NewsFiddleConstants;
@@ -42,9 +46,9 @@ public class LoginController {
 		}
 	}
 
-	@RequestMapping("/fblogin")
-	public String fblogin(String data){
-		
+	@RequestMapping(value="/fblogin",method=RequestMethod.POST)
+	public String fblogin(@RequestBody FBUser data){
+		User user = new  User();
 		return "news";
 	}
 	

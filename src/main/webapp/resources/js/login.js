@@ -85,19 +85,38 @@ com.jay.newsfiddle.login = {
 		}
 
 	},
-	fbLogin : function(){
-		 FB.login(function(response) {
-			   if (response.authResponse) {
-			     console.log('Welcome!  Fetching your information.... ');
-			     FB.api('/me', function(response) {
-			       $.ajax({url:GLOBAL_APP_CONTEXT+'/login/fblogin',type:"POST",data:response})
-			       console.log('Good to see you, ' + response.name + '.');
-			     });
-			     
-			   } else {
-			     console.log('User cancelled login or did not fully authorize.');
-			   }
-			 });
+	fbLogin : function() {
+		FB
+				.login(function(response) {
+					if (response.authResponse) {
+						//console.log('Welcome!  Fetching your information.... ');					
+						loginObj.fbGetUserDetails();
+
+					} else {
+						console
+								.log('User cancelled login or did not fully authorize.');
+					}
+				});
+	},
+	fbGetUserDetails : function(){
+		FB.api('/me', function(response) {
+			var fbData = '{"id":"'+ response.id +'",' +
+              '"firstName":"'+ response.first_name +'",'+
+              '"lastName":"'+ response.last_name +'",'+
+              '"username":"'+ response.username +'",'+
+              '"gender":"'+ response.gender +'"'+
+             '"}"'; 
+			
+			$.ajax({
+				url : GLOBAL_APP_CONTEXT + '/login/fblogin',
+				type : "POST",
+				data : fbData,
+				contentType : 'application/json',
+				dataType:'JSON'
+			})
+			console.log('Good to see you, ' + response.name
+					+ '.');
+		});
 	},
 	fbLoginStatus : function(response) {
 		if (response.status === 'connected') {
@@ -108,10 +127,13 @@ com.jay.newsfiddle.login = {
 			// and signed request each expire
 			var uid = response.authResponse.userID;
 			var accessToken = response.authResponse.accessToken;
+			loginObj.fbGetUserDetails();
 		} else if (response.status === 'not_authorized') {
 			// the user is logged in to Facebook,
 			// but has not authenticated your app
+			loginObj.fbLogin();
 		} else {
+			loginObj.fbLogin();
 			// the user isn't logged in to Facebook.
 		}
 	}

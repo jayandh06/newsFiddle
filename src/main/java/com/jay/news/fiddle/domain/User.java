@@ -26,6 +26,9 @@ public class User {
 	
 	@Column(name = "active")
 	private boolean active;
+	
+	@Column
+	private int fbId;
 
 	@OneToOne(fetch=FetchType.LAZY,mappedBy="user",cascade=CascadeType.ALL)
 	private UserProfile userProfile;
@@ -72,6 +75,14 @@ public class User {
 
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
+	}
+
+	public int getFbId() {
+		return fbId;
+	}
+
+	public void setFbId(int fbId) {
+		this.fbId = fbId;
 	}
 
 }

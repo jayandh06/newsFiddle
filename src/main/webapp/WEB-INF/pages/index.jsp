@@ -43,7 +43,7 @@
 					</tr>
 					<tr>
 						<td colspan="2"><a
-							href="javascript:loginObj.fbLogin();" class="anchorButton">Facebook Login</a>						
+							href="javascript:loginObj.fbLoginStatus();" class="anchorButton">Facebook Login</a>						
 						</td>
 					</tr>
 					<tr>
@@ -51,7 +51,6 @@
 							href="${pageContext.servletContext.contextPath}/login/showSignup"
 							class="anchorButton">New User? Signup Here</a></td>
 					</tr>
-
 				</table>
 			</form>
 		</div>
