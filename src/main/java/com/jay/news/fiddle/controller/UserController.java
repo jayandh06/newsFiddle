@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,6 +24,7 @@ import com.jay.news.fiddle.util.UserProfileSerializer;
 
 @RequestMapping("/user")
 @Controller
+@Transactional
 public class UserController {
 
 	@Autowired
@@ -46,7 +48,7 @@ public class UserController {
 	public ModelAndView updateProfile( UserProfile userProfile){
 		userProfileService.updateProfile(userProfile);
 		ModelAndView model = new ModelAndView("profile");
-		model.addObject("message","Profile created successfully");
+		model.addObject("message","Profile updated successfully");
 		return model;
 	}
 	
@@ -63,7 +65,7 @@ public class UserController {
 		UserProfile profile;
 		if(userId != null){
 			try {
-				profile = userProfileService.getUserProfile(userId);
+				profile = userProfileService.findProfileByUserId(userId);
 			}
 			catch(NoResultException nre){
 				//Logged in, but profile not created yet

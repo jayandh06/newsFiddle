@@ -110,7 +110,7 @@ com.jay.newsfiddle.categoryDetail = {
 };
 
 var categoryDetailObj = com.jay.newsfiddle.categoryDetail;
-$(window).load(alert('window loaded'));
 
-$(document).ready(alert('document ready'));//categoryDetailObj.retrieveCategoryDetailList());
+
+$(document).ready(categoryDetailObj.retrieveCategoryDetailList());
 

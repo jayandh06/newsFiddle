@@ -26,10 +26,14 @@ public class UserService {
 		userDao.update(user);
 	}
 	
-	public User getUser(int userId){
+	public User findUserById(int userId){
 		return userDao.get(userId);
 	}
 	
+	public User findByFBId(String fbId){
+		return userDao.findByFBId(fbId);
+	}
+		
 	public User isValidUser(User user){
 		try 
 		{

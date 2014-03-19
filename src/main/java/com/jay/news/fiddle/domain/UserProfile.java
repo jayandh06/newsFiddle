@@ -34,6 +34,9 @@ public class UserProfile {
 	@Column(name = "emailId")
 	private String emailId;
 
+	@Column
+	private char gender;
+	
 	@Column(name = "zipCode")
 	private String zipCode;
 
@@ -108,6 +111,14 @@ public class UserProfile {
 
 	public void setCountryId(int countryId) {
 		this.countryId = countryId;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
 	}
 
 }

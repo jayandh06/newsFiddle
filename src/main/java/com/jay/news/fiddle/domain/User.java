@@ -17,22 +17,21 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
-	
+
 	@Column(name = "username")
 	private String username;
-	
+
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "active")
 	private boolean active;
-	
-	@Column
-	private int fbId;
 
-	@OneToOne(fetch=FetchType.LAZY,mappedBy="user",cascade=CascadeType.ALL)
+	@Column
+	private String fbId;
+
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
 	private UserProfile userProfile;
-	
 
 	public String getUsername() {
 		return username;
@@ -58,9 +57,6 @@ public class User {
 		this.active = active;
 	}
 
-	
-
-	
 	public int getUserId() {
 		return userId;
 	}
@@ -77,11 +73,11 @@ public class User {
 		this.userProfile = userProfile;
 	}
 
-	public int getFbId() {
+	public String getFbId() {
 		return fbId;
 	}
 
-	public void setFbId(int fbId) {
+	public void setFbId(String fbId) {
 		this.fbId = fbId;
 	}
 

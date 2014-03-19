@@ -17,43 +17,53 @@
 		<div id="form-container" class="tableContainerLayout">
 			<div id="subtitleText">Welcome to News-Fiddle</div>
 			<div id="message-container" class="messageText">
-				<%String message = (String) request.getAttribute("message");
-				  if (message != null) {%>
-					<%=message%>
-				<%}%>
+				<%
+					String message = (String) request.getAttribute("message");
+					if (message != null) {
+				%>
+				<%=message%>
+				<%
+					}
+				%>
 
 			</div>
-			<form name="loginForm" method="post">
-				<table>
-					<tr>
-						<td class="labelText">Username</td>
-						<td><input type="text" name="username" size="20" /><span
-							id="usernameInfo"></span></td>
-					</tr>
-					<tr>
-						<td class="labelText">Password</td>
-						<td><input type="password" name="password" size="20" /><span
-							id="passwordInfo"></span></td>
-					</tr>
-					<tr>
-						<td colspan="2"><a
-							href="javascript:loginObj.validateLogin();" class="anchorButton">Login</a>
-							<a href="javascript:loginObj.clearLogin();" class="anchorButton">Clear</a>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2"><a
-							href="javascript:loginObj.fbGetLoginStatus();" class="anchorButton">Facebook Login</a>						
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2"><a
-							href="${pageContext.servletContext.contextPath}/login/showSignup"
-							class="anchorButton">New User? Signup Here</a></td>
-					</tr>
-				</table>
-			</form>
+			<div id="left-container">
+				<form name="loginForm" method="post">
+					<table>
+						<tr>
+							<td class="labelText">Username</td>
+							<td><input type="text" name="username" size="20" /><span
+								id="usernameInfo"></span></td>
+						</tr>
+						<tr>
+							<td class="labelText">Password</td>
+							<td><input type="password" name="password" size="20" /><span
+								id="passwordInfo"></span></td>
+						</tr>
+						<tr>
+							<td colspan="2"><a
+								href="javascript:loginObj.validateLogin();" class="anchorButton">Login</a>
+								<a href="javascript:loginObj.clearLogin();" class="anchorButton">Clear</a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><a
+								href="${pageContext.servletContext.contextPath}/login/showSignup"
+								class="anchorButton">New User? Signup Here</a></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<div id="line-container">
+			</div>
+			<div id="right-container">
+								<div class="labelText">Login with Facebook</div><br><br>
+								<a
+								href="javascript:loginObj.fbGetLoginStatus();"
+								class="anchorButton">Facebook Login</a>
+			</div>
 		</div>
+		<div></div>
 	</div>
 </body>
 </html>

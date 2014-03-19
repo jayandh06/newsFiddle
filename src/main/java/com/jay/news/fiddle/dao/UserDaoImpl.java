@@ -16,5 +16,12 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 			q.setParameter("password",password);
 			return (User) q.getSingleResult();
 	}
+
+	@Override
+	public User findByFBId(String fbId) {
+		Query q = em.createQuery("SELECT u FROM User u WHERE u.fbId = :fbId");
+		q.setParameter("fbId", fbId);				
+		return (User) q.getSingleResult();
+	}
 }
 	

@@ -96,7 +96,7 @@ com.jay.newsfiddle.login = {
 						console
 								.log('User cancelled login or did not fully authorize.');
 					}
-				});
+				},{scope:'email'});
 	},
 	fbGetUserDetails : function(){
 		FB.api('/me', function(response) {
@@ -104,7 +104,8 @@ com.jay.newsfiddle.login = {
               '"firstName":"'+ response.first_name +'",'+
               '"lastName":"'+ response.last_name +'",'+
               '"username":"'+ response.username +'",'+
-              '"gender":"'+ response.gender +'"'+
+              '"gender":"'+ response.gender +'",'+
+              '"email":"'+ response.email +'"'+
              '}"'; 
 			
 			$.ajax({
@@ -112,7 +113,10 @@ com.jay.newsfiddle.login = {
 				type : "POST",
 				data : fbData,
 				contentType : 'application/json',
-				dataType:'JSON'
+				dataType:'JSON',
+				success : function(data){
+					window.location.href = GLOBAL_APP_CONTEXT+data.redirectPage;
+				}
 			})
 			console.log('Good to see you, ' + response.name
 					+ '.');

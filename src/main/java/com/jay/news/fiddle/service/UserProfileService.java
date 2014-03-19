@@ -12,8 +12,8 @@ public class UserProfileService {
 	@Autowired
 	UserProfileDao userProfileDao;
 	
-	public UserProfile getUserProfile(int userId){
-		return userProfileDao.getUserProfileByUserId(userId);
+	public UserProfile findProfileByUserId(int userId){
+		return userProfileDao.findProfileByUserId(userId);
 	}
 	
 	public void createProfile(UserProfile userProfile){
@@ -28,4 +28,7 @@ public class UserProfileService {
 		userProfileDao.delete(userProfileId);
 	}
 	
+	public UserProfile findProfileByEmailId(String emailId){
+		return userProfileDao.findProfileByEmailId(emailId);
+	}
 }

@@ -10,6 +10,7 @@ public class FBUser {
 	private String lastName;
 	private String gender;
 	private String username;
+	private String email;
 	
 	public String getId() {
 		return id;
@@ -40,6 +41,12 @@ public class FBUser {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

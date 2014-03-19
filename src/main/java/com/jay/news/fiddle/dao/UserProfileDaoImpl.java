@@ -8,9 +8,17 @@ import com.jay.news.fiddle.domain.UserProfile;
 
 @Repository
 public class UserProfileDaoImpl extends GenericDaoImpl<UserProfile> implements UserProfileDao{
-	public UserProfile getUserProfileByUserId(int userId) {
+	public UserProfile findProfileByUserId(int userId) {
 		Query q = em.createQuery(" Select up from UserProfile up where up.userId = :userid");
 		q.setParameter("userid", userId);
+		
+		return (UserProfile) q.getSingleResult();
+	}
+
+	@Override
+	public UserProfile findProfileByEmailId(String emailId) {
+		Query q = em.createQuery(" Select up from UserProfile up where up.emailId = :emailId");
+		q.setParameter("emailId", emailId);
 		
 		return (UserProfile) q.getSingleResult();
 	}

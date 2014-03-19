@@ -56,6 +56,25 @@ html {
 	width: 65%;
 	height: 300px;
 }
+#left-container {
+	width :45%;
+	float: left;
+	
+}
+
+#right-container {
+	width:45%;
+	float: left;
+}
+
+#line-container {
+    width:2px;
+    height:100%;
+   
+    margin-right:20px;
+    background-color:#cccccc;
+    float:left;
+}
 
 #form-container form[name='categoryForm'],#form-container form[name='categoryDetailForm']{
 	display: none;
