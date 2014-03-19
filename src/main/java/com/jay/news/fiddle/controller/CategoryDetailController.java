@@ -70,6 +70,18 @@ public class CategoryDetailController {
 		final Gson gson = gsonBuilder.create();
 		return gson.toJson(categoryDetails);
 	}
+	
+	@RequestMapping("/list/{categoryId}")
+	@ResponseBody
+	public String getCategoryDetailsForCategory(@PathVariable String categoryId) {
+		List<CategoryDetail> categoryDetails = categoryDetailService.getDetailsByCategory(new Integer(categoryId));				
+		final GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(CategoryDetail.class,
+				new CategoryDetailSerializer());
+		gsonBuilder.setPrettyPrinting();
+		final Gson gson = gsonBuilder.create();
+		return gson.toJson(categoryDetails);
+	}
 
 	private void addCategoryListToModel(ModelAndView model) {
 		List<Category> categories = categoryService.getCategories();

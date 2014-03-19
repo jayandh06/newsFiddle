@@ -41,15 +41,10 @@ public class LoginController {
 		ModelAndView model;
 		user = userService.isValidUser(user);
 		UserProfile profile = userProfileService.findProfileByUserId(user.getUserId());
-		String fullName = profile.getLastName()+", "+profile.getFirstName();
+		
 		
 		if (user != null) {
-			session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,
-					user.getUserId());
-			session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,
-					user.getUsername());
-			session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME, fullName);
-			
+			activateUserSession(user,profile, session);
 			model = new ModelAndView("news");
 			return model;
 		} else {
@@ -82,7 +77,8 @@ public class LoginController {
 			//fb user not found in DB create a new User
 			user = new User();
 			user.setFbId(fbUser.getId());
-			user.setUsername(fbUser.getUsername());
+			user.setAdmin(false);
+			//user.setUsername(fbUser.getUsername());
 			userService.createUser(user);
 			
 			user = userService.findByFBId(fbUser.getId());
@@ -104,10 +100,8 @@ public class LoginController {
 			
 		}
 
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,
-				user.getUserId());
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,
-				user.getUsername());
+		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,user.getUserId());
+		//session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,user.getUsername());
 		String fullName = profile.getLastName()+", "+profile.getFirstName();
 		session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME,
 				fullName);
@@ -125,7 +119,9 @@ public class LoginController {
 
 	private void invalidateUserSession(HttpSession session) {
 		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID, null);
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, null);
+		session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME, null);
+		session.setAttribute(NewsFiddleConstants.SESSION_USER_ISADMIN, null);
+		//session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, null);
 	}
 
 	@RequestMapping(value = "")
@@ -145,16 +141,27 @@ public class LoginController {
 		user.setUsername(username);
 		user.setPassword(password1);
 		user.setActive(false);
+		user.setAdmin(false);
 
 		userService.createUser(user);
 
 		user = userService.isValidUser(user);
 		if (user != null) {
-			session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,
-					user.getUserId());
-			session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,
-					user.getUsername());
+			activateUserSession(user, null,session);
 		}
 		return "news";
+	}
+	
+	private void activateUserSession(User user,UserProfile profile,HttpSession session){
+		//session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,user.getUsername());
+		String fullName = "";
+		if(profile != null){
+			fullName = profile.getLastName()+", "+profile.getFirstName();
+		}
+		
+		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,user.getUserId());
+		session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME, fullName);
+		session.setAttribute(NewsFiddleConstants.SESSION_USER_ISADMIN,user.isAdmin());		
+		
 	}
 }

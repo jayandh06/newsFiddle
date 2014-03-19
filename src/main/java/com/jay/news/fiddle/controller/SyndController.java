@@ -14,12 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.jay.news.fiddle.domain.Category;
 import com.jay.news.fiddle.domain.CategoryDetail;
 import com.jay.news.fiddle.service.CategoryDetailService;
-import com.jay.news.fiddle.service.CategoryService;
 import com.jay.news.fiddle.service.ReaderService;
-import com.jay.news.fiddle.util.CategorySerializer;
 import com.jay.news.fiddle.util.SyndEntrySerializer;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndEntryImpl;
@@ -31,75 +28,45 @@ public class SyndController {
 	private static final Logger log = Logger.getLogger(SyndController.class);
 	@Autowired
 	ReaderService readerService;
-
-	@Autowired
-	CategoryService categoryService;
+	
 
 	@Autowired
 	CategoryDetailService categoryDetailService;
 
-	private static final String BUSINESS = "Business";
-	@RequestMapping("/{categoryId}")
-	public String getSyndByCategory(@PathVariable int categoryId) {
-		categoryDetailService.getDetailsByCategory(categoryId);
-		return "result";
-	}
-
-	
-	@RequestMapping("/defaultCategory")
-	@ResponseBody
-	public String getDefaultCategoryId(){
-		Category category = categoryService.getCategoryByName(BUSINESS);		
-		
-		final GsonBuilder gsonBuilder = new GsonBuilder();
-		gsonBuilder.registerTypeAdapter(Category.class, new CategorySerializer());
-		gsonBuilder.setPrettyPrinting();
-		final Gson gson = gsonBuilder.create();
-		return gson.toJson(category);
-	}
-	
 	@RequestMapping("/news")
 	public String showNews() {
 		return "news";
 	}
 
-	@RequestMapping("/hotNews/{categoryId}")
+	@RequestMapping("/news/{categoryDetailId}")
 	@ResponseBody
-	public String getHotNews(@PathVariable String categoryId) {
+	public String getHotNews(@PathVariable String categoryDetailId) {
 
-		List<CategoryDetail> catDetails = new ArrayList<CategoryDetail>();
+		CategoryDetail catDetail;
 		List<SyndEntry> entries = new ArrayList<SyndEntry>();
-		
-		//If categoryId is not there get all categories 
-		if (categoryId == null) {
-			List<Category> categories = categoryService.getCategories();
-			for (Category category : categories) {
-				catDetails.addAll(categoryDetailService
-						.getDetailsByCategory(category.getCategoryId()));
-			}
-		} else {
-			catDetails = categoryDetailService
-					.getDetailsByCategory(new Integer(categoryId));
-		}
-		
+
+		catDetail = categoryDetailService.getDetailById(new Integer(
+				categoryDetailId));
+
 		URL url = null;
-		for (CategoryDetail catDetail : catDetails) {
+		StringBuilder responseString = new StringBuilder();
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		Gson gson;
 
-			try {
-				url = new URL(catDetail.getRssUrl());
-				entries.addAll(readerService.getFeeds(url));
-
-			} catch (MalformedURLException e) {
-				log.error("Invalid URL Exception");
-			}
-			 			
+		try {
+			url = new URL(catDetail.getRssUrl());
+			entries.addAll(readerService.getFeeds(url, catDetail));
+			gsonBuilder.registerTypeAdapter(SyndEntryImpl.class,
+					new SyndEntrySerializer(catDetail.getCompany()));
+			gsonBuilder.setPrettyPrinting();
+			gson = gsonBuilder.create();
+			responseString.append(gson.toJson(entries
+					.toArray(new SyndEntryImpl[0])));
+		} catch (MalformedURLException e) {
+			log.error("Invalid URL Exception");
 		}
-		final GsonBuilder gsonBuilder = new GsonBuilder();
-		gsonBuilder.registerTypeAdapter(SyndEntryImpl.class,
-				new SyndEntrySerializer());
-		gsonBuilder.setPrettyPrinting();
-		final Gson gson = gsonBuilder.create();
-		
-		return gson.toJson(entries.toArray(new SyndEntryImpl[0])); 
+
+		return responseString.toString();
+
 	}
 }

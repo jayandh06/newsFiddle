@@ -29,16 +29,18 @@
 						<td><input type="text" name="firstName" size="20"
 							maxlength="45" /><span id="firstNameInfo">Your First Name</span></td>
 					</tr>
-					<tr>
-						<td class="labelText">Middle Name</td>
-						<td><input type="text" name="middleName" size="20"
-							maxlength="45" /><span id="middleNameInfo">Your Middle Name</span></td>
-					</tr>
+					
 					<tr>
 						<td class="labelText">Last Name</td>
 						<td><input type="text" name="lastName" size="20"
 							maxlength="45" /><span id="lastNameInfo">Your Last Name</span></td>
 					</tr>
+					
+					<tr>
+						<td class="labelText">Gender</td>
+						<td><input type="radio" name="gender" value="M" checked="checked">Male</input>&nbsp;<input type="radio" name="gender" value="F">Female</input><span id="lastNameInfo">Are you Male/ Female?</span></td>
+					</tr>
+					
 					<tr>
 						<td class="labelText">Primary Email</td>
 						<td><input type="text" name="primaryEmail" size="20"

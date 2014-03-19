@@ -15,8 +15,8 @@ public class CategoryDetailSerializer implements	JsonSerializer<CategoryDetail>{
 		
 		final JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("categoryDetailId", categoryDetail.getCatDetailId());
-		jsonObject.addProperty("companyUrl", categoryDetail.getCompanyUrl());
-		jsonObject.addProperty("companyName", categoryDetail.getCompany());
+		jsonObject.addProperty("providerUrl", categoryDetail.getCompanyUrl());
+		jsonObject.addProperty("providerName", categoryDetail.getCompany());
 		jsonObject.addProperty("rssUrl", categoryDetail.getRssUrl());
 		jsonObject.addProperty("categoryId", categoryDetail.getCategory().getCategoryId());
 		jsonObject.addProperty("categoryName",categoryDetail.getCategory().getCategoryName());

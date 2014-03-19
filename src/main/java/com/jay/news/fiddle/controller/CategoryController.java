@@ -26,7 +26,9 @@ import com.jay.news.fiddle.util.CategorySerializer;
 public class CategoryController {
 
 	private static Logger log = Logger.getLogger(CategoryController.class);
-
+	
+	private static final String BUSINESS = "Business";
+	
 	@Autowired
 	CategoryService categoryService;
 
@@ -49,6 +51,18 @@ public class CategoryController {
 		return model;
 	}
 
+	@RequestMapping("/default")
+	@ResponseBody
+	public String getDefaultCategoryId(){
+		Category category = categoryService.getCategoryByName(BUSINESS);		
+		
+		final GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(Category.class, new CategorySerializer());
+		gsonBuilder.setPrettyPrinting();
+		final Gson gson = gsonBuilder.create();
+		return gson.toJson(category);
+	}
+	
 	@RequestMapping("/update")
 	public ModelAndView updateCategory(@RequestParam String categoryName) {
 		Category cat = new Category();

@@ -72,6 +72,7 @@ com.jay.newsfiddle.profile = {
 				var lastName = $("input[name='lastName']");
 				var primaryEmail = $("input[name='primaryEmail']");
 				var zipCode = $("input[name='zipCode']");
+				var gender = $("input[name='gender']");
 
 				$.each(data1[0], function(cnt, item) {
 					countrySelect.append("<option value='" + item.countryId + "'>"

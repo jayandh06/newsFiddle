@@ -26,11 +26,12 @@ public class UserProfileResolver implements HandlerMethodArgumentResolver {
 		if (parameter.getParameterType().equals(UserProfile.class)) {
 			UserProfile userProfile = new UserProfile();	
 			userProfile.setFirstName(webRequest.getParameter("firstName"));
-			userProfile.setMiddleName(webRequest.getParameter("middleName"));
+			//userProfile.setMiddleName(webRequest.getParameter("middleName"));
 			userProfile.setCountryId(new Integer(webRequest.getParameter("countryId")));
 			userProfile.setLastName(webRequest.getParameter("lastName"));
 			userProfile.setEmailId(webRequest.getParameter("primaryEmail"));
 			userProfile.setZipCode(webRequest.getParameter("zipCode"));
+			userProfile.setGender(webRequest.getParameter("gender").charAt(0));
 			
 			User user = new User();
 			user.setUserId((Integer)webRequest.getAttribute(NewsFiddleConstants.SESSION_USER_ID,RequestAttributes.SCOPE_SESSION));

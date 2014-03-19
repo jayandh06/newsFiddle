@@ -95,6 +95,7 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>${spring-version}</version>
 		</dependency>
+	
 		<!-- Hibernate and JPA -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

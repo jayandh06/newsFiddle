@@ -9,6 +9,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import com.jay.news.fiddle.domain.CategoryDetail;
+import com.jay.news.fiddle.domain.FiddleSyndEntry;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
@@ -20,8 +22,8 @@ public class ReaderService {
 
 	private static final Logger log = Logger.getLogger(ReaderService.class);
 	
-	public List<SyndEntry> getFeeds(URL url) {
-		List<SyndEntry> feeds = new ArrayList<SyndEntry>();
+	public List<FiddleSyndEntry> getFeeds(URL url, CategoryDetail catDetail) {
+		List<FiddleSyndEntry> feeds = new ArrayList<FiddleSyndEntry>();
 		XmlReader reader = null;
 		SyndFeed feed = null;
 		try {
@@ -35,6 +37,7 @@ public class ReaderService {
 			
 			feed = new SyndFeedInput().build(reader);
 			feeds = feed.getEntries();
+			
 		} catch (IOException e) {
 			log.error("Exception reading url");
 		} catch (IllegalArgumentException e) {
@@ -49,6 +52,7 @@ public class ReaderService {
 					log.error("Unable to close Feed XmlReader");
 				}
 		}
+		
 		return feeds;
 	}
 

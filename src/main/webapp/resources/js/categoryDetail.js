@@ -86,7 +86,7 @@ com.jay.newsfiddle.categoryDetail = {
 				if(cnt%2 == 0){
 					rowStyle='evenRow';
 				}				
-				$("#categorydetail-list-table").append('<tr class='+rowStyle+'><td width="150px" class="valueCell" ><a href="javascript:categoryDetailObj.retrieveCategoryDetail('+item.categoryDetailId+')">'+item.categoryDetailId+'</a></td><td width="250px" class="valueCell" >'+item.companyName+'</td><td width="250px" class="valueCell" >'+item.companyUrl+'</td><td width="250px" class="valueCell" >'+item.rssUrl+'</td><td width="250px" class="valueCell" >'+item.categoryName+'</td></tr>');	
+				$("#categorydetail-list-table").append('<tr class='+rowStyle+'><td width="150px" class="valueCell" ><a href="javascript:categoryDetailObj.retrieveCategoryDetail('+item.categoryDetailId+')">'+item.categoryDetailId+'</a></td><td width="250px" class="valueCell" >'+item.providerName+'</td><td width="250px" class="valueCell" >'+item.providerUrl+'</td><td width="250px" class="valueCell" >'+item.rssUrl+'</td><td width="250px" class="valueCell" >'+item.categoryName+'</td></tr>');	
 			});
 			
 		});
@@ -101,8 +101,8 @@ com.jay.newsfiddle.categoryDetail = {
 		$("form[name='categoryDetailForm']").show();
 		$.getJSON(GLOBAL_APP_CONTEXT + "/categoryDetail/"+catDetailId,function(data){
 			$('[name="categoryDetailId"]').val(data.categoryDetailId);			
-			$('[name="providerName"]').val(data.companyName);			
-			$('[name="providerUrl"]').val(data.companyUrl);
+			$('[name="providerName"]').val(data.providerName);			
+			$('[name="providerUrl"]').val(data.providerUrl);
 			$('[name="rssUrl"]').val(data.rssUrl);			
 			$('[name="categoryId"]').val(data.categoryId);
 		});

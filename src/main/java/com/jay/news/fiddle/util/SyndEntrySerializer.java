@@ -12,10 +12,16 @@ import com.sun.syndication.feed.synd.SyndEntryImpl;
 
 public class SyndEntrySerializer implements JsonSerializer<SyndEntryImpl> {
 
+	String providerName;
+	public SyndEntrySerializer(String providerName){
+		this.providerName = providerName;
+	}
+	
 	@Override
 	public JsonElement serialize(SyndEntryImpl syndEntry, Type type,
 			JsonSerializationContext context) {
 		final JsonObject jsonObject = new JsonObject();
+		jsonObject.addProperty("provider", providerName);
 		jsonObject.addProperty("title", syndEntry.getTitle());
 		jsonObject.addProperty("uri", syndEntry.getUri());
 		jsonObject.addProperty("link", syndEntry.getLink());

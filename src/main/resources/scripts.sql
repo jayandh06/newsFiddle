@@ -1,25 +1,27 @@
 
 CREATE TABLE `user` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `active` bit(1) NOT NULL,
-  PRIMARY KEY (`userId`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `active` bit(1) DEFAULT NULL,
+  `fbId` varchar(45) DEFAULT NULL,
+  `adminUser` bit(1) DEFAULT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `userprofile` (
-  `userprofileId` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
   `firstName` varchar(45) NOT NULL,
   `lastName` varchar(45) NOT NULL,
   `middleName` varchar(45) DEFAULT NULL,
-  `emailId` varchar(45) NOT NULL,
-  `zipCode` int(11) DEFAULT NULL,
-  `userId` int(11) NOT NULL,
+  `emailId` varchar(45) DEFAULT NULL,
   `countryId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`userprofileId`),
-  UNIQUE KEY `userId_UNIQUE` (`userId`),
-  CONSTRAINT `FK_USER` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `zipCode` int(11) DEFAULT NULL,
+  `gender` char(1) DEFAULT NULL,
+  PRIMARY KEY (`userid`),
+  UNIQUE KEY `emailId_UNIQUE` (`emailId`),
+  KEY `FK_COUNTRY_idx` (`countryId`),
+  CONSTRAINT `FK_USER` FOREIGN KEY (`userid`) REFERENCES `user` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `category` (

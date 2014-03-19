@@ -29,6 +29,9 @@ public class User {
 
 	@Column
 	private String fbId;
+	
+	@Column(name="adminUser")
+	private boolean isAdmin;
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
 	private UserProfile userProfile;
@@ -79,6 +82,14 @@ public class User {
 
 	public void setFbId(String fbId) {
 		this.fbId = fbId;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 }
