@@ -36,12 +36,7 @@
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" />
 
-    <!-- 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/news"
-		p:username="root" p:password="" p:initialSize="5" p:maxActive="10">
-	</bean>
-	-->
+    
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value="java:comp/env/jdbc/newsfiddle" />
 	</bean>
