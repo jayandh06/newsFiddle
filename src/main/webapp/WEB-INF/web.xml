@@ -5,15 +5,20 @@
 	<display-name>news</display-name>
 	<session-config>
 		<session-timeout>30</session-timeout>
-	</session-config>	
+	</session-config>
 	<servlet>
 		<servlet-name>newsfiddle</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>		
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>newsfiddle</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+	<resource-ref>
+		<description>MySQL Datasource example</description>
+		<res-ref-name>jdbc/newsfiddle</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
 </web-app>

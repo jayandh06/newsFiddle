@@ -46,3 +46,13 @@ CREATE TABLE `country` (
   `countryName` varchar(100) NOT NULL,
   PRIMARY KEY (`countryId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `news`.`category`(`categoryId`,`categoryName`)VALUES(1,'Business');
+INSERT INTO `news`.`category`(`categoryId`,`categoryName`)VALUES(2,'Entertainment');
+INSERT INTO `news`.`category`(`categoryId`,`categoryName`)VALUES(3,'Politics');
+INSERT INTO `news`.`category`(`categoryId`,`categoryName`)VALUES(4,'Sports');
+INSERT INTO `news`.`category`(`categoryId`,`categoryName`)VALUES(5,'Health');
+INSERT INTO `news`.`category`(`categoryId`,`categoryName`)VALUES(6,'Local News');
+
+

@@ -1,6 +1,8 @@
 /target
 target
-.settings/*
 !.settings/.jsdtscope
 .project
 .classpath
+.settings
+.gitignore
+/target
