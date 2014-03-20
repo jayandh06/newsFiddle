@@ -93,8 +93,8 @@ public class CategoryDetailController {
 	}
 
 	@RequestMapping("/update")
-	public ModelAndView modifyCategoryDetail(@RequestParam String companyName,
-			@RequestParam String companyUrl,
+	public ModelAndView modifyCategoryDetail(@RequestParam String providerName,
+			@RequestParam String providerUrl,
 			@RequestParam String categoryDetailId,
 			@RequestParam String categoryId, @RequestParam String rssUrl) {
 		CategoryDetail catDetail = new CategoryDetail();
@@ -104,8 +104,8 @@ public class CategoryDetailController {
 
 		catDetail.setCategory(category);
 		catDetail.setCatDetailId(new Integer(categoryDetailId));
-		catDetail.setCompany(companyName);
-		catDetail.setCompanyUrl(companyUrl);
+		catDetail.setCompany(providerName);
+		catDetail.setCompanyUrl(providerUrl);
 		catDetail.setRssUrl(rssUrl);
 
 		categoryDetailService.updateCategoryDetail(catDetail);

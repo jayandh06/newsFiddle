@@ -47,8 +47,8 @@
 			<div><a href="javascript:categoryObj.addCategory();">Add Category</a></div>
 			<table id="category-list-table">
 				<tr class='headerRow'>
-					<th class="headerCell">Category Id</th>
-					<th class="headerCell">Category Name</th>
+					<td class="headerCell">Category Id</td>
+					<td class="headerCell">Category Name</td>
 				</tr>
 			</table>
 		</div>

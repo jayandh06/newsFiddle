@@ -49,11 +49,11 @@
 			</div>
 			<table id="categorydetail-list-table">
 				<tr class='headerRow'>
-					<th class="headerCell">Id</th>
-					<th class="headerCell">Provider</th>
-					<th class="headerCell">Provider URL</th>
-					<th class="headerCell">RSS URL</th>
-					<th class="headerCell">Category Name</th>
+					<td class="headerCell">Id</td>
+					<td class="headerCell">Provider</td>
+					<td class="headerCell">Provider URL</td>
+					<td class="headerCell">RSS URL</td>
+					<td class="headerCell">Category Name</td>
 				</tr>
 			</table>
 		</div>

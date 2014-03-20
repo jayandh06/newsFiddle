@@ -20,6 +20,18 @@ html {
 	background-color: #e5eeff;
 }
 
+table{
+	border-spacing: 0px;
+	
+}
+
+th{
+ 	padding-left:15px;	
+}
+
+tr{
+	height: 30px;	
+}
 
 /***** ID Level *****/
 
@@ -133,7 +145,7 @@ html {
 
 
 .headerCell {
-	padding: 10px 0px;
+	padding: 10px 10px;
 }
 
 .headerRow {
