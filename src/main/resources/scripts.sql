@@ -66,9 +66,9 @@ INSERT INTO `categorydetail` (`catDetailId`,`rssUrl`,`company`,`companyUrl`,`cat
 INSERT INTO `categorydetail` (`catDetailId`,`rssUrl`,`company`,`companyUrl`,`categoryId`) VALUES (9,'http://feeds.feedburner.com/dinamalar/Front_page_news','Dinamalar','www.dinamalar.com',6);
 INSERT INTO `categorydetail` (`catDetailId`,`rssUrl`,`company`,`companyUrl`,`categoryId`) VALUES (10,'http://www.dinakaran.com/rss_news.asp?id=10','Dinakaran','www.dinakaran.com',6);
 
-INSERT INTO 'country' ('countryId','countryName') VALUES(1,'United States');
-INSERT INTO 'country' ('countryId','countryName') VALUES(2,'United Kingdom');
-INSERT INTO 'country' ('countryId','countryName') VALUES(3,'India');
-INSERT INTO 'country' ('countryId','countryName') VALUES(4,'Singapore');
-INSERT INTO 'country' ('countryId','countryName') VALUES(5,'Malaysia');
-INSERT INTO 'country' ('countryId','countryName') VALUES(6,'Canada');
+INSERT INTO country (countryId,countryName) VALUES(1,'United States');
+INSERT INTO country (countryId,countryName) VALUES(2,'United Kingdom');
+INSERT INTO country (countryId,countryName) VALUES(3,'India');
+INSERT INTO country (countryId,countryName) VALUES(4,'Singapore');
+INSERT INTO country (countryId,countryName) VALUES(5,'Malaysia');
+INSERT INTO country (countryId,countryName) VALUES(6,'Canada');

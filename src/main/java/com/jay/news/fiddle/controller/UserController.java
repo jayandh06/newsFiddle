@@ -29,48 +29,43 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
+
 	@Autowired
 	CountryService countryService;
-	
+
 	@Autowired
 	UserProfileService userProfileService;
-	
+
 	@RequestMapping("/createProfile")
-	public ModelAndView createProfile( UserProfile userProfile){
+	public ModelAndView createProfile(UserProfile userProfile) {
 		userProfileService.createProfile(userProfile);
 		ModelAndView model = new ModelAndView("profile");
-		model.addObject("message","Profile created successfully");
+		model.addObject("message", "Profile created successfully");
 		return model;
 	}
-	
+
 	@RequestMapping("/updateProfile")
-	public ModelAndView updateProfile( UserProfile userProfile){
+	public ModelAndView updateProfile(UserProfile userProfile) {
 		userProfileService.updateProfile(userProfile);
 		ModelAndView model = new ModelAndView("profile");
-		model.addObject("message","Profile updated successfully");
+		model.addObject("message", "Profile updated successfully");
 		return model;
 	}
-	
+
 	@RequestMapping("/showProfile")
-	public String showProfile(){
+	public String showProfile() {
 		return "profile";
 	}
-	
+
 	@RequestMapping("/retrieveProfile")
 	@ResponseBody
-	public String retrieveProfile(HttpSession session){
-		
-		Integer userId = (Integer)session.getAttribute(NewsFiddleConstants.SESSION_USER_ID);
+	public String retrieveProfile(HttpSession session) {
+
+		Integer userId = (Integer) session
+				.getAttribute(NewsFiddleConstants.SESSION_USER_ID);
 		UserProfile profile;
-		if(userId != null){
-			try {
-				profile = userProfileService.findProfileByUserId(userId);
-			}
-			catch(NoResultException nre){
-				//Logged in, but profile not created yet
-				return "";
-			}
+		profile = userProfileService.findProfileByUserId(userId);
+		if (profile != null) {
 			profile.setUserId(userId);
 			final GsonBuilder gsonBuilder = new GsonBuilder();
 			gsonBuilder.registerTypeAdapter(UserProfile.class,
@@ -78,17 +73,16 @@ public class UserController {
 			gsonBuilder.setPrettyPrinting();
 			final Gson gson = gsonBuilder.create();
 			return gson.toJson(profile);
-			
-		}
-		else {
+
+		} else {
 			return "";
 		}
-		
+
 	}
-	
+
 	@RequestMapping("/countryList")
 	@ResponseBody
-	public String getAllCountries(){
+	public String getAllCountries() {
 		List<Country> countries = countryService.getAllCountries();
 		Gson gson = new Gson();
 		return gson.toJson(countries);
