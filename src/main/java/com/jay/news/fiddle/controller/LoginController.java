@@ -1,6 +1,7 @@
 package com.jay.news.fiddle.controller;
 
 import javax.persistence.NoResultException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class LoginController {
 
 	@Autowired
 	UserProfileService userProfileService;
+		
 
 	@RequestMapping("/validate")
 	public ModelAndView validateLogin(@RequestParam String username,
@@ -114,6 +116,19 @@ public class LoginController {
 		ModelAndView model = new ModelAndView("index");
 		model.addObject("message", "Logout successful");
 		return model;
+	}
+	
+	@RequestMapping(value="/appId",method=RequestMethod.GET)
+	@ResponseBody
+	public String fbAppId(HttpServletRequest request){
+		if(request.getLocalName().equalsIgnoreCase("LOCALHOST")){
+			return "{\"appId\":\"705901259456455\"}";
+		}
+		else{
+			return "{\"appId\":\"217755498419547\"}";
+		}
+		
+		
 	}
 
 	private void invalidateUserSession(HttpSession session) {

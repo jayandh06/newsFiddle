@@ -151,9 +151,16 @@ $(document).ready(function() {
 	$.ajaxSetup({
 		cache : true
 	});
+	
+	var appId;
+	
+	$.getJSON(GLOBAL_APP_CONTEXT + '/login/appId',function(data){
+			appId = data.appId;
+	});
+	
 	$.getScript('//connect.facebook.net/en_UK/all.js', function() {
 		FB.init({
-			appId : '705901259456455',
+			appId : appId,
 		});
 		$('#loginbutton,#feedbutton').removeAttr('disabled');
 		
