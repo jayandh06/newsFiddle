@@ -42,7 +42,8 @@ public class LoginController {
 		user = userService.isValidUser(user);
 
 		if (user != null) {
-			UserProfile profile = userProfileService.findProfileByUserId(user.getUserId());
+			UserProfile profile = userProfileService.findProfileByUserId(user
+					.getUserId());
 			activateUserSession(user, profile, session);
 			model = new ModelAndView("news");
 			return model;

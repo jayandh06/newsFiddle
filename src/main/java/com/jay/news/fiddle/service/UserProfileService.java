@@ -1,5 +1,7 @@
 package com.jay.news.fiddle.service;
 
+import javax.persistence.NoResultException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,12 @@ public class UserProfileService {
 	UserProfileDao userProfileDao;
 	
 	public UserProfile findProfileByUserId(int userId){
-		return userProfileDao.findProfileByUserId(userId);
+		try {
+			return userProfileDao.findProfileByUserId(userId);
+		}
+		catch(NoResultException nre){
+			return null;
+		}
 	}
 	
 	public void createProfile(UserProfile userProfile){
