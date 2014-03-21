@@ -18,4 +18,8 @@ public class CountryService {
 	public List<Country> getAllCountries(){
 		return countryDao.getAll();
 	}
+	
+	public List<Country> getAllCountriesByName(){
+		return countryDao.getAllOrderByName();
+	}
 }

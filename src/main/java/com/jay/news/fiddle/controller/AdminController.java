@@ -29,6 +29,11 @@ public class AdminController {
 		return "category";		
 	}
 	
+	@RequestMapping("/settings")
+	public String showSettingsPage(){
+		return "settings";
+	}
+	
 	@RequestMapping("/categoryDetail")
 	public ModelAndView showCategoryDetailsPage() {
 		

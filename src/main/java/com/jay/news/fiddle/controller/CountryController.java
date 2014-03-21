@@ -22,7 +22,7 @@ public class CountryController {
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	@ResponseBody
 	public String getAllCountries() {
-		List<Country> countries = countryService.getAllCountries();
+		List<Country> countries = countryService.getAllCountriesByName();
 		Gson gson = new Gson();
 		return gson.toJson(countries);
 	}

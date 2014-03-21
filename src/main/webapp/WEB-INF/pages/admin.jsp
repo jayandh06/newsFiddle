@@ -14,13 +14,13 @@
 		<jsp:include page="header.jsp"></jsp:include>
 		<div id="menu-container">
 			<div class="category-element">
-				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/category">Category</a>
+				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/category">Manage Category</a>
 			</div>
 			<div class="category-element">
-				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/categoryDetail">Category Details</a>
+				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/categoryDetail">Manage Category Details</a>
 			</div>
 			<div class="category-element">
-				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/user">User</a>
+				<a class="alink" href="${pageContext.servletContext.contextPath}/admin/user">Manage User</a>
 			</div>
 		</div>
 	</div>

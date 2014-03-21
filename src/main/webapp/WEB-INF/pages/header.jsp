@@ -23,7 +23,10 @@
 				href="${pageContext.servletContext.contextPath}/admin/category">Admin</a></li>
 			<%
 				}
+				else {
 			%>
+				<li><a href="${pageContext.servletContext.contextPath}/admin/settings">settings</a></li>
+			<%} %>
 
 			<li><a
 				href="${pageContext.servletContext.contextPath}/synd/news">News</a></li>
@@ -33,7 +36,7 @@
 			%>
 			<li><a
 				href="${pageContext.servletContext.contextPath}/user/showProfile">Profile</a></li>
-			<li><a href="${pageContext.servletContext.contextPath}/settings">settings</a></li>
+			
 			<li class='last'><a
 				href="${pageContext.servletContext.contextPath}/login/quit">Logout</a></li>
 			<%
