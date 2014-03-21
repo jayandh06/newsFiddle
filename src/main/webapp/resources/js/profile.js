@@ -15,6 +15,10 @@ com.jay.newsfiddle.profile = {
 			var zipCode = $("input[name='zipCode']");
 			var zipCodeInfo = $("#zipCodeInfo");
 
+
+			var country = $("select[name='countryId']");
+			var countryInfo = $("#countryInfo");
+			
 			var hasError = false;
 
 			if (firstName.val().length <= 0) {
@@ -52,7 +56,16 @@ com.jay.newsfiddle.profile = {
 				zipCodeInfo.removeClass('errorText');
 				zipCode.removeClass('inputError');
 			}
-
+			
+			if (country.val().length <= 0) {
+				countryInfo.addClass('errorText');
+				country.addClass('inputError');
+				hasError = true;
+			} else {
+				countryInfo.removeClass('errorText');
+				country.removeClass('inputError');
+			}
+			
 			if (!hasError) {
 				
 				profileForm.attr('action', GLOBAL_APP_CONTEXT
@@ -64,7 +77,7 @@ com.jay.newsfiddle.profile = {
 	},
 	retrieveProfile : function() {
 
-		$.when($.getJSON(GLOBAL_APP_CONTEXT + '/user/countryList'), $.getJSON(GLOBAL_APP_CONTEXT + '/user/retrieveProfile')).then(function(data1,data2){
+		$.when($.getJSON(GLOBAL_APP_CONTEXT + '/country/list'), $.getJSON(GLOBAL_APP_CONTEXT + '/user/retrieveProfile')).then(function(data1,data2){
 				//Populate profile details
 				var countrySelect = $("select[name='countryId']");
 				var firstName = $("input[name='firstName']");
@@ -81,7 +94,7 @@ com.jay.newsfiddle.profile = {
 				
 				//Reload select
 				countrySelect = $("select[name='countryId'] option");
-				if (data2[0] !== "") {					
+				if (data2[0].firstName !== undefined) {					
 					//set the right country
 					countrySelect.filter(function() {
 						return $(this).val() == data2[0].countryId;

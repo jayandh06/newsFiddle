@@ -118,6 +118,7 @@ public class LoginController {
 
 	private void invalidateUserSession(HttpSession session) {
 		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID, null);
+		session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, null);
 		session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME, null);
 		session.setAttribute(NewsFiddleConstants.SESSION_USER_ISADMIN, null);
 		// session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, null);
@@ -161,6 +162,12 @@ public class LoginController {
 
 		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,
 				user.getUserId());
+		if(user.getUsername() != null) {
+			session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,user.getUsername());
+		}
+		else {
+			session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, user.getFbId());
+		}
 		session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME,
 				fullName);
 		session.setAttribute(NewsFiddleConstants.SESSION_USER_ISADMIN,

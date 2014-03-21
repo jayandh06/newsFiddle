@@ -1,20 +1,17 @@
 package com.jay.news.fiddle.controller;
 
-import java.util.List;
-
-import javax.persistence.NoResultException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.jay.news.fiddle.domain.Country;
 import com.jay.news.fiddle.domain.UserProfile;
 import com.jay.news.fiddle.service.CountryService;
 import com.jay.news.fiddle.service.UserProfileService;
@@ -44,7 +41,7 @@ public class UserController {
 		return model;
 	}
 
-	@RequestMapping("/updateProfile")
+	@RequestMapping(value="/updateProfile",method=RequestMethod.PUT)
 	public ModelAndView updateProfile(UserProfile userProfile) {
 		userProfileService.updateProfile(userProfile);
 		ModelAndView model = new ModelAndView("profile");
@@ -57,7 +54,7 @@ public class UserController {
 		return "profile";
 	}
 
-	@RequestMapping("/retrieveProfile")
+	@RequestMapping(value="/retrieveProfile",method=RequestMethod.GET)
 	@ResponseBody
 	public String retrieveProfile(HttpSession session) {
 
@@ -75,16 +72,10 @@ public class UserController {
 			return gson.toJson(profile);
 
 		} else {
-			return "";
+			return "{}";
 		}
 
 	}
 
-	@RequestMapping("/countryList")
-	@ResponseBody
-	public String getAllCountries() {
-		List<Country> countries = countryService.getAllCountries();
-		Gson gson = new Gson();
-		return gson.toJson(countries);
-	}
+	
 }
