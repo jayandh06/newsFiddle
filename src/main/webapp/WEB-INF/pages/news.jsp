@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>:: News-Fiddle :: Hot News</title>
+<title>::RSS Fiddle:: Hot News</title>
 <jsp:include page="scripts.jsp"></jsp:include>
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/news.css"

@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>:: Welcome to News-Fiddle</title>
+<title>Welcome to ::RSS Fiddle::</title>
 <jsp:include page="scripts.jsp"></jsp:include>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/login.js"></script>
@@ -15,7 +15,7 @@
 		<jsp:include page="header.jsp"></jsp:include>
 		<div id="fb-root"></div>
 		<div id="form-container" class="tableContainerLayout">
-			<div id="subtitleText">Welcome to News-Fiddle</div>
+			<div id="subtitleText">RSS Fiddle Login</div>
 			<div id="message-container" class="messageText">
 				<%
 					String message = (String) request.getAttribute("message");

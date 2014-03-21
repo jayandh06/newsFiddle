@@ -11,7 +11,7 @@
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/category.js"></script>
 
-<title>Manage Category</title>
+<title>::RSS Fiddle:: Manage Category</title>
 </head>
 <body>
 	<div id="page-container">

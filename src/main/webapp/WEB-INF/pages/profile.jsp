@@ -14,7 +14,7 @@
 	String username = (String) session
 			.getAttribute(NewsFiddleConstants.SESSION_USER_NAME);
 %>
-<title>::News-Fiddle:: Manage Profile</title>
+<title>::RSS Fiddle:: Manage Profile</title>
 </head>
 <body>
 <body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>::News-Fiddle Settings</title>
+<title>::RSS Fiddle:: Settings</title>
 </head>
 <body>
 

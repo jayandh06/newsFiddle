@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/categoryDetail.js"></script>
-<title>::News-Fiddle:: Manage Category Detail</title>
+<title>::RSS Fiddle:: Manage Category Detail</title>
 </head>
 <body>
 	<div id="page-container">

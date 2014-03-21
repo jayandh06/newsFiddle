@@ -121,7 +121,7 @@ public class LoginController {
 	@RequestMapping(value="/appId",method=RequestMethod.GET)
 	@ResponseBody
 	public String fbAppId(HttpServletRequest request){
-		if(request.getLocalName().equalsIgnoreCase("LOCALHOST")){
+		if(request.getServerName().equalsIgnoreCase("LOCALHOST")){
 			return "{\"appId\":\"705901259456455\"}";
 		}
 		else{
@@ -144,7 +144,7 @@ public class LoginController {
 		return "index";
 	}
 
-	@RequestMapping("/showSignup")
+	@RequestMapping(value="/showSignup")
 	public String showSignup() {
 		return "signup";
 	}

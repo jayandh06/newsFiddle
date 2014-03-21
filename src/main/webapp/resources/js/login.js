@@ -7,6 +7,15 @@ com.jay.newsfiddle.login = {
 		password.val("");
 
 	},
+	clearSignup : function() {
+		var username = $("input[name='username']");
+		var password1 = $("input[name='password1']");
+		var password2 = $("input[name='password2']");
+		username.val("");
+		password1.val("");
+		password2.val("");
+
+	},
 	validateLogin : function() {
 		var loginForm = $('form[name="loginForm"]');
 

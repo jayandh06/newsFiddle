@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>News-Fiddle Administration</title>
+<title>::RSSFiddle:: Administration</title>
 <jsp:include page="scripts.jsp"></jsp:include>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/admin.js"></script>
