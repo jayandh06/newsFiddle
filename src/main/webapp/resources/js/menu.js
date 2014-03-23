@@ -1,4 +1,4 @@
-com.jay.newsfiddle.menu = {
+com.company.rssfiddle.js.menu = {
 	setActiveMenu : function() {		
 		var obj = $("#cssmenu a");
 		for(cnt = 1; cnt <= obj.length;cnt++){
@@ -9,4 +9,4 @@ com.jay.newsfiddle.menu = {
 
 };
 
-var menuObj = com.jay.newsfiddle.menu;
+var menuObj = com.company.rssfiddle.js.menu;

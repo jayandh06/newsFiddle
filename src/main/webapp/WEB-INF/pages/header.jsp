@@ -1,12 +1,16 @@
 <%@page
-	import="com.jay.news.fiddle.domain.User,com.jay.news.fiddle.util.NewsFiddleConstants"%>
+	import="com.company.rssfiddle.domain.User,com.company.rssfiddle.util.NewsFiddleConstants"%>
 <div style="width: 100%; overflow: hidden;">
 	<div id="header-container">
 		<a href="${pageContext.servletContext.contextPath}/"><img
 			src="http://www.logomaker.com/logo-images/3370d01941c5e49c.gif"
 			alt="RSS Fiddle" /></a>
 	</div>
-
+	<div id="social-container">
+		<a class="social24 facebook" target="_blank" href="http://www.facebook.com/rssfiddle">Facebook</a>
+		<a class="social24 twitter"  target="_blank" href="http://www.twitter.com/rssfiddle">Twitter</a>
+		<a class="social24 google"  target="_blank" href="http://www.facebook.com/rssfiddle">Google Plus</a>
+	</div>
 	<div id='cssmenu'>
 		<ul>
 			<%
@@ -32,7 +36,7 @@
 				}
 			%>
 
-			<li><a href="${pageContext.servletContext.contextPath}/synd/news">Feeds</a></li>
+			<li><a href="${pageContext.servletContext.contextPath}/synd/feeds">Feeds</a></li>
 
 			<%
 				if (userId != null) {

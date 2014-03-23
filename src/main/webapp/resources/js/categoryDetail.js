@@ -2,7 +2,7 @@
  * Manage category
  */
 
-com.jay.newsfiddle.categoryDetail = {
+com.company.rssfiddle.jscategoryDetail = {
 	validateCategoryDetail : function(action){
 		
 		var categoryForm = $('form[name="categoryDetailForm"]');
@@ -109,7 +109,7 @@ com.jay.newsfiddle.categoryDetail = {
 	}
 };
 
-var categoryDetailObj = com.jay.newsfiddle.categoryDetail;
+var categoryDetailObj = com.company.rssfiddle.js.categoryDetail;
 
 
 $(document).ready(categoryDetailObj.retrieveCategoryDetailList());

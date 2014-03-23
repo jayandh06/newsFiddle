@@ -1,5 +1,4 @@
 /***** Tag Level *****/
-
 a {
 	text-decoration: none;
 	padding: 0 10px;
@@ -20,21 +19,26 @@ html {
 	background-color: #ffffff;
 }
 
-table{
+table {
 	border-spacing: 0px;
-	
 }
 
-th{
- 	padding-left:15px;	
+th {
+	padding-left: 15px;
 }
 
-tr{
-	height: 30px;	
+tr {
+	height: 30px;
 }
 
 /***** ID Level *****/
-
+#social-container {
+	float: right;
+	margin-top: -70px;
+	width:100px;
+	clear: both;
+	border-color: #ffffff;
+}
 
 #menu-container {
 	display: inline-block;
@@ -43,18 +47,16 @@ tr{
 	background-color: #4679bd;
 }
 
-
-#form-container span{
+#form-container span {
 	color: #b1b1b1;
 	font-size: 12px;
 	font-style: italic;
 	margin-left: 10px;
 }
 
-#form-container span.errorText{
-	color:#ff0000;
+#form-container span.errorText {
+	color: #ff0000;
 }
-
 
 #page-container {
 	width: 1024px;
@@ -68,27 +70,27 @@ tr{
 	width: 65%;
 	height: 300px;
 }
+
 #left-container {
-	width :45%;
+	width: 45%;
 	float: left;
-	
 }
 
 #right-container {
-	width:45%;
+	width: 45%;
 	float: left;
 }
 
 #line-container {
-    width:2px;
-    height:50%;
-   
-    margin-right:20px;
-    background-color:#cccccc;
-    float:left;
+	width: 2px;
+	height: 50%;
+	margin-right: 20px;
+	background-color: #cccccc;
+	float: left;
 }
 
-#form-container form[name='categoryForm'],#form-container form[name='categoryDetailForm']{
+#form-container form[name='categoryForm'],#form-container form[name='categoryDetailForm']
+	{
 	display: none;
 }
 
@@ -96,15 +98,37 @@ tr{
 	margin-top: 20px;
 }
 
-#subtitleText{
+#subtitleText {
 	color: #4679bd;
 	font-weight: bold;
 	font-size: 15px;
-	font-weight: bold;	
+	font-weight: bold;
 	text-decoration: underline;
 }
 
 /***** Class Level *****/
+a.social24 {
+	width: 24px;
+	height: 24px;
+	text-indent: -900em;
+	padding: 0;
+	float: left;
+	margin-right: 2px;
+	display: inline;
+}
+
+a.social24.facebook {
+	background: url(../images/social_sprite_24px.png) no-repeat 0 0;
+}
+
+a.social24.twitter {
+	background: url(../images/social_sprite_24px.png) no-repeat -24px 0;
+}
+
+a.social24.google {
+	background: url(../images/social_sprite_24px.png) no-repeat -24px -48px;
+}
+
 .alink {
 	text-decoration: none;
 	padding: 0 10px;
@@ -137,12 +161,10 @@ tr{
 	font-size: 13px;
 }
 
-
 .inputError {
 	background: #f8dbdb;
 	border-color: #e77776;
 }
-
 
 .headerCell {
 	padding: 10px 10px;
@@ -179,31 +201,30 @@ tr{
 	font-size: 13px;
 }
 
-
 .tableContainerLayout {
 	margin-left: auto;
 	margin-right: auto;
 	opacity: 0.8;
 }
 
-.titleDiv{
-	height:35px;
-	background-color:#4679bd;
-	margin-bottom: 2px;	
+.titleDiv {
+	height: 35px;
+	background-color: #4679bd;
+	margin-bottom: 2px;
 }
 
-.titleDiv .titleText{
+.titleDiv .titleText {
 	color: #ffffff;
 	font-weight: bold;
 	font-size: 18px;
 	font-weight: bold;
-	height:25px;
-	width:80%;
+	height: 25px;
+	width: 80%;
 	padding: 8px 0px 0px 10px;
-	float:left;	
+	float: left;
 }
 
-.collapsibleDiv_open span{
+.collapsibleDiv_open span {
 	background-image: url(../images/bullet_toggle_minus.png);
 	height: 25px;
 	width: 20px;
@@ -212,7 +233,7 @@ tr{
 	padding-right: 20px;
 }
 
-.collapsibleDiv_close span{
+.collapsibleDiv_close span {
 	background-image: url(../images/bullet_toggle_plus.png);
 	height: 25px;
 	width: 20px;
@@ -229,4 +250,3 @@ tr{
 	margin-right: 20px;
 	float: left;
 }
-

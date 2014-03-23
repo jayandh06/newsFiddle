@@ -4,10 +4,8 @@
 
 //Namespace declaration
 var com = com || {};
-com.jay ={};
-com.jay.newsfiddle= {
-	
+com.company ={};
+com.company.rssfiddle = {};
+com.company.rssfiddle.js = {};
 
-};
-
-var mainObj = com.jay.newsfiddle;
+var mainObj = com.company.rssfiddle.js;

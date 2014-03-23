@@ -47,9 +47,9 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2"><a
+							<td colspan="2"><span>New to RSS Fiddle?</span><a
 								href="${pageContext.servletContext.contextPath}/login/showSignup"
-								class="anchorButton">New User? Signup Here</a></td>
+								class="anchorButton">Signup Here</a></td>
 						</tr>
 					</table>
 				</form>

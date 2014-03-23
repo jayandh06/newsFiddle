@@ -2,7 +2,7 @@
  * Manage category
  */
 
-com.jay.newsfiddle.category = {
+com.company.rssfiddle.js.category = {
 	validateCategory : function(action){
 		var categoryName = $("input[name='categoryName']");
 		var categoryNameInfo =$("#categoryNameInfo");
@@ -76,5 +76,5 @@ com.jay.newsfiddle.category = {
 	
 };
 
-var categoryObj = com.jay.newsfiddle.category;
+var categoryObj = com.company.rssfiddle.js.category;
 $(document).ready(categoryObj.retrieveCategoryList());

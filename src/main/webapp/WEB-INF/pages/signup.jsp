@@ -34,7 +34,7 @@
 						<td colspan="2">&nbsp;</td>
 					</tr>
 					<tr>
-						<td colspan="2"><a href="javascript:loginObj.validateSignup();" class="anchorButton">Signup here</a><a href="javascript:loginObj.clearLogin();" class="anchorButton">Clear</a></td>
+						<td colspan="2"><a href="javascript:loginObj.validateSignup();" class="anchorButton">Signup here</a><a href="javascript:loginObj.clearSignup();" class="anchorButton">Clear</a></td>
 					</tr>
 				</table>
 			</div>

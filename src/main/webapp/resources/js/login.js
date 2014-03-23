@@ -1,4 +1,4 @@
-com.jay.newsfiddle.login = {
+com.company.rssfiddle.js.login = {
 	clearLogin : function() {
 		var username = $("input[name='username']");
 		var password = $("input[name='password']");
@@ -127,8 +127,7 @@ com.jay.newsfiddle.login = {
 					window.location.href = GLOBAL_APP_CONTEXT+data.redirectPage;
 				}
 			})
-			console.log('Good to see you, ' + response.name
-					+ '.');
+			
 		});
 	},
 	fbGetLoginStatus : function(){
@@ -155,7 +154,7 @@ com.jay.newsfiddle.login = {
 	}
 };
 
-var loginObj = com.jay.newsfiddle.login;
+var loginObj = com.company.rssfiddle.js.login;
 $(document).ready(function() {
 	$.ajaxSetup({
 		cache : true
