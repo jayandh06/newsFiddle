@@ -9,7 +9,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 import com.company.rssfiddle.domain.User;
 import com.company.rssfiddle.domain.UserProfile;
-import com.company.rssfiddle.util.NewsFiddleConstants;
+import com.company.rssfiddle.util.RSSFiddleConstants;
 
 public class UserProfileResolver implements HandlerMethodArgumentResolver {
 
@@ -34,7 +34,7 @@ public class UserProfileResolver implements HandlerMethodArgumentResolver {
 			userProfile.setGender(webRequest.getParameter("gender").charAt(0));
 			
 			User user = new User();
-			user.setUserId((Integer)webRequest.getAttribute(NewsFiddleConstants.SESSION_USER_ID,RequestAttributes.SCOPE_SESSION));
+			user.setUserId((Integer)webRequest.getAttribute(RSSFiddleConstants.SESSION_USER_ID,RequestAttributes.SCOPE_SESSION));
 			
 			userProfile.setUser(user);
 			return userProfile;

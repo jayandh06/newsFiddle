@@ -1,5 +1,5 @@
 <%@ page
-	import="com.company.rssfiddle.domain.User,com.company.rssfiddle.util.NewsFiddleConstants"
+	import="com.company.rssfiddle.domain.User,com.company.rssfiddle.util.RSSFiddleConstants"
 	language="java" contentType="text/html; charset=US-ASCII"
 	pageEncoding="US-ASCII"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +12,7 @@
 
 <%
 	String username = (String) session
-			.getAttribute(NewsFiddleConstants.SESSION_USER_NAME);
+	.getAttribute(RSSFiddleConstants.SESSION_USER_NAME);
 %>
 <title>::RSS Fiddle:: Manage Profile</title>
 </head>

@@ -1,5 +1,5 @@
 <%@page
-	import="com.company.rssfiddle.domain.User,com.company.rssfiddle.util.NewsFiddleConstants"%>
+	import="com.company.rssfiddle.domain.User,com.company.rssfiddle.util.RSSFiddleConstants"%>
 <div style="width: 100%; overflow: hidden;">
 	<div id="header-container">
 		<a href="${pageContext.servletContext.contextPath}/"><img
@@ -15,10 +15,10 @@
 		<ul>
 			<%
 				Integer userId = (Integer) session
-						.getAttribute(NewsFiddleConstants.SESSION_USER_ID);
-				Boolean isAdmin = (Boolean) session
-						.getAttribute(NewsFiddleConstants.SESSION_USER_ISADMIN);
-				if (userId == null) {
+							.getAttribute(RSSFiddleConstants.SESSION_USER_ID);
+					Boolean isAdmin = (Boolean) session
+							.getAttribute(RSSFiddleConstants.SESSION_USER_ISADMIN);
+					if (userId == null) {
 			%>
 			<li><a href="${pageContext.servletContext.contextPath}/login">Login</a></li>
 			<%

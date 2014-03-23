@@ -14,7 +14,7 @@ import com.company.rssfiddle.domain.UserProfile;
 import com.company.rssfiddle.service.CountryService;
 import com.company.rssfiddle.service.UserProfileService;
 import com.company.rssfiddle.service.UserService;
-import com.company.rssfiddle.util.NewsFiddleConstants;
+import com.company.rssfiddle.util.RSSFiddleConstants;
 import com.company.rssfiddle.util.UserProfileSerializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,7 +59,7 @@ public class UserController {
 	public String retrieveProfile(HttpSession session) {
 
 		Integer userId = (Integer) session
-				.getAttribute(NewsFiddleConstants.SESSION_USER_ID);
+				.getAttribute(RSSFiddleConstants.SESSION_USER_ID);
 		UserProfile profile;
 		profile = userProfileService.findProfileByUserId(userId);
 		if (profile != null) {

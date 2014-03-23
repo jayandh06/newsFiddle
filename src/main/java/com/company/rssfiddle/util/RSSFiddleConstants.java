@@ -1,6 +1,6 @@
 package com.company.rssfiddle.util;
 
-public final class NewsFiddleConstants {
+public final class RSSFiddleConstants {
 
 	public static String  SESSION_USER_ID ="SessionUserId";
 	public static String  SESSION_USER_NAME = "SessionUserName";

@@ -19,7 +19,7 @@ import com.company.rssfiddle.domain.User;
 import com.company.rssfiddle.domain.UserProfile;
 import com.company.rssfiddle.service.UserProfileService;
 import com.company.rssfiddle.service.UserService;
-import com.company.rssfiddle.util.NewsFiddleConstants;
+import com.company.rssfiddle.util.RSSFiddleConstants;
 
 @Controller
 @RequestMapping("/login")
@@ -47,7 +47,7 @@ public class LoginController {
 			UserProfile profile = userProfileService.findProfileByUserId(user
 					.getUserId());
 			activateUserSession(user, profile, session);
-			model = new ModelAndView("news");
+			model = new ModelAndView("feeds");
 			return model;
 		} else {
 			model = new ModelAndView("index");
@@ -100,14 +100,14 @@ public class LoginController {
 
 		}
 
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_ID,
 				user.getUserId());
 		// session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,user.getUsername());
 		String fullName = profile.getLastName() + ", " + profile.getFirstName();
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME,
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_FULLNAME,
 				fullName);
 
-		return "{\"redirectPage\":\"/synd/news\"}";
+		return "{\"redirectPage\":\"/synd/feeds\"}";
 	}
 
 	@RequestMapping("/quit")
@@ -132,10 +132,10 @@ public class LoginController {
 	}
 
 	private void invalidateUserSession(HttpSession session) {
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID, null);
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, null);
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME, null);
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_ISADMIN, null);
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_ID, null);
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_NAME, null);
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_FULLNAME, null);
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_ISADMIN, null);
 		// session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, null);
 	}
 
@@ -164,7 +164,7 @@ public class LoginController {
 		if (user != null) {
 			activateUserSession(user, null, session);
 		}
-		return "news";
+		return "feeds";
 	}
 
 	private void activateUserSession(User user, UserProfile profile,
@@ -175,17 +175,17 @@ public class LoginController {
 			fullName = profile.getLastName() + ", " + profile.getFirstName();
 		}
 
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_ID,
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_ID,
 				user.getUserId());
 		if(user.getUsername() != null) {
-			session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,user.getUsername());
+			session.setAttribute(RSSFiddleConstants.SESSION_USER_NAME,user.getUsername());
 		}
 		else {
-			session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, user.getFbId());
+			session.setAttribute(RSSFiddleConstants.SESSION_USER_NAME, user.getFbId());
 		}
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_FULLNAME,
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_FULLNAME,
 				fullName);
-		session.setAttribute(NewsFiddleConstants.SESSION_USER_ISADMIN,
+		session.setAttribute(RSSFiddleConstants.SESSION_USER_ISADMIN,
 				user.isAdmin());
 
 	}
