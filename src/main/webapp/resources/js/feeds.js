@@ -8,7 +8,7 @@ com.company.rssfiddle.js.feeds = {
 				feedsObj.getfeedsByCategoryDetail(item.categoryDetailId);
 			});			
 		});
-		
+	feedsObj.attachEvent();	
 	},	
 	
 	getfeedsByCategoryDetail : function(categoryDetailId) {
@@ -21,21 +21,21 @@ com.company.rssfiddle.js.feeds = {
 				if(cnt == 0) {
 					htmlContent +="<div class='titleDiv collapsibleDiv_open'><div class='titleText'>" +  item.provider  + "</div><span></span></div><div class='provider-container'>";
 				}
+				htmlContent += "<div class='feed-Block' data-url='" + item.uri+"'>";
 				//htmlContent +="<div class='labelText'>" + item.provider	+ "</div>";
 				htmlContent +="<div class='feedsTitle'>" + item.title	+ "</div>";
 				if(item.updateDate != undefined) {
 					htmlContent +="<div class='feedsDate'>" + item.updateDate	+ "</div>";
 				}
 				htmlContent +="<div class='feedsDesc'>"+ item.description + "</div>";
-				htmlContent +="<div class><a href='" + item.uri + "' target='_blank'> Read More ...</a></div>";
 				htmlContent +="<div><hr class='hrColor'></div>";
-				htmlContent +="<div>&nbsp;</div>";				
+				htmlContent += "</div>";
 				if(cnt == dataCount - 1){
 					htmlContent +="</div>";
 				}
 			});
 			feedsContainer.append(htmlContent);
-			feedsObj.attachEvent();
+			
 			
 		});
 

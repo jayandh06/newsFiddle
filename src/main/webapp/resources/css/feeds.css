@@ -2,9 +2,13 @@
 	margin-top: 20px;
 }
 
+.feed-Block {
+		
+}
+
 .feedsTitle {
 	font-family: georgia, times new roman, serif;
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: normal;
 	line-height: 1.1;
 }
@@ -15,6 +19,8 @@
 	font-size: 11px;
 	margin: 0px;
 }
+
+
 
 .hrColor {
 	border-color: #bbbbbb;
