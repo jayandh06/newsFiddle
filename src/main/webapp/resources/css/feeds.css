@@ -2,8 +2,16 @@
 	margin-top: 20px;
 }
 
-.feed-Block {
-		
+.feed-block {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: black;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;	
+}
+
+.feed-block.active{
+	background-color: #eeeeee;	
 }
 
 .feedsTitle {
