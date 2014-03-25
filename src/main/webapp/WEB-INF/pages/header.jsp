@@ -1,5 +1,6 @@
 <%@page
 	import="com.company.rssfiddle.domain.User,com.company.rssfiddle.util.RSSFiddleConstants"%>
+
 <div style="width: 100%; overflow: hidden;">
 	<div id="header-container">
 		<a href="${pageContext.servletContext.contextPath}/"><img
@@ -11,6 +12,7 @@
 		<a class="social24 twitter"  target="_blank" href="http://www.twitter.com/rssfiddle">Twitter</a>
 		<a class="social24 google"  target="_blank" href="http://www.facebook.com/rssfiddle">Google Plus</a>
 	</div>
+	<div id="search-container"><input id ="search-text" type="text" size ="20" value="Search feed"/><img id="search-icon" src="${pageContext.servletContext.contextPath}/resources/images/lens_icon.png" width="15"/></div>
 	<div id='cssmenu'>
 		<ul>
 			<%
@@ -51,3 +53,5 @@
 		<ul>
 	</div>
 </div>
+<script type="text/javascript"
+	src="${pageContext.servletContext.contextPath}/resources/js/header.js"></script>	

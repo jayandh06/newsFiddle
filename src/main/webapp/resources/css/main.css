@@ -35,9 +35,20 @@ tr {
 #social-container {
 	float: right;
 	margin-top: -70px;
-	width:100px;
+	width: 100px;
 	clear: both;
 	border-color: #ffffff;
+}
+
+#search-container {
+	float: right;
+	margin-top: -30px;
+}
+
+#search-icon {
+	position: relative;
+	right: 20px;
+	top: 4px;
 }
 
 #menu-container {
