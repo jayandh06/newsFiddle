@@ -3,8 +3,7 @@
 }
 
 .feed-block {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding : 10px 10px;
 	border-bottom: black;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;	

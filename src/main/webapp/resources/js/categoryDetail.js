@@ -2,7 +2,7 @@
  * Manage category
  */
 
-com.company.rssfiddle.jscategoryDetail = {
+com.company.rssfiddle.js.categoryDetail = {
 	validateCategoryDetail : function(action){
 		
 		var categoryForm = $('form[name="categoryDetailForm"]');

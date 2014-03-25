@@ -1,6 +1,7 @@
 <meta content="Displays RSS Feeds having latest news, images, video. Customize feeds based on categories, RSS Fiddle can even help you search feeds you looking for" name="description">
 <meta content="noodp" name="robots">
 <meta name="google-site-verification" content="cA2gzeFKW_3iqVaEVYr4FeJsG-CrVWyy5DH257henxs" />
+<meta name="keywords"  content="RSS, feed, RSS feed, RSSFiddle, RSS Fiddle,fiddle, news, information, business, sports, world, category, details, search, syndicate, simple syndicate, social, facebook, twitter">
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/main.css"
 	type="text/css">
