@@ -19,6 +19,12 @@ com.company.rssfiddle.js.header = {
 			}
 		});
 		
+		$("#tab-container").mouseover(function(){
+			console.log("tab mouse over");
+		}).mouseleave(function(){
+			console.log("tab mouse leave");
+		});
+		
 	},
 	findDone: function (result) {
 		  $("#feeds-container").empty();

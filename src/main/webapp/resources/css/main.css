@@ -32,6 +32,23 @@ tr {
 }
 
 /***** ID Level *****/
+#tab-container {
+	background-color: #cccccc;
+	float: left;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+}
+
+#tab-container.hidden {
+	width: 50px;
+}
+
+#tab-container.visible {
+	width: 250px;
+}
+
 #social-container {
 	float: right;
 	margin-top: -70px;

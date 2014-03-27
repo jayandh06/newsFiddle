@@ -1,7 +1,11 @@
 <%@page
 	import="com.company.rssfiddle.domain.User,com.company.rssfiddle.util.RSSFiddleConstants"%>
 
+
 <div style="width: 100%; overflow: hidden;">
+	<div id="tab-container">
+		<img id="tab-arrow"  src="${pageContext.servletContext.contextPath}/resources/images/arrowhead.png" width="30" height="30" style="padding: 5px 10px">
+	</div>
 	<div id="header-container">
 		<a href="${pageContext.servletContext.contextPath}/"><img
 			src="http://www.logomaker.com/logo-images/3370d01941c5e49c.gif"

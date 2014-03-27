@@ -13,8 +13,8 @@
 	src="${pageContext.servletContext.contextPath}/resources/js/feeds.js"></script>
 </head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div id="page-container">
-		<jsp:include page="header.jsp"></jsp:include>
 		<div id="menu-container"></div>
 		<div id="feeds-container"></div>
 	</div>
