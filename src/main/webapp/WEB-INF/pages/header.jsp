@@ -3,7 +3,7 @@
 
 
 <div style="width: 100%; overflow: hidden;">
-	<div id="tab-container">
+	<div id="tab-container" class="hidden">
 		<img id="tab-arrow"  src="${pageContext.servletContext.contextPath}/resources/images/arrowhead.png" width="30" height="30" style="padding: 5px 10px">
 	</div>
 	<div id="header-container">
@@ -17,7 +17,7 @@
 		<a class="social24 google"  target="_blank" href="http://www.facebook.com/rssfiddle">Google Plus</a>
 	</div>
 	<div id="search-container"><input id ="search-text" type="text" size ="20" value="Search feed"/><img id="search-icon" src="${pageContext.servletContext.contextPath}/resources/images/lens_icon.png" width="15"/></div>
-	<div id='cssmenu'>
+	<!-- <div id='cssmenu'>
 		<ul>
 			<%
 				Integer userId = (Integer) session
@@ -56,6 +56,7 @@
 		</ul>
 		<ul>
 	</div>
+	 -->
 </div>
 <script type="text/javascript"
 	src="${pageContext.servletContext.contextPath}/resources/js/header.js"></script>	

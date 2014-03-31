@@ -20,6 +20,14 @@ com.company.rssfiddle.js.header = {
 		});
 		
 		$("#tab-container").mouseover(function(){
+			$(this).toggleClass(function(){
+				if($(this).hasClass('hidden')){
+					return "visible";
+				}
+				else{
+					return "hidden";
+				}
+			});
 			console.log("tab mouse over");
 		}).mouseleave(function(){
 			console.log("tab mouse leave");
