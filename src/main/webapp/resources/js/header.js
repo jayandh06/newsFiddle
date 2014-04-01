@@ -20,17 +20,25 @@ com.company.rssfiddle.js.header = {
 		});
 		
 		$("#tab-container").mouseover(function(){
-			$(this).toggleClass(function(){
-				if($(this).hasClass('hidden')){
-					return "visible";
-				}
-				else{
-					return "hidden";
-				}
-			});
-			console.log("tab mouse over");
+			if($("#tab-container").width() == 50) {
+				$(this).stop().animate({
+					'width' : '+=300px'
+				});
+				$("#page-container").stop().animate({
+					'marginLeft' : '+=300px'
+				});
+				$("#tab-arrow").hide();				
+			}
 		}).mouseleave(function(){
-			console.log("tab mouse leave");
+			if($("#tab-container").width() ==350) {
+				$(this).stop().animate({
+					'width' : '-=300px'
+				});
+				$("#page-container").stop().animate({
+					'marginLeft' : '-=300px'
+				});
+				$("#tab-arrow").show();			
+			}
 		});
 		
 	},

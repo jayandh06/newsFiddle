@@ -33,24 +33,31 @@ tr {
 
 /***** ID Level *****/
 #tab-container {
-	background-color: #cccccc;
+	background-color: #4679bd;
 	float: left;
 	height: 100%;
 	top: 0px;
 	left: 0px;
 	position: fixed;
-}
-
-#tab-container.hidden {
 	width: 50px;
+	 -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	
 }
 
 #tab-container.visible {
 	width: 250px;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 #header-container {
-	
+	left: 250px;
+	position:relative;
 }
 
 #social-container {
@@ -95,7 +102,21 @@ tr {
 	height: 768px;
 	margin-left: auto;
 	margin-right: auto;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
+
+#page-container.move {
+	position:absolute;
+	left:350px;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
 
 #form-container {
 	margin-top: 50px;
