@@ -8,6 +8,6 @@ public class IndexController{
 
 	@RequestMapping("/")
 	public String showNews() {
-		return "feeds";
+		return "main";
 	}
 }

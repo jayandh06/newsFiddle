@@ -27,7 +27,7 @@ com.company.rssfiddle.js.header = {
 				$("#page-container").stop().animate({
 					'marginLeft' : '+=300px'
 				});
-				$("#tab-arrow").hide();				
+				$("#tab-arrow").hide(1000);				
 			}
 		}).mouseleave(function(){
 			if($("#tab-container").width() ==350) {
@@ -37,7 +37,7 @@ com.company.rssfiddle.js.header = {
 				$("#page-container").stop().animate({
 					'marginLeft' : '-=300px'
 				});
-				$("#tab-arrow").show();			
+				$("#tab-arrow").show(1000);			
 			}
 		});
 		
