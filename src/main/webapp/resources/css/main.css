@@ -2,8 +2,7 @@
 a {
 	text-decoration: none;
 	padding: 0 10px;
-	font-size: 13px;
-	font-weight: bold;
+	font-size: 13px;	
 }
 
 a:hover {
@@ -38,10 +37,6 @@ tr {
 
 #feeds-container {
 	margin-top: 20px;
-}
-
-#header-container {
-	position: relative;
 }
 
 	
@@ -101,40 +96,14 @@ S
 	width: 1024px;
 	height: 768px;
 	margin-left: auto;
-	margin-right: auto;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
+	margin-right: auto;	
 }
 
 #page-container.move {
 	position: absolute;
-	left: 350px;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
+	left: 350px;	
 }
 
-#search-container {
-	float: right;
-	margin-top: -30px;
-}
-
-#search-icon {
-	position: relative;
-	right: 20px;
-	top: 4px;
-}
-
-#social-container {
-	float: right;
-	margin-top: -70px;
-	width: 100px;
-	clear: both;
-	border-color: #ffffff;
-}
 
 #subtitleText {
 	color: #0078ae;
@@ -152,18 +121,35 @@ S
 	left: 0px;
 	position: fixed;
 	width: 50px;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
 }
 
-#tab-container.visible {
-	width: 250px;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
+#top-container{
+	height: 90px;
+}
+
+#top-header-container {
+	width: 75%;
+	float: left;
+}
+
+#top-search-container {
+	float: left;
+	width: 25%;
+}
+
+#top-search-button  {
+	float: right;
+}
+
+#top-search-text {
+	float: left;	
+}
+
+#top-social-container {
+	float: right;	
+	width: 25%;
+	height: 70px;
+	
 }
 
 /***** Class Level *****/
@@ -179,21 +165,24 @@ a.social24 {
 
 a.social24.facebook {
 	background: url(../images/social_sprite_24px.png) no-repeat 0 0;
+	float: right;
 }
 
 a.social24.twitter {
 	background: url(../images/social_sprite_24px.png) no-repeat -24px 0;
+	float: right;
 }
 
 a.social24.google {
 	background: url(../images/social_sprite_24px.png) no-repeat -24px -48px;
+	float: right;
 }
 
 .alink {
 	text-decoration: none;
 	padding: 0 10px;
 	color: #ffffff;
-	font-size: 13px;
+	font-size: 12px;
 }
 
 .anchorWhiteButton {
@@ -236,9 +225,18 @@ a.social24.google {
 	vertical-align: middle;
 }
 
+.categoryTitle{
+	margin:30px 0px 20px 20px;	
+	color: #ffffff;
+	font-weight: bold;
+	font-size:16;
+	width : 100%
+}
+
 .category-element {
-	margin-right: 20px;
+	margin: 10px 0px 0px 20px;	
 	float: left;
+	width:100%;
 }
 
 .collapsibleDiv_open span {

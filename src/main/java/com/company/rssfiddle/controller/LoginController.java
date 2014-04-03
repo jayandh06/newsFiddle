@@ -111,12 +111,11 @@ public class LoginController {
 		return "{\"redirectPage\":\"/synd/feeds\"}";
 	}
 
-	@RequestMapping("/quit")
-	public ModelAndView logout(HttpSession session) {
+	@RequestMapping("/signout")
+	@ResponseBody
+	public String signout(HttpSession session) {
 		invalidateUserSession(session);
-		ModelAndView model = new ModelAndView("index");
-		model.addObject("message", "Logout successful");
-		return model;
+		return "{\"valid\" : true}";
 	}
 	
 	@RequestMapping(value="/appId",method=RequestMethod.GET)

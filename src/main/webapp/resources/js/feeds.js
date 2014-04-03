@@ -1,5 +1,5 @@
-com.company.rssfiddle.js.feeds = {
-		
+/***** Feed *****/
+com.company.rssfiddle.js.feeds = {	
 	getfeedsByCategory : function(categoryId){
 		var feedsContainer = $("#feeds-container");
 		feedsContainer.empty();
@@ -39,22 +39,6 @@ com.company.rssfiddle.js.feeds = {
 			
 		});
 
-	},	
-	loadCategories : function() {
-		
-		$.getJSON(GLOBAL_APP_CONTEXT + "/category/list", function(data) {
-			$.each(data, function(cnt, item) {
-				$("#menu-container").append(
-						"<div class='category-element'><a href='javascript:feedsObj.getfeedsByCategory("
-								+ item.categoryId + ")' class='alink'>"
-								+ item.categoryName + "</a></div>");
-			});
-
-		});
-
-		$.getJSON(GLOBAL_APP_CONTEXT + "/category/default", function(data) {
-			feedsObj.getfeedsByCategory(data.categoryId);
-		});
 	},attachEvent : function(){
 		$(".titleDiv").unbind().click(function(){
 			$(this).next().toggle("slow");
@@ -80,7 +64,4 @@ com.company.rssfiddle.js.feeds = {
 	}
 
 };
-
 var feedsObj = com.company.rssfiddle.js.feeds;
-var pageId = "feeds";
-$(document).ready(feedsObj.loadCategories());

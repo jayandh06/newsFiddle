@@ -1,6 +1,7 @@
+/***** Login *****/
 com.company.rssfiddle.js.login = {
-	clearLogin : function() {
-		var username = $("input[name='username']");
+		clearLogin : function() {
+			var username = $("input[name='username']");
 		var password = $("input[name='password']");
 
 		username.val("");
@@ -46,7 +47,24 @@ com.company.rssfiddle.js.login = {
 
 		if (!hasError) {
 			loginForm.attr('action', GLOBAL_APP_CONTEXT + '/login/validate');
-			loginForm.submit();
+			$.ajax({
+				url : GLOBAL_APP_CONTEXT +"/login/validate",
+				data : $("form[name='loginForm']").serialize(),
+				dataType : 'JSON',
+				type:'POST',				
+				success : function(data) {
+					if (data.valid) {
+						$("#login-container").dialog("close");
+						loginObj.clearLogin();
+						GLOBAL_HAS_USERSESSION = true;						
+					}
+					console.log(data);
+				},
+				error : function(data,textStatus,error){
+					console.log('error :' + data);
+				}
+			});
+			//loginForm.submit();
 		}
 
 	},
@@ -56,7 +74,7 @@ com.company.rssfiddle.js.login = {
 		var username = $("input[name='username']");
 		var usernameInfo = $("#usernameInfo");
 		var password1 = $("input[name='password1']");
-		var password1Info = $("#password1Info")
+		var password1Info = $("#password1Info");
 		var password2 = $("input[name='password2']");
 		var password2Info = $("#password2Info");
 
@@ -94,6 +112,43 @@ com.company.rssfiddle.js.login = {
 		}
 
 	},
+	signout : function(){
+		$.ajax({
+				url : GLOBAL_APP_CONTEXT +"/login/signout",
+				dataType : 'JSON',
+				success : function(data) {
+					if (data.valid) {						
+						$("#signout-tab").hide();
+						$("#category-tab").hide();
+						$("#login-tab").show();
+						GLOBAL_HAS_USERSESSION = false;						
+					}
+					console.log(data);
+				},
+				error : function(data,textStatus,error){
+					console.log('error :' + data);
+				}
+			});
+	},
+	showLogin : function(modal_id) {
+		$("#login-container").dialog({
+					title : 'RSSFiddle Login',
+					width : 650,
+					modal : true,
+					close : function() {
+						loginObj.closeLogin();
+					}
+				});				
+		
+		$("#login-submit-button").button();
+		$("#login-clear-button").button();
+		$("#login-signup-button").button();
+		$("#login-fb-button").button();
+		
+	},
+	closeLogin : function() {		
+		$("#login-container").dialog("close");
+	},
 	fbLogin : function() {
 		FB
 				.login(function(response) {
@@ -126,7 +181,7 @@ com.company.rssfiddle.js.login = {
 				success : function(data){
 					window.location.href = GLOBAL_APP_CONTEXT+data.redirectPage;
 				}
-			})
+			});
 			
 		});
 	},
@@ -153,24 +208,4 @@ com.company.rssfiddle.js.login = {
 		}
 	}
 };
-
 var loginObj = com.company.rssfiddle.js.login;
-$(document).ready(function() {
-	$.ajaxSetup({
-		cache : true
-	});
-	
-	var appId;
-	
-	$.getJSON(GLOBAL_APP_CONTEXT + '/login/appId',function(data){
-			appId = data.appId;
-	});
-	
-	$.getScript('//connect.facebook.net/en_UK/all.js', function() {
-		FB.init({
-			appId : appId,
-		});
-		$('#loginbutton,#feedbutton').removeAttr('disabled');
-		
-	});
-});

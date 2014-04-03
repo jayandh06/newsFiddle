@@ -1,7 +1,4 @@
-/**
- * Manage category
- */
-
+/***** Category *****/
 com.company.rssfiddle.js.category = {
 	validateCategory : function(action){
 		var categoryName = $("input[name='categoryName']");
@@ -40,7 +37,25 @@ com.company.rssfiddle.js.category = {
 			categoryForm.submit();
 		}
 	},
-	
+	loadCategories : function() {			
+		$.getJSON(GLOBAL_APP_CONTEXT + "/category/list", function(data) {
+			var categoryTab = $("#category-tab");
+			categoryTab.append("<div class='categoryTitle'>My interests</div>");
+			$.each(data, function(cnt, item) {
+				categoryTab.append(
+						"<div class='category-element'><a href='javascript:feedsObj.getfeedsByCategory("
+								+ item.categoryId + ")' class='alink'>"
+								+ item.categoryName + "</a></div>");
+			});
+			
+		});
+
+		$.getJSON(GLOBAL_APP_CONTEXT + "/category/default", function(data) {
+			feedsObj.getfeedsByCategory(data.categoryId);
+		});
+		
+		
+	},
 	retrieveCategoryList : function(){
 		
 		$.getJSON(GLOBAL_APP_CONTEXT+'/category/list',function(data){
@@ -75,6 +90,4 @@ com.company.rssfiddle.js.category = {
 	
 	
 };
-
 var categoryObj = com.company.rssfiddle.js.category;
-$(document).ready(categoryObj.retrieveCategoryList());
