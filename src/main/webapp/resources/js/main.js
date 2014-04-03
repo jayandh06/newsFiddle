@@ -10,15 +10,6 @@ com.company.rssfiddle = {};
 com.company.rssfiddle.js = {};
 var mainObj = com.company.rssfiddle.js;
 
-jQuery.fn.center = function () {
-    this.css("position","absolute");
-    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
-                                                $(window).scrollTop()) + "px");
-    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
-                                                $(window).scrollLeft()) + "px");
-    return this;
-}
-
 
 /***** Utility *****/
 com.company.rssfiddle.js.util = {
@@ -47,7 +38,7 @@ com.company.rssfiddle.js.header = {
 			}
 		});
 		$("#tab-login-button").button().click(function() {
-					loginObj.showLogin()
+					loginObj.showLogin();
 				});
 		$("#tab-container").mouseover(function(){
 			if($("#tab-container").width() == 50) {
@@ -234,7 +225,19 @@ com.company.rssfiddle.js.login = {
 
 		if (!hasError) {
 			loginForm.attr('action', GLOBAL_APP_CONTEXT + '/login/validate');
-			loginForm.submit();
+			$.ajax({
+				url : GLOBAL_APP_CONTEXT +"/login/validate",
+				data : $("form[name='loginForm']").serialize(),
+				dataType : 'JSON',
+				type:'POST',				
+				success : function(data) {
+					console.log(data);
+				},
+				error : function(data,textStatus,error){
+					console.log('error :' + data);
+				}
+			});
+			//loginForm.submit();
 		}
 
 	},
@@ -244,7 +247,7 @@ com.company.rssfiddle.js.login = {
 		var username = $("input[name='username']");
 		var usernameInfo = $("#usernameInfo");
 		var password1 = $("input[name='password1']");
-		var password1Info = $("#password1Info")
+		var password1Info = $("#password1Info");
 		var password2 = $("input[name='password2']");
 		var password2Info = $("#password2Info");
 
@@ -332,7 +335,7 @@ com.company.rssfiddle.js.login = {
 				success : function(data){
 					window.location.href = GLOBAL_APP_CONTEXT+data.redirectPage;
 				}
-			})
+			});
 			
 		});
 	},

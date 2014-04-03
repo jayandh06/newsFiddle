@@ -12,7 +12,8 @@
 	
 		<img id="tab-arrow"  src="${pageContext.servletContext.contextPath}/resources/images/tab_icon.png" width="30" height="30" style="padding: 5px 10px">
 		<div id="login-tab" style="display:none">
-			<button id ="tab-login-button" style="margin-top:20px">Login</button>
+			<div><span class="loginMessageText" style="margin:20px 0px 0px 50px">Read your favorite feeds</span></div>
+			<button id ="tab-login-button" style="margin:20px 0px 0px 50px">Login</button>
 		</div>
 	</div>
 	<div id="login-container" class="modal_window">

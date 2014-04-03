@@ -53,7 +53,7 @@ tr {
 	display: inline-block;
 	padding: 10px 0px;
 	width: 100%;
-	background-color: #4679bd;
+	background-color: #0078ae;
 }
 
 S
@@ -84,7 +84,7 @@ S
 	float: left;
 	padding-right: 10px;
 	margin: 10px 10px 0px 0px;
-	border-right: solid 1px #4679bd;
+	border-right: solid 1px #0078ae;
 }
 
 #login-right-container {
@@ -137,7 +137,7 @@ S
 }
 
 #subtitleText {
-	color: #4679bd;
+	color: #0078ae;
 	font-weight: bold;
 	font-size: 15px;
 	font-weight: bold;
@@ -145,7 +145,7 @@ S
 }
 
 #tab-container {
-	background-color: #4679bd;
+	background-color: #0078ae;
 	float: left;
 	height: 100%;
 	top: 0px;
@@ -199,7 +199,7 @@ a.social24.google {
 .anchorWhiteButton {
 	background: #fff;
 	font-size: 16px;
-	color: #4679bd !important;
+	color: #0078ae !important;
 	padding: 5px 25px;
 	box-shadow: 0px 1px 1px rgba(000, 000, 000, 0.5), inset 0px 0px 1px
 		rgba(255, 255, 255, 0.5);
@@ -217,7 +217,7 @@ a.social24.google {
 }
 
 .anchorButton {
-	background: #4679bd;
+	background: #0078ae;
 	font-size: 16px;
 	color: #fff !important;
 	padding: 5px 25px;
@@ -294,7 +294,7 @@ a.social24.google {
 }
 
 .headerRow {
-	background-color: #4679bd;
+	background-color: #0078ae;
 	color: #ffffff;
 	font-weight: bold;
 	font-size: 15px;
@@ -310,7 +310,7 @@ a.social24.google {
 }
 
 .labelText {
-	color: #4679bd;
+	color: #0078ae;
 	font-weight: bold;
 	font-size: 13px;
 	font-weight: bold;
@@ -320,6 +320,12 @@ a.social24.google {
 	margin-left: auto;
 	margin-right: auto;
 	opacity: 0.8;
+}
+
+.loginMessageText
+{
+	color : #ffffff;
+	font-size: 15px;
 }
 
 .messageText {
@@ -341,7 +347,7 @@ a.social24.google {
 
 .titleDiv {
 	height: 35px;
-	background-color: #4679bd;
+	background-color: #0078ae;
 	margin-bottom: 2px;
 }
 
@@ -364,4 +370,8 @@ a.social24.google {
 	font-family: "Helvetica", "Arial", "FreeSans", "Verdana", "Tahoma",
 		"Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
 	font-size : 12px;
+}
+
+.ui-widget-overlay{
+	opacity: 0.8;
 }

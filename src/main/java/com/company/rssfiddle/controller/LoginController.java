@@ -34,25 +34,26 @@ public class LoginController {
 		
 
 	@RequestMapping("/validate")
-	public ModelAndView validateLogin(@RequestParam String username,
+	@ResponseBody
+	public String validateLogin(@RequestParam String username,
 			@RequestParam String password, HttpSession session) {
 
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
-		ModelAndView model;
+		//ModelAndView model;
 		user = userService.isValidUser(user);
 
 		if (user != null) {
 			UserProfile profile = userProfileService.findProfileByUserId(user
 					.getUserId());
 			activateUserSession(user, profile, session);
-			model = new ModelAndView("feeds");
-			return model;
+			//model = new ModelAndView("feeds");
+			return "{\"valid\" : true }";
 		} else {
-			model = new ModelAndView("index");
-			model.addObject("message", "Invalid username/password. Try again");
-			return model;
+			//model = new ModelAndView("index");
+			//model.addObject("message", "Invalid username/password. Try again");
+			return "{\"valid\" : false, \"message\":\"Invalid username/password. Try again\"}";
 		}
 	}
 
