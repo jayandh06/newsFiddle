@@ -10,6 +10,7 @@
 	<div id ="body-container"></div>
 	<jsp:include page="tab.jsp"></jsp:include>
 	<jsp:include page="login.jsp"></jsp:include>
+	<jsp:include page="signup.jsp"></jsp:include>
 	<div id="page-container">
 		<jsp:include page="header.jsp"></jsp:include>
 		<div id="feeds-container"></div>

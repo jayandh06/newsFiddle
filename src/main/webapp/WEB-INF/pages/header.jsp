@@ -13,7 +13,7 @@
 			href="http://www.facebook.com/rssfiddle">Google Plus</a>
 	</div>
 	<div id="top-search-container">
-		<input id="top-search-text" type="text" size="28" value="Search feed" />
+		<input id="top-search-text" type="text" value="Search feed" />
 		<button id="top-search-button"> Go </button>
 	</div>
 </div>

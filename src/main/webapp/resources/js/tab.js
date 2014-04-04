@@ -52,18 +52,22 @@ com.company.rssfiddle.js.tab = {
 		// Make sure we didn't get an error.
 		if (!result.error) {
 			// Get content div
-			var content = document.getElementById('feeds-container');
+			var content = $("#feeds-container");
+			var query =  $("#top-search-text").val();
 			var html = '';
-
-			// Loop through the results and print out the title of the feed and
-			// link to
-			// the url.
+			html+= '<div class="titleDiv"><div class="titleText"> Search Result - ' + query +' </div></div>';
+			
+			// Loop through the results and print out the title of the feed and link to the url.
 			for ( var i = 0; i < result.entries.length; i++) {
 				var entry = result.entries[i];
-				html += '<p>' + entry.contentSnippet + '<br><a href="'
-						+ entry.url + '">' + entry.title + '</a></p><hr>';
+				html += '<div class="feed-block">';
+				html += '<div class="feedsTitle">' + entry.title + '</div>';
+				html += '<div class="feedsDesc">' + entry.contentSnippet + '</div>';
+				html += '<div class="feedsFollow"><button class="fiddleFollow" data-url="'+  entry.url + '">Fiddle+</button></div></div>';
 			}
-			content.innerHTML = html;
+			content.html(html);
+			$(".fiddleFollow").button();
+			$("#top-search-text").val('Search feed');
 		}
 	}
 	

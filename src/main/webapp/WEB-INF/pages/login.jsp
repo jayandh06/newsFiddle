@@ -2,29 +2,19 @@
 <script>var GLOBAL_HAS_USERSESSION = <%= session.getAttribute(RSSFiddleConstants.SESSION_USER_ID) != null %></script>
 <div id="login-container" style="display:none">
 	<div id="form-container" class="tableContainerLayout">
-		<div id="message-container" class="messageText">
-			<%
-				String message = (String) request.getAttribute("message");
-				if (message != null) {
-			%>
-			<%=message%>
-			<%
-				}
-			%>
-
-		</div>
+		<div id="login-message-container" class="messageText"></div>
 		<div id="login-left-container">
 			<form name="loginForm" method="post">
 				<table>
 					<tr>
 						<td class="labelText">Username</td>
-						<td><input type="text" name="username" size="20" /><span
-							id="usernameInfo"></span></td>
+						<td><input type="text" name="loginUsername" size="20" /><span
+							id="loginUsernameInfo" class="formInfoMessage"></span></td>
 					</tr>
 					<tr>
 						<td class="labelText">Password</td>
 						<td><input type="password" name="password" size="20" /><span
-							id="passwordInfo"></span></td>
+							id="passwordInfo" class="formInfoMessage"></span></td>
 					</tr>
 					<tr>
 						<td colspan="2"><a id="login-submit-button" href="javascript:loginObj.validateLogin();">Login</a>
@@ -33,7 +23,7 @@
 					</tr>
 					<tr>
 						<td colspan="2"><span>New to RSS Fiddle? &nbsp;</span><a id="login-signup-button"
-							href="${pageContext.servletContext.contextPath}/login/showSignup"
+							href="javascript:signupObj.showSignup();"
 							>Signup Here</a></td>
 					</tr>
 				</table>

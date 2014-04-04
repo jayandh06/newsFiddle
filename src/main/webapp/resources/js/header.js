@@ -2,14 +2,14 @@ com.company.rssfiddle.js.header = {
 	searchClick : function(event) {
 		var query = $("#top-search-text").val();
 		if(query.length >= 4){
-			google.feeds.findFeeds(query, tabObj.findDone);
+			google.feeds.findFeeds(query, tabObj.findDone);			
 		}
 		else{
 			console.log('Search text very small');
 		}
 	},
 	attachEvent : function(){
-		$("#top-search-button").button();
+		$("#top-search-button").button().click(headerObj.searchClick);
 		
 		$("#top-search-text").keypress(function(event){
 			var keyCode = event.keyCode || event.which;
@@ -29,7 +29,7 @@ com.company.rssfiddle.js.header = {
 			}
 		});
 		
-		$("#top-search-button").on("click",headerObj.searchClick(event));
+	
 		
 	}
 	

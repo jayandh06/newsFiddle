@@ -22,6 +22,7 @@
 <script type="text/javascript"	src="${pageContext.servletContext.contextPath}/resources/js/util.js"></script>
 <script type="text/javascript"	src="${pageContext.servletContext.contextPath}/resources/js/feeds.js"></script>
 <script type="text/javascript"	src="${pageContext.servletContext.contextPath}/resources/js/login.js"></script>
+<script type="text/javascript"	src="${pageContext.servletContext.contextPath}/resources/js/signup.js"></script>
 <script type="text/javascript"	src="${pageContext.servletContext.contextPath}/resources/js/category.js"></script>
 <script type="text/javascript"	src="${pageContext.servletContext.contextPath}/resources/js/tab.js"></script>
 <script type="text/javascript"	src="${pageContext.servletContext.contextPath}/resources/js/header.js"></script>

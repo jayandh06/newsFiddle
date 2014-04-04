@@ -1,39 +1,56 @@
 /***** Login *****/
 com.company.rssfiddle.js.login = {
-		clearLogin : function() {
-			var username = $("input[name='username']");
-		var password = $("input[name='password']");
+	clearLogin : function() {
+		var loginUsername = $("input[name='loginUsername']");
+		var loginUsernameInfo = $("#loginUsernameInfo");
 
-		username.val("");
+		var password = $("input[name='password']");
+		var passwordInfo = $("#passwordInfo");
+		
+		loginUsernameInfo.text("");
+		loginUsernameInfo.removeClass("errorText");
+		
+		passwordInfo.text("");
+		passwordInfo.removeClass("errorText");
+		
+		$("#login-message-container").html("");
+		
+		loginUsername.val("");
 		password.val("");
 
 	},
-	clearSignup : function() {
-		var username = $("input[name='username']");
-		var password1 = $("input[name='password1']");
-		var password2 = $("input[name='password2']");
-		username.val("");
-		password1.val("");
-		password2.val("");
-
+	load : function(){
+		$("#login-submit-button").button();
+		$("#login-clear-button").button();
+		$("#login-signup-button").button();
+		$("#login-fb-button").button();
+		$("#login-container").dialog({
+			autoOpen: false,
+			title : 'RSSFiddle Login',
+			width : 650,
+			modal : true,
+			close : function() {
+				loginObj.closeLogin();
+			}
+		});
 	},
 	validateLogin : function() {
-		var loginForm = $('form[name="loginForm"]');
+		//var loginForm = $('form[name="loginForm"]');
 
-		var username = $("input[name='username']");
-		var usernameInfo = $("#usernameInfo");
+		var loginUsername = $("input[name='loginUsername']");
+		var loginUsernameInfo = $("#loginUsernameInfo");
 
 		var password = $("input[name='password']");
 		var passwordInfo = $("#passwordInfo");
 
 		var hasError = false;
-		if (username.val().length <= 5) {
-			usernameInfo.text("Invalid Username");
-			usernameInfo.addClass("errorText");
+		if (loginUsername.val().length <= 5) {
+			loginUsernameInfo.text("Invalid Username");
+			loginUsernameInfo.addClass("errorText");
 			hasError = true;
 		} else {
-			usernameInfo.text("");
-			usernameInfo.removeClass("errorText");
+			loginUsernameInfo.text("");
+			loginUsernameInfo.removeClass("errorText");
 		}
 
 		if (password.val().length <= 7) {
@@ -46,7 +63,7 @@ com.company.rssfiddle.js.login = {
 		}
 
 		if (!hasError) {
-			loginForm.attr('action', GLOBAL_APP_CONTEXT + '/login/validate');
+			//loginForm.attr('action', GLOBAL_APP_CONTEXT + '/login/validate');
 			$.ajax({
 				url : GLOBAL_APP_CONTEXT +"/login/validate",
 				data : $("form[name='loginForm']").serialize(),
@@ -58,9 +75,13 @@ com.company.rssfiddle.js.login = {
 						loginObj.clearLogin();
 						GLOBAL_HAS_USERSESSION = true;						
 					}
+					else{
+						$("#login-message-container").html(data.message);						
+					}
 					console.log(data);
 				},
 				error : function(data,textStatus,error){
+					
 					console.log('error :' + data);
 				}
 			});
@@ -68,50 +89,7 @@ com.company.rssfiddle.js.login = {
 		}
 
 	},
-	validateSignup : function() {
-		var signupForm = $('form[name="signupForm"]');
-
-		var username = $("input[name='username']");
-		var usernameInfo = $("#usernameInfo");
-		var password1 = $("input[name='password1']");
-		var password1Info = $("#password1Info");
-		var password2 = $("input[name='password2']");
-		var password2Info = $("#password2Info");
-
-		var hasError = false;
-		if (username.val().length <= 3) {
-			usernameInfo.addClass('errorText');
-			username.addClass('inputError');
-			hasError = true;
-		} else {
-			usernameInfo.removeClass('errorText');
-			username.removeClass('inputError');
-		}
-
-		if (password1.val().length <= 7) {
-			password1Info.addClass('errorText');
-			password1.addClass('inputError');
-			hasError = true;
-		} else {
-			password1Info.removeClass('errorText');
-			password1.removeClass('inputError');
-		}
-
-		if (password2.val().length <= 7 || password2.val() !== password1.val()) {
-			password2Info.addClass('errorText');
-			password2.addClass('inputError');
-			hasError = true;
-		} else {
-			password2Info.removeClass('errorText');
-			password2.removeClass('inputError');
-		}
-
-		if (!hasError) {
-			signupForm.attr('action', GLOBAL_APP_CONTEXT + '/login/signup');
-			signupForm.submit();
-		}
-
-	},
+	
 	signout : function(){
 		$.ajax({
 				url : GLOBAL_APP_CONTEXT +"/login/signout",
@@ -131,20 +109,7 @@ com.company.rssfiddle.js.login = {
 			});
 	},
 	showLogin : function(modal_id) {
-		$("#login-container").dialog({
-					title : 'RSSFiddle Login',
-					width : 650,
-					modal : true,
-					close : function() {
-						loginObj.closeLogin();
-					}
-				});				
-		
-		$("#login-submit-button").button();
-		$("#login-clear-button").button();
-		$("#login-signup-button").button();
-		$("#login-fb-button").button();
-		
+		$("#login-container").dialog("open");
 	},
 	closeLogin : function() {		
 		$("#login-container").dialog("close");

@@ -58,8 +58,7 @@ S
 	height: 300px;
 }
 
-#form-container form[name='categoryForm'],#form-container form[name='categoryDetailForm']
-	{
+#form-container form[name='categoryForm'],#form-container form[name='categoryDetailForm'] {
 	display: none;
 }
 
@@ -74,8 +73,14 @@ S
 	background: #ffffff;		
 }
 
+#signup-container {
+	display: none;
+	padding: 30px;
+	background: #ffffff;		
+}
+
 #login-left-container {
-	width: 50%;
+	width: 55%;
 	float: left;
 	padding-right: 10px;
 	margin: 10px 10px 0px 0px;
@@ -83,7 +88,7 @@ S
 }
 
 #login-right-container {
-	width: 45%;
+	width: 40%;
 	float: left;
 	margin-top: 10px;
 }
@@ -134,15 +139,23 @@ S
 
 #top-search-container {
 	float: left;
-	width: 25%;
+	width: 23%;
+	border: 0.15em solid #0078ae;
+	border-radius: 10px;
 }
 
-#top-search-button  {
+#top-search-button {
 	float: right;
+	margin: 1px 3px 1px 0px;
 }
 
 #top-search-text {
-	float: left;	
+	float: left;
+	height: 20px;
+	width: 75%;
+	border: none;
+	font-size: 12px;
+	margin: 2px 0px 0px 3px;
 }
 
 #top-social-container {
@@ -274,17 +287,25 @@ a.social24.google {
 }
 
 .feedsTitle {
-	font-family: georgia, times new roman, serif;
-	font-size: 25px;
+	font-size: 18px;
 	font-weight: normal;
 	line-height: 1.1;
+	color: #0078ae;
 }
 
 .feedsDate {
 	color: #999999;
-	font-family: aria, helvetica, sans-serif;
 	font-size: 11px;
 	margin: 0px;
+}
+
+.feedsDesc{
+	font-size: 15px;	
+}
+
+.formInfoMessage{
+	font-style: italic;
+	color:#cccccc;	
 }
 
 .headerCell {
@@ -301,6 +322,7 @@ a.social24.google {
 .hrColor {
 	border-color: #bbbbbb;
 }
+
 
 .inputError {
 	background: #f8dbdb;
@@ -324,6 +346,7 @@ a.social24.google {
 {
 	color : #ffffff;
 	font-size: 15px;
+	white-space: nowrap;
 }
 
 .messageText {

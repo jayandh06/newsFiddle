@@ -35,11 +35,11 @@ public class LoginController {
 
 	@RequestMapping("/validate")
 	@ResponseBody
-	public String validateLogin(@RequestParam String username,
+	public String validateLogin(@RequestParam String loginUsername,
 			@RequestParam String password, HttpSession session) {
 
 		User user = new User();
-		user.setUsername(username);
+		user.setUsername(loginUsername);
 		user.setPassword(password);
 		//ModelAndView model;
 		user = userService.isValidUser(user);
@@ -150,10 +150,11 @@ public class LoginController {
 	}
 
 	@RequestMapping("/signup")
-	public String signup(@RequestParam String username,
+	@ResponseBody
+	public String signup(@RequestParam String signupUsername,
 			@RequestParam String password1, HttpSession session) {
 		User user = new User();
-		user.setUsername(username);
+		user.setUsername(signupUsername);
 		user.setPassword(password1);
 		user.setActive(false);
 		user.setAdmin(false);
@@ -163,8 +164,12 @@ public class LoginController {
 		user = userService.isValidUser(user);
 		if (user != null) {
 			activateUserSession(user, null, session);
+			return "{\"valid\" : true }";
 		}
-		return "feeds";
+		else{
+			return "{\"valid\" : false,\"message\":\"Signup Invalid\" }";
+		}
+		
 	}
 
 	private void activateUserSession(User user, UserProfile profile,
