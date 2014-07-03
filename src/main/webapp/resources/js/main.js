@@ -25,7 +25,8 @@ var appId;
 		
 	});  
 
-	categoryObj.loadCategories();	
+	//categoryObj.loadCategories();
+	categoryObj.loadFeedCategories();
 	tabObj.attachEvent();
 	headerObj.attachEvent();
 	loginObj.load();

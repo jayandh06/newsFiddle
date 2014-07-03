@@ -56,6 +56,24 @@ com.company.rssfiddle.js.category = {
 		
 		
 	},
+	loadFeedCategories : function() {
+		var catListContainer = $("#categoryList-container");
+		
+		$.getJSON(GLOBAL_APP_CONTEXT + "/category/feedCategories", function(data) {
+			catListContainer.append("<table>");
+			catListContainer.append("<tr colspan='4'><td>Feed Categories</td></tr>");
+			$.each(data,function(cnt,item) {
+				if(cnt%4 == 0){
+					catListContainer.append("<tr>");
+				}
+				catListContainer.append("<td><a href='javascript:feedsObj.getfeedsByName(\""+data[cnt]+"\")'>" + data[cnt] + "</a></td>");
+				if(cnt%4 == 0){
+					catListContainer.append("</tr>");
+				}
+			});
+			catListContainer.append("</table>");
+		});
+	},
 	retrieveCategoryList : function(){
 		
 		$.getJSON(GLOBAL_APP_CONTEXT+'/category/list',function(data){

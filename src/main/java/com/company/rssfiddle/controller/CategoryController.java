@@ -106,6 +106,22 @@ public class CategoryController {
 		return gson.toJson(categories);
 	}
 
+	@RequestMapping("/feedCategories")
+	@ResponseBody
+	public String getAllFeedCategories() {
+		String[] feedCategories = { "Art", "Celebrity", "Community",
+				"Electronics", "Education", "Employment", "Family", "Fashion",
+				"Finance", "Food", "Games", "Government", "Health", "Humor",
+				"Law", "Lifestyle", "Magazine", "Movie", "Music", "News",
+				"Politics", "Religion","Science","Shopping","Sports","Travel" };
+		
+		final GsonBuilder gsonBuilder = new GsonBuilder();
+		
+		final Gson gson = gsonBuilder.create();
+		return gson.toJson(feedCategories);
+	}
+	
+	
 	@RequestMapping("/{id}")
 	@ResponseBody
 	public String getCategoryDetail(@PathVariable String id) {

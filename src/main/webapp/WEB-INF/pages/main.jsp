@@ -14,6 +14,7 @@
 	<div id="page-container">
 		<jsp:include page="header.jsp"></jsp:include>
 		<div id="feeds-container"></div>
+		<jsp:include page="categoryList.jsp"></jsp:include>
 	</div>
 	
 </body>

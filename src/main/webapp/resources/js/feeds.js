@@ -39,7 +39,12 @@ com.company.rssfiddle.js.feeds = {
 			
 		});
 
-	},attachEvent : function(){
+	},
+	getfeedsByName : function(name) {
+		$("#categoryList-container").hide();
+		google.feeds.findFeeds(name, tabObj.findDone);
+	},
+	attachEvent : function(){
 		$(".titleDiv").unbind().click(function(){
 			$(this).next().toggle("slow");
 			$(this).toggleClass(function(){
