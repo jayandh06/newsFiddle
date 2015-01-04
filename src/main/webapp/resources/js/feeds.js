@@ -1,5 +1,8 @@
 /***** Feed *****/
-com.company.rssfiddle.js.feeds = {	
+com.company.rssfiddle.js.feeds = function() {
+	
+};
+com.company.rssfiddle.js.feeds.prototype = {	
 	getfeedsByCategory : function(categoryId){
 		var feedsContainer = $("#feeds-container");
 		feedsContainer.empty();
@@ -40,6 +43,35 @@ com.company.rssfiddle.js.feeds = {
 		});
 
 	},
+	getfeedsByUrl : function(urlString,company) {
+		var feedsContainer = $("#feeds-container");		
+		
+		$.when($.getJSON(GLOBAL_APP_CONTEXT + "/synd/feedsByUrl",{"urlString":urlString,"company":company})).then(function(data) {
+			var dataCount = data.length;		
+			var htmlContent = '';
+			$.each(data, function(cnt, item) {
+				if(cnt == 0) {
+					htmlContent +="<div class='titleDiv collapsibleDiv_open'><div class='titleText'>" +  item.provider  + "</div><span></span></div><div class='provider-container'>";
+				}
+				htmlContent += "<div class='feed-block' data-url='" + item.link+"'>";
+				//htmlContent +="<div class='labelText'>" + item.provider	+ "</div>";
+				htmlContent +="<div class='feedsTitle'>" + item.title	+ "</div>";
+				if(item.updateDate != undefined) {
+					htmlContent +="<div class='feedsDate'>" + item.updateDate	+ "</div>";
+				}
+				htmlContent +="<div class='feedsDesc'>"+ item.description + "</div>";
+				htmlContent += "</div>";
+				if(cnt == dataCount - 1){
+					htmlContent +="</div>";
+				}
+			});
+			feedsContainer.empty();
+			feedsContainer.append(htmlContent);
+			feedsObj.attachEvent();
+			
+		});
+
+	},
 	getfeedsByName : function(name) {
 		$("#categoryList-container").hide();
 		google.feeds.findFeeds(name, tabObj.findDone);
@@ -66,7 +98,25 @@ com.company.rssfiddle.js.feeds = {
 		}).mouseout(function(){
 			$(this).removeClass("active");
 		});
+	},
+	showFeedPage : function() {
+		
+		$.ajax( {
+			url: GLOBAL_APP_CONTEXT + "/synd/feeds'",
+			success : function(){
+				console.log("Feeds Success");
+			},
+			error : function(){
+				console.log("Feeds failed");
+			}
+		
+		});
+		
+	},
+	showFeedUrl : function(url,company) {
+		//feedsObj.showFeedPage();
+		feedsObj.getfeedsByUrl(url, company);
 	}
 
 };
-var feedsObj = com.company.rssfiddle.js.feeds;
+var feedsObj = new com.company.rssfiddle.js.feeds();

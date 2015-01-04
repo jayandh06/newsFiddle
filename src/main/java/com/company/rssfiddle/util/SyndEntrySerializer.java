@@ -25,8 +25,10 @@ public class SyndEntrySerializer implements JsonSerializer<SyndEntryImpl> {
 		jsonObject.addProperty("title", syndEntry.getTitle());
 		jsonObject.addProperty("uri", syndEntry.getUri());
 		jsonObject.addProperty("link", syndEntry.getLink());
-		jsonObject.addProperty("description", syndEntry.getDescription()
-				.getValue());
+		if (syndEntry.getDescription() != null) {
+			jsonObject.addProperty("description", syndEntry.getDescription()
+					.getValue());
+		}
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		if (syndEntry.getPublishedDate() != null) {
 			jsonObject.addProperty("updateDate",

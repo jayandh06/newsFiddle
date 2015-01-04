@@ -1,4 +1,8 @@
-com.company.rssfiddle.js.menu = {
+com.company.rssfiddle.js.menu = function() {
+	
+};
+
+com.company.rssfiddle.js.menu.prototype = {
 	setActiveMenu : function() {		
 		var obj = $("#cssmenu a");
 		for(cnt = 1; cnt <= obj.length;cnt++){
@@ -9,4 +13,4 @@ com.company.rssfiddle.js.menu = {
 
 };
 
-var menuObj = com.company.rssfiddle.js.menu;
+var menuObj = com.company.rssfiddle.js.menu();

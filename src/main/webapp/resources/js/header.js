@@ -1,7 +1,12 @@
-com.company.rssfiddle.js.header = {
+com.company.rssfiddle.js.header = function() {
+	
+};
+
+com.company.rssfiddle.js.header.prototype = {
 	searchClick : function(event) {
 		var query = $("#top-search-text").val();
-		if(query.length >= 4){
+		if(query.length >= 4){			
+			headerObj.hideCategoryContainer();
 			google.feeds.findFeeds(query, tabObj.findDone);			
 		}
 		else{
@@ -17,6 +22,7 @@ com.company.rssfiddle.js.header = {
 				console.log("enter key pressed");
 				var query = $(this).val();
 				if(query.length >= 4){
+					headerObj.hideCategoryContainer();
 					google.feeds.findFeeds(query, tabObj.findDone);
 				}
 				else{
@@ -31,9 +37,13 @@ com.company.rssfiddle.js.header = {
 		
 	
 		
+	},
+	hideCategoryContainer : function() {
+		$("#categoryList-container").hide();
 	}
 	
+	
 };
-var headerObj = com.company.rssfiddle.js.header;
+var headerObj = new com.company.rssfiddle.js.header();
 
 

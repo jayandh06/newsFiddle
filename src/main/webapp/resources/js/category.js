@@ -1,5 +1,9 @@
 /***** Category *****/
-com.company.rssfiddle.js.category = {
+
+com.company.rssfiddle.js.category = function() {
+	
+};
+com.company.rssfiddle.js.category.prototype = {
 	validateCategory : function(action){
 		var categoryName = $("input[name='categoryName']");
 		var categoryNameInfo =$("#categoryNameInfo");
@@ -108,4 +112,4 @@ com.company.rssfiddle.js.category = {
 	
 	
 };
-var categoryObj = com.company.rssfiddle.js.category;
+var categoryObj = new com.company.rssfiddle.js.category();

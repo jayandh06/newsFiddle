@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.company.rssfiddle.domain.CategoryDetail;
 import com.company.rssfiddle.service.CategoryDetailService;
@@ -35,9 +37,10 @@ public class SyndController {
 
 	@RequestMapping("/feeds")
 	public String showNews() {
-		return "feeds";
+		return "main";
 	}
 
+	
 	@RequestMapping("/feeds/{categoryDetailId}")
 	@ResponseBody
 	public String getHotNews(@PathVariable String categoryDetailId) {
@@ -69,4 +72,34 @@ public class SyndController {
 		return responseString.toString();
 
 	}
+	
+	@RequestMapping("/feedsByUrl")
+	@ResponseBody
+	public String getFeedsByUrl(@RequestParam String urlString,@RequestParam String company) {
+
+		
+		List<SyndEntry> entries = new ArrayList<SyndEntry>();		
+
+		URL url = null;
+		StringBuilder responseString = new StringBuilder();
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		Gson gson;
+
+		try {
+			url = new URL(urlString);
+			entries.addAll(readerService.getFeeds(url, null));
+			gsonBuilder.registerTypeAdapter(SyndEntryImpl.class,
+					new SyndEntrySerializer(company));
+			gsonBuilder.setPrettyPrinting();
+			gson = gsonBuilder.create();
+			responseString.append(gson.toJson(entries
+					.toArray(new SyndEntryImpl[0])));
+		} catch (MalformedURLException e) {
+			log.error("Invalid URL Exception");
+		}
+
+		return responseString.toString();
+
+	}
+
 }

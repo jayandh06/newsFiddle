@@ -1,5 +1,9 @@
 /***** Login *****/
-com.company.rssfiddle.js.login = {
+com.company.rssfiddle.js.login = function() {
+	
+};
+
+com.company.rssfiddle.js.login.prototype = {
 	clearLogin : function() {
 		var loginUsername = $("input[name='loginUsername']");
 		var loginUsernameInfo = $("#loginUsernameInfo");
@@ -173,4 +177,4 @@ com.company.rssfiddle.js.login = {
 		}
 	}
 };
-var loginObj = com.company.rssfiddle.js.login;
+var loginObj = new com.company.rssfiddle.js.login();

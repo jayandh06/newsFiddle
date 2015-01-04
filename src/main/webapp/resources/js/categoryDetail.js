@@ -1,8 +1,10 @@
 /**
  * Manage category
  */
-
-com.company.rssfiddle.js.categoryDetail = {
+com.company.rssfiddle.js.categoryDetail = function() {
+	
+};
+com.company.rssfiddle.js.categoryDetail.prototype = {
 	validateCategoryDetail : function(action){
 		
 		var categoryForm = $('form[name="categoryDetailForm"]');
@@ -109,7 +111,7 @@ com.company.rssfiddle.js.categoryDetail = {
 	}
 };
 
-var categoryDetailObj = com.company.rssfiddle.js.categoryDetail;
+var categoryDetailObj = new com.company.rssfiddle.js.categoryDetail();
 
 
 $(document).ready(categoryDetailObj.retrieveCategoryDetailList());

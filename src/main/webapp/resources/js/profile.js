@@ -1,4 +1,8 @@
-com.company.rssfiddle.js.profile = {
+com.company.rssfiddle.js.profile = function() {
+	
+};
+
+com.company.rssfiddle.js.profile.prototype = {
 	validateProfile : function(action) {
 		if (action == 'create' || action == 'update') {
 			var profileForm = $("form[name='profileForm']");
@@ -111,5 +115,5 @@ com.company.rssfiddle.js.profile = {
 		}
 };
 
-var profileObj = com.company.rssfiddle.js.profile;
+var profileObj = new com.company.rssfiddle.js.profile();
 $(document).ready(profileObj.retrieveProfile());

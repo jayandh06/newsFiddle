@@ -20,3 +20,22 @@
 </body>
 </html>
 <jsp:include page="scripts.jsp"></jsp:include>
+<script>
+$(document).ready(function() {
+	var appId;
+		
+		$.getJSON(GLOBAL_APP_CONTEXT + '/login/appId',function(data){
+				appId = data.appId;
+		});
+		
+		$.getScript('//connect.facebook.net/en_UK/all.js', function() {
+			FB.init({
+				appId : appId,
+			});
+			$('#loginbutton,#feedbutton').removeAttr('disabled');
+			
+		});	
+		
+	});
+	mainObj.load();
+</script>

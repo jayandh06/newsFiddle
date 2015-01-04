@@ -1,5 +1,9 @@
 /***** Header *****/
-com.company.rssfiddle.js.tab = {
+com.company.rssfiddle.js.tab = function() {
+	
+};
+
+com.company.rssfiddle.js.tab.prototype = {
 	attachEvent : function() {
 		var tabContainerExpWidth = 250;
 		var tabContainerColWidth = 50;
@@ -60,8 +64,12 @@ com.company.rssfiddle.js.tab = {
 			// Loop through the results and print out the title of the feed and link to the url.
 			for ( var i = 0; i < result.entries.length; i++) {
 				var entry = result.entries[i];
-				html += '<div class="feed-block">';
-				html += '<div class="feedsTitle">' + entry.title + '</div>';
+				var title = entry.title;
+				title = title.replace('"','');
+				title = title.replace('<b>','');
+				title = title.replace('</b>','');
+				html += '<div class="feed-block">';				
+				html += '<div class="feedsTitle"><a href=\'javascript:feedsObj.showFeedUrl("'+entry.url+'","'+title+'")\'>' + entry.title + '</a></div>';
 				html += '<div class="feedsDesc">' + entry.contentSnippet + '</div>';
 				html += '<div class="feedsFollow"><button class="fiddleFollow" data-url="'+  entry.url + '">Fiddle+</button></div></div>';
 			}
@@ -73,4 +81,4 @@ com.company.rssfiddle.js.tab = {
 	
 
 };
-var tabObj = com.company.rssfiddle.js.tab;
+var tabObj = new com.company.rssfiddle.js.tab();

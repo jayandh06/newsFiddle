@@ -1,4 +1,8 @@
-com.company.rssfiddle.js.signup = {
+com.company.rssfiddle.js.signup = function() {
+	
+};
+
+com.company.rssfiddle.js.signup.prototype = {
 		
 		attachEvent : function(){
 			
@@ -114,4 +118,4 @@ com.company.rssfiddle.js.signup = {
 		}
 		
 };
-var signupObj = com.company.rssfiddle.js.signup;
+var signupObj = new com.company.rssfiddle.js.signup();

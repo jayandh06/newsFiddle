@@ -1,5 +1,9 @@
 /***** Utility *****/
-com.company.rssfiddle.js.util = {
+com.company.rssfiddle.js.util = function() {
+	
+};
+
+com.company.rssfiddle.js.util.prototype = {
 		
 };
-var utilObj = com.company.rssfiddle.js.util;
+var utilObj = new com.company.rssfiddle.js.util();
