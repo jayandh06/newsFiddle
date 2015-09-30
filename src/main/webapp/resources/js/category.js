@@ -1,9 +1,9 @@
 /***** Category *****/
 
-com.company.rssfiddle.js.category = function() {
+com.company.rssfiddle.js.Category = function() {
 	
 };
-com.company.rssfiddle.js.category.prototype = {
+com.company.rssfiddle.js.Category.prototype = {
 	validateCategory : function(action){
 		var categoryName = $("input[name='categoryName']");
 		var categoryNameInfo =$("#categoryNameInfo");
@@ -64,18 +64,22 @@ com.company.rssfiddle.js.category.prototype = {
 		var catListContainer = $("#categoryList-container");
 		
 		$.getJSON(GLOBAL_APP_CONTEXT + "/category/feedCategories", function(data) {
-			catListContainer.append("<table>");
-			catListContainer.append("<tr colspan='4'><td>Feed Categories</td></tr>");
+			var htmlContent = "";
+			htmlContent += "<table>";
+			htmlContent += "<tr colspan='4'><td>Feed Categories</td></tr>";
+			if(data.length > 0) {
+				htmlContent += "<tr>";
+			}
 			$.each(data,function(cnt,item) {
-				if(cnt%4 == 0){
-					catListContainer.append("<tr>");
+				
+				htmlContent += "<td><a href='javascript:feedsObj.getfeedsByName(\""+data[cnt]+"\")'><div class='feedCategory'>" + data[cnt] + "</div></a></td>";
+				if((cnt+1)%4 == 0){
+					htmlContent += "</tr><tr>";
 				}
-				catListContainer.append("<td><a href='javascript:feedsObj.getfeedsByName(\""+data[cnt]+"\")'>" + data[cnt] + "</a></td>");
-				if(cnt%4 == 0){
-					catListContainer.append("</tr>");
-				}
+				
 			});
-			catListContainer.append("</table>");
+			htmlContent += "</table>";
+			catListContainer.append(htmlContent);
 		});
 	},
 	retrieveCategoryList : function(){
@@ -112,4 +116,4 @@ com.company.rssfiddle.js.category.prototype = {
 	
 	
 };
-var categoryObj = new com.company.rssfiddle.js.category();
+var categoryObj = new com.company.rssfiddle.js.Category();

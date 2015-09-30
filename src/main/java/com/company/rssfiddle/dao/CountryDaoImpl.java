@@ -12,6 +12,7 @@ import com.company.rssfiddle.domain.Country;
 public class CountryDaoImpl extends GenericDaoImpl<Country> implements
 		CountryDao {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Country> getAllOrderByName() {
 		Query q = em.createQuery("SELECT c FROM Country c order by c.countryName");

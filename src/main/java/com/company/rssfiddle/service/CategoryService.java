@@ -19,6 +19,7 @@ public class CategoryService {
 	
 	public void saveCategory(Category cat) {
 		categoryDao.save(cat);
+		log.info("Category Saved");
 	}
 
 	public List<Category> getCategories() {

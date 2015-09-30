@@ -19,6 +19,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
 	private Class<T> type;
 
+	@SuppressWarnings("unchecked")
 	public GenericDaoImpl() {
 
 		type = (Class<T>) ((ParameterizedType) getClass()
@@ -50,6 +51,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 		getEntityManager().remove(t);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<T> getAll() {
 		final StringBuffer queryString = new StringBuffer("SELECT o from ");
 		queryString.append(type.getSimpleName()).append(" o ");

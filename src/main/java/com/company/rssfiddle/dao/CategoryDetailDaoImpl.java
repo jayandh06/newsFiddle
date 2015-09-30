@@ -12,6 +12,7 @@ import com.company.rssfiddle.domain.CategoryDetail;
 @Repository("categoryDetailDao")
 public class CategoryDetailDaoImpl extends GenericDaoImpl<CategoryDetail> implements CategoryDetailDao{
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<CategoryDetail> getDetailsByCategory(int categoryId) {
 		

@@ -22,6 +22,7 @@ public class ReaderService {
 
 	private static final Logger log = Logger.getLogger(ReaderService.class);
 	
+	@SuppressWarnings("unchecked")
 	public List<FiddleSyndEntry> getFeeds(URL url, CategoryDetail catDetail) {
 		List<FiddleSyndEntry> feeds = new ArrayList<FiddleSyndEntry>();
 		XmlReader reader = null;
@@ -67,8 +68,9 @@ public class ReaderService {
 			SyndFeed feed = new SyndFeedInput().build(reader);
 			System.out.println("Feed Title: " + feed.getAuthor());
 
-			for (Iterator i = feed.getEntries().iterator(); i.hasNext();) {
-				SyndEntry entry = (SyndEntry) i.next();
+			for (@SuppressWarnings("unchecked")
+			Iterator<SyndEntry> i = feed.getEntries().iterator(); i.hasNext();) {
+				SyndEntry entry =  i.next();
 				System.out.println(entry.getTitle());
 			}
 		} finally {

@@ -67,7 +67,7 @@ com.company.rssfiddle.js.login.prototype = {
 		}
 
 		if (!hasError) {
-			//loginForm.attr('action', GLOBAL_APP_CONTEXT + '/login/validate');
+		
 			$.ajax({
 				url : GLOBAL_APP_CONTEXT +"/login/validate",
 				data : $("form[name='loginForm']").serialize(),
@@ -89,7 +89,7 @@ com.company.rssfiddle.js.login.prototype = {
 					console.log('error :' + data);
 				}
 			});
-			//loginForm.submit();
+			
 		}
 
 	},

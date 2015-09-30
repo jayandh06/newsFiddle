@@ -19,6 +19,7 @@ public class CategoryDetailService {
 	
 	public void saveCategoryDetail(CategoryDetail catDetail){
 		categoryDetailDao.save(catDetail);
+		log.info("CategoryDetail saved");
 	}
 	
 	public void updateCategoryDetail(CategoryDetail catDetail){
