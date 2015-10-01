@@ -66,8 +66,7 @@ com.company.rssfiddle.js.signup.prototype = {
 				password2.removeClass('inputError');
 			}
 
-			if (!hasError) {
-				//signupForm.attr('action', GLOBAL_APP_CONTEXT + '/login/signup');
+			if (!hasError) {				
 				$.ajax({
 					url : GLOBAL_APP_CONTEXT +"/login/signup",
 					data : $("form[name='signupForm']").serialize(),
@@ -75,21 +74,19 @@ com.company.rssfiddle.js.signup.prototype = {
 					type:'POST',				
 					success : function(data) {
 						if (data.valid) {
-							$("#signup-container").dialog("close");
 							signupObj.clearSignup();
-							GLOBAL_HAS_USERSESSION = true;						
+							$("#signup-message-container").html(data.message);													
 						}
 						else{
+							signupObj.clearSignup();
 							$("#signup-message-container").html(data.message);
 						}
-						console.log(data);
-					},
-					error : function(data,textStatus,error){
 						
+					},
+					error : function(data,textStatus,error){						
 						console.log('error :' + data);
 					}
-				});
-				//signupForm.submit();
+				});				
 			}
 
 		},

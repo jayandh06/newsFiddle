@@ -7,4 +7,6 @@ public interface UserDao extends GenericDao<User> {
 	public User findByUserIdPassword(String userid, String password);
 	
 	public User findByFBId(String fbId);
+	
+	public User findByUserName(String username);
 }

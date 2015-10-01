@@ -33,7 +33,11 @@ public class UserService {
 	public User findByFBId(String fbId){
 		return userDao.findByFBId(fbId);
 	}
-		
+	
+	public User findByUserName(String username) {
+		return userDao.findByUserName(username);
+	}
+	
 	public User isValidUser(User user){
 		try 
 		{

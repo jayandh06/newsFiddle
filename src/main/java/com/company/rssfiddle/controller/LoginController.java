@@ -1,5 +1,6 @@
 package com.company.rssfiddle.controller;
 
+import javax.annotation.Resource;
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ import com.company.rssfiddle.domain.User;
 import com.company.rssfiddle.domain.UserProfile;
 import com.company.rssfiddle.service.UserProfileService;
 import com.company.rssfiddle.service.UserService;
+import com.company.rssfiddle.util.EmailUtil;
 import com.company.rssfiddle.util.RSSFiddleConstants;
 
 @Controller
@@ -26,11 +28,13 @@ import com.company.rssfiddle.util.RSSFiddleConstants;
 public class LoginController {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
-	@Autowired
-	UserProfileService userProfileService;
+	@Resource
+	private UserProfileService userProfileService;
 		
+	@Resource
+	private EmailUtil emailUtil;
 
 	@RequestMapping("/validate")
 	@ResponseBody
@@ -44,11 +48,16 @@ public class LoginController {
 		user = userService.isValidUser(user);
 
 		if (user != null) {
-			UserProfile profile = userProfileService.findProfileByUserId(user
-					.getUserId());
-			activateUserSession(user, profile, session);
-			//model = new ModelAndView("feeds");
-			return "{\"valid\" : true }";
+			if(user.isActive()) {
+				UserProfile profile = userProfileService.findProfileByUserId(user
+						.getUserId());
+				activateUserSession(user, profile, session);
+				return "{\"valid\" : true }";
+			}
+			else{
+				return "{\"valid\" : false,\"message\":\"Please verify your account before Login\"}";
+			}
+			
 		} else {
 			//model = new ModelAndView("index");
 			//model.addObject("message", "Invalid username/password. Try again");
@@ -148,26 +157,30 @@ public class LoginController {
 		return "signup";
 	}
 
-	@RequestMapping("/signup")
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	@ResponseBody
 	public String signup(@RequestParam String signupUsername,
 			@RequestParam String password1, HttpSession session) {
-		User user = new User();
-		user.setUsername(signupUsername);
-		user.setPassword(password1);
-		user.setActive(false);
-		user.setAdmin(false);
-
-		userService.createUser(user);
-
-		user = userService.isValidUser(user);
-		if (user != null) {
-			activateUserSession(user, null, session);
-			return "{\"valid\" : true }";
+		User user = null;
+		
+		user = userService.findByUserName(signupUsername);
+		if(user != null) {
+			return "{\"valid\" : false,\"message\":\"Your are already Signed up, Try login\" }";
 		}
-		else{
-			return "{\"valid\" : false,\"message\":\"Signup Invalid\" }";
-		}
+		else {
+			user = new User();
+			user.setUsername(signupUsername);
+			user.setPassword(password1);
+			user.setActive(false);
+			user.setAdmin(false);
+		
+			userService.createUser(user);
+		
+			emailUtil.sendSignupEmail(signupUsername);
+			
+			return "{\"valid\" : true,\"message\":\"Signup Successful, Please validate your account from your registered email \"  }";
+		}	
+		
 		
 	}
 
