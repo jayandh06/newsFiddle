@@ -5,14 +5,20 @@
 		<table>
 			<tr>
 				<td class="labelText">Username</td>
+			</tr>
+			<tr>
 				<td><input type="text" name="signupUsername" size="20" /><span id="signupUsernameInfo" class="formInfoMessage">Valid username, Atleast 6 chars.</span></td>
 			</tr>
 			<tr>
 				<td class="labelText">Password</td>
+			</tr>
+			<tr>	
 				<td><input type="password" name="password1" size="20" /><span id="password1Info" class="formInfoMessage">Valid Password, Atleast 8 chars.</span></td>
 			</tr>
 			<tr>
 				<td class="labelText">Confirm Password</td>
+			</tr>
+			<tr>
 				<td><input type="password" name="password2" size="20" /><span id="password2Info" class="formInfoMessage">Re-type password</span></td>
 			</tr>
 			

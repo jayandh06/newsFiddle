@@ -8,11 +8,15 @@
 				<table>
 					<tr>
 						<td class="labelText">Username</td>
+					</tr>
+					<tr>
 						<td><input type="text" name="loginUsername" size="20" /><span
 							id="loginUsernameInfo" class="formInfoMessage"></span></td>
 					</tr>
 					<tr>
 						<td class="labelText">Password</td>
+					</tr>
+					<tr>	
 						<td><input type="password" name="password" size="20" /><span
 							id="passwordInfo" class="formInfoMessage"></span></td>
 					</tr>
