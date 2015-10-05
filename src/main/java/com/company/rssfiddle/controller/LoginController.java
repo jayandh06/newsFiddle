@@ -44,7 +44,7 @@ public class LoginController {
 		User user = new User();
 		user.setUsername(loginUsername);
 		user.setPassword(password);
-		//ModelAndView model;
+		
 		user = userService.isValidUser(user);
 
 		if (user != null) {
@@ -59,8 +59,7 @@ public class LoginController {
 			}
 			
 		} else {
-			//model = new ModelAndView("index");
-			//model.addObject("message", "Invalid username/password. Try again");
+			
 			return "{\"valid\" : false, \"message\":\"Invalid username/password. Try again\"}";
 		}
 	}
@@ -81,7 +80,7 @@ public class LoginController {
 				// User with fbuser email found, but not linked to fb account
 				user = userService.findUserById(profile.getUserId());
 				user.setFbId(fbUser.getId());
-				// userService.updateUser(user);
+				
 			}
 
 		} catch (NoResultException nre) {
@@ -89,7 +88,7 @@ public class LoginController {
 			user = new User();
 			user.setFbId(fbUser.getId());
 			user.setAdmin(false);
-			// user.setUsername(fbUser.getUsername());
+			
 			userService.createUser(user);
 
 			user = userService.findByFBId(fbUser.getId());
@@ -111,7 +110,7 @@ public class LoginController {
 
 		session.setAttribute(RSSFiddleConstants.SESSION_USER_ID,
 				user.getUserId());
-		// session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,user.getUsername());
+		
 		String fullName = profile.getLastName() + ", " + profile.getFirstName();
 		session.setAttribute(RSSFiddleConstants.SESSION_USER_FULLNAME,
 				fullName);
@@ -144,7 +143,7 @@ public class LoginController {
 		session.setAttribute(RSSFiddleConstants.SESSION_USER_NAME, null);
 		session.setAttribute(RSSFiddleConstants.SESSION_USER_FULLNAME, null);
 		session.setAttribute(RSSFiddleConstants.SESSION_USER_ISADMIN, null);
-		// session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME, null);
+		
 	}
 
 	@RequestMapping(value = "")
@@ -186,7 +185,7 @@ public class LoginController {
 
 	private void activateUserSession(User user, UserProfile profile,
 			HttpSession session) {
-		// session.setAttribute(NewsFiddleConstants.SESSION_USER_NAME,user.getUsername());
+		
 		String fullName = "";
 		if (profile != null) {
 			fullName = profile.getLastName() + ", " + profile.getFirstName();

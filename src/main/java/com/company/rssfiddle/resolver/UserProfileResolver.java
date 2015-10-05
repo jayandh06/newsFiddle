@@ -25,8 +25,7 @@ public class UserProfileResolver implements HandlerMethodArgumentResolver {
 		
 		if (parameter.getParameterType().equals(UserProfile.class)) {
 			UserProfile userProfile = new UserProfile();	
-			userProfile.setFirstName(webRequest.getParameter("firstName"));
-			//userProfile.setMiddleName(webRequest.getParameter("middleName"));
+			userProfile.setFirstName(webRequest.getParameter("firstName"));			
 			userProfile.setCountryId(new Integer(webRequest.getParameter("countryId")));
 			userProfile.setLastName(webRequest.getParameter("lastName"));
 			userProfile.setEmailId(webRequest.getParameter("primaryEmail"));
