@@ -113,9 +113,17 @@ com.company.rssfiddle.js.feeds.prototype = {
 		});
 		
 	},
-	showFeedUrl : function(url,company) {
-		//feedsObj.showFeedPage();
+	showFeedUrl : function(url,company) {		
 		feedsObj.getfeedsByUrl(url, company);
+	},
+	addFeed : function(feedButton) {
+		if(GLOBAL_HAS_USERSESSION){
+			alert('userLogged in');
+		}
+		else {
+			alert('user not logged in');
+		}
+		console.log(feedButton);
 	}
 
 };

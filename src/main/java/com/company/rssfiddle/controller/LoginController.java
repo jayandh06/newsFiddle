@@ -46,13 +46,19 @@ public class LoginController {
 		user.setPassword(password);
 		
 		user = userService.isValidUser(user);
-
+				
 		if (user != null) {
 			if(user.isActive()) {
 				UserProfile profile = userProfileService.findProfileByUserId(user
 						.getUserId());
-				activateUserSession(user, profile, session);
-				return "{\"valid\" : true }";
+				if(profile != null) {
+					activateUserSession(user, profile, session);
+					return "{\"valid\" : true }";
+				}
+				else {
+					return "{\"valid\" : true,\"page\":\"PROFILE\"}";	
+				}
+				
 			}
 			else{
 				return "{\"valid\" : false,\"message\":\"Please verify your account before Login\"}";

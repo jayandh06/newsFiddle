@@ -39,7 +39,6 @@ com.company.rssfiddle.js.login.prototype = {
 		});
 	},
 	validateLogin : function() {
-		//var loginForm = $('form[name="loginForm"]');
 
 		var loginUsername = $("input[name='loginUsername']");
 		var loginUsernameInfo = $("#loginUsernameInfo");
@@ -75,9 +74,15 @@ com.company.rssfiddle.js.login.prototype = {
 				type:'POST',				
 				success : function(data) {
 					if (data.valid) {
-						$("#login-container").dialog("close");
-						loginObj.clearLogin();
-						GLOBAL_HAS_USERSESSION = true;						
+						if(data.page == 'PROFILE') {
+							$("#login-container").dialog("profile");
+						}
+						else {
+							$("#login-container").dialog("close");
+							loginObj.clearLogin();
+							GLOBAL_HAS_USERSESSION = true;
+						}
+												
 					}
 					else{
 						$("#login-message-container").html(data.message);						
@@ -122,7 +127,6 @@ com.company.rssfiddle.js.login.prototype = {
 		FB
 				.login(function(response) {
 					if (response.authResponse) {
-						//console.log('Welcome!  Fetching your information.... ');					
 						loginObj.fbGetUserDetails();
 
 					} else {

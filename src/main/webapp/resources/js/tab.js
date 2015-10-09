@@ -71,10 +71,12 @@ com.company.rssfiddle.js.tab.prototype = {
 				html += '<div class="feed-block">';				
 				html += '<div class="feedsTitle"><a href=\'javascript:feedsObj.showFeedUrl("'+entry.url+'","'+title+'")\'>' + entry.title + '</a></div>';
 				html += '<div class="feedsDesc">' + entry.contentSnippet + '</div>';
-				html += '<div class="feedsFollow"><button class="fiddleFollow" data-url="'+  entry.url + '">Fiddle+</button></div></div>';
+				html += '<div class="feedsFollow"><button class="fiddleFollow" data-url="'+  entry.url + '" >Fiddle+</button></div></div>';
 			}
 			content.html(html);
-			$(".fiddleFollow").button();
+			$(".fiddleFollow").button().click(function() {
+				feedsObj.addFeed(this)
+			});
 			$("#top-search-text").val('Search feed');
 		}
 	}
